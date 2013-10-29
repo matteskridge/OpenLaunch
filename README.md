@@ -226,7 +226,7 @@ relative the the framework home directory unless otherwise specified.
 	// Deleting a file
 	echo $file->read();
 
-## Forms and Fields
+### Forms and Fields
 
 To create a form that uses strong XSS security protection, simply (in the body of
 a controller's action):
@@ -278,6 +278,14 @@ There is also a shorthand for creating or editing a model using a form:
 	$form->controls("Subscription");
 	$this->form = $form->getHtml();
 
+### Anything else
+
+These are the features which come out of the box. You can easily add your own
+simply by defining a new plugin type. Simply give the plugin a name, such as
+Controllers, create a directory by that name inside any solution, ask other developers
+to do likewise, and you can list all instances of this plugin type by using the
+code up in the Plugin section of this document.
+
 ## Creating a Project
 
 To start building a project with the framework, simply clone or fork the
@@ -285,3 +293,20 @@ project from GitHub, create a folder for your code under System/Solutions,
 and start coding. To preview your project, you will need to set up a MySQL
 database and php server. WAMPServer & MAMP are two high-quality products for
 setting these enviornments up easily on your development server.
+
+## Licensing
+
+This framework is licensed under the MIT license. Feel free to make any modifications
+you like, or to use it within your own code, whether it is commercial or not.
+Do not remove any copyright notices, although we do not include any notices
+which are visible to the end-user.
+
+## Contributions & Ownership
+
+This project is owned by CreationShare Technology. If you'd like to make changes
+to this framework, then create a fork of it on github. You are free to do whatever
+you like with this form, so long as it follows the MIT license. If you want your
+changes merged into our project, contact us with a link to your fork, and we will
+consider merging the changes. While you retain ownership of any changes we merge,
+by giving us permissions to merge changes, you are licensing them under the MIT
+license.
