@@ -1,0 +1,93 @@
+
+/* -------------------- Account Login -------------------- */
+
+.account-auth {
+	text-align:center;
+}
+
+.account-auth > div > div {
+	width:30%;
+	margin:5px;
+	background:#F2F2F2;
+	height:100px;
+	display:inline-block;
+	background-position-x:center;
+	background-position-y:center;
+	cursor:pointer;
+	background-repeat:no-repeat;
+}
+
+.account-auth > div > div.account-auth-aol {
+	background-image:url(/Images/Logos/ThirdParty/AOL.png);
+	background-size:213px 100px;
+	background-color:#07B313;
+}
+
+.account-auth > div > div.account-auth-google {
+	background-image:url(/Images/Logos/ThirdParty/Google.png);
+	background-size:178px 100px;
+	background-color:#3686EF;
+}
+
+.account-auth > div > div.account-auth-yahoo {
+	background-image:url(/Images/Logos/ThirdParty/Yahoo.png);
+	background-size:244px 100px;
+	background-color:#592c71;
+}
+
+.account-login {
+	background:#FBFBFB;
+	border:1px solid #F2F2F2;
+	padding:20px;
+}
+
+.account-login table {
+	width:100%;
+}
+
+.account-login table td {
+	vertical-align:top;
+}
+
+.account-login-left {
+	width:200px;
+}
+
+.account-login-left > div {
+	-webkit-border-radius:7px;
+	-moz-border-radius:7px;
+	border:1px solid #E0E0E0;
+	padding:7px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-bottom:10px;
+	cursor:pointer;
+
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+
+}
+
+.account-login-right {
+	padding:7px;
+	padding-left:30px;
+	padding-right:30px;
+	line-height:1.5em;
+}
+
+.account-login-left a:link, .account-login-left a:visited, .account-login-left a {
+	color:black;
+	text-decoration:none;
+}
+
+.account-access {
+	width:1000px;
+	margin:auto;
+	margin-top:5px;
+}
