@@ -11,7 +11,7 @@
 		<div class="wrap">
 			<?php echo Component::get("OpenLaunch.Admin") ?>
 			<?php if (isset($nowrap) && $nowrap) { echo $content; } else { ?>
-			<?php echo Component::get("OpenLaunch.Website", $content) ?>
+			<?php echo Component::get("Framework.Website", $content) ?>
 			<?php } ?>
 		</div>
 	</body>
