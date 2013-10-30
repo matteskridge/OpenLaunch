@@ -7,7 +7,10 @@ class CommunityControlItem extends ControlItem {
 	}
 
 	public function getContent($action, $id, $mode) {
-		return Component::get("OpenLaunch.Community");
+        if ($action == "index" || $action == "") {
+            $content = Component::get("OpenLaunch.People");
+        }
+		return Component::get("OpenLaunch.Community", $content);
 	}
 
 	public function getName() {

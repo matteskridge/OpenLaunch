@@ -1,0 +1,23 @@
+
+.admin-people {
+    width:1000px;
+    margin:auto;
+    margin-top:30px;
+}
+
+.admin-person {
+    background-position-x:center;
+    background-position-y:center;
+    background-size:125px;
+    width:125px;
+    height:125px;
+    display:inline-block;
+}
+
+.admin-person-details {
+    background:#FCFCFC;
+    opacity:0.8;
+    color:black;
+    padding:8px;
+    margin-top:91px;
+}
