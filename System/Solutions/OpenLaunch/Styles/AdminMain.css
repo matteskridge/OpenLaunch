@@ -4,7 +4,7 @@
 }
 
 .admin-menu {
-	background:white;
+	background:#FAFAFA;
 	margin-top:-10px;
 	padding:5px;
 	-webkit-box-shadow:0px 1px 1px #CCCCCC;
@@ -19,12 +19,11 @@
 .admin-menu-item {
 	background:#FCFCFC;
 	border:1px solid #E0E0E0;
-	padding:6px;
-	padding-left:10px;
-	padding-right:10px;
+	padding:10px;
+	padding-left:15px;
+	padding-right:15px;
 	margin-right:5px;
 	display:inline-block;
-	font-size:small;
 }
 
 .admin-menu-item a:link, .admin-menu-item a:visited, .admin-menu-item a {

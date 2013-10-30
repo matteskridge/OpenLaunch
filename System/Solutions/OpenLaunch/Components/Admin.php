@@ -8,7 +8,7 @@
 			<div class="adminbar-menu-item adminbar-menu-item-button"><a href="">Compose</a></div>
 		</div>
 		<div class="adminbar-logo">
-			OpenLaunch
+			<img src="/Images/Logos/CreationShare.png" />
 		</div>
 	</div>
 </div>

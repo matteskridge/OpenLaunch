@@ -10,11 +10,15 @@ class Settings {
 	private static $settings;
 	public function importSettings() {
 		$file = new File("System/Data/Settings");
+        if (!$file->exists()) {
+            self::$settings = array();
+            return;
+        }
 
 		$config = array();
 		foreach ($file->listSubs() as $f) {
 			$settings = array();
-			@include($f->getPath());
+			include($f->getPath());
 			foreach ($settings as $key => $set) $config[$key] = $set;
 		}
 
