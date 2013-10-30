@@ -81,7 +81,7 @@ class Response {
 		}
 
 		if (self::$response instanceof HtmlResponse) {
-			echo Component::get("OpenLaunch.Template", array(
+			echo Component::get("Framework.Template", array(
 				"content" => self::$response,
 				"nowrap" => self::$nowrap
 			));
