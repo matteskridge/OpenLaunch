@@ -7,16 +7,14 @@
 	<div class="menu">
 		<div class="menu-right">
 			<?php if (Session::loggedIn()) { ?>
-			<div class="menu-item"><a href="/account/">Settings</a></div>
-			<div class="menu-item"><a href="/account/signout/">Sign Out</a></div>
+				<div class="menu-item"><a href="/account/">Settings</a></div>
+				<div class="menu-item"><a href="/account/signout/">Sign Out</a></div>
 			<?php } else { ?>
-			<div class="menu-item"><a href="/account/access/">Sign In / Register</a></div>
+				<div class="menu-item"><a href="/account/access/">Sign In / Register</a></div>
 			<?php } ?>
 
 		</div>
 		<div class="menu-item"><a href="/">Home</a></div>
-		<div class="menu-item">Blog</div>
-		<div class="menu-item">Resume</div>
 	</div>
 	<div class="main">
 		<?php echo $content ?>
