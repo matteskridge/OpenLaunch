@@ -1,0 +1,38 @@
+
+.formitem {
+	text-align:center;
+}
+
+label {
+	width:20%;
+	display:inline-block;
+	text-align:left;
+}
+
+input.TextField {
+	width:75%;
+	padding:5px;
+	font-size:large;
+}
+
+input.submitbutton {
+	padding:10px;
+	padding-left:20px;
+	padding-right:20px;
+	background:#FBFBFB;
+	-webkit-border-radius:7px;
+	-moz-border-radius:7px;
+	border:none;
+	outline:none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display:inline-block;
+	margin:auto;
+	margin-top:20px;
+	width:200px;
+	cursor:pointer;
+}
+
+input.submitbutton:hover {
+	background:#EEEEEE;
+}

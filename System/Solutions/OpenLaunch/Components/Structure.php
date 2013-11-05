@@ -1,15 +1,15 @@
 <div class="admin">
 	<div class="admin-menu">
 		<div class="admin-menu-inner">
-			<div class="admin-menu-item"><a href="">Structure</a></div>
-			<div class="admin-menu-item"><a href="">Posts</a></div>
-			<div class="admin-menu-item"><a href="">Design</a></div>
-			<div class="admin-menu-item"><a href="">Upgrade</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/structure/">Structure</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/structure/posts/">Posts</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/structure/design/">Design</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/structure/upgrade/">Upgrade</a></div>
 		</div>
 	</div>
 	<div class="admin-main">
 		<div class="admin-main-inner">
-
+			<?php echo $content ?>
 		</div>
 	</div>
 </div>

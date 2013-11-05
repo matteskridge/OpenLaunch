@@ -1,0 +1,104 @@
+
+.admin-pages {
+	width:1000px;
+	margin:auto;
+	margin-top:20px;
+}
+
+.admin-page {
+	display:inline-block;
+	background-repeat:no-repeat;
+	background-position-x:center;
+	background-position-y:15px;
+	background-size:185px 185px;
+	width:250px;
+	height:250px;
+}
+
+.admin-page-add {
+	border:2px dashed #DDDDDD;
+	background-image:url(/Images/Flat/IconFinder/Add.png);
+}
+
+.admin-page-name {
+	margin-top:210px;
+	text-align:center;
+	font-size:large;
+}
+
+.admin-page-settings {
+	width:1000px;
+	margin:auto;
+	padding-top:25px;
+	padding-bottom:7px;
+}
+
+.admin-page-settings-outer {
+	margin-top:2px;
+	background:#F0F0F0;
+}
+
+.admin-page-settings-bottom {
+	background:#FAFAFA;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	height:10px;
+}
+
+.admin-page-handle-outer {
+	width:1000px;
+	margin:auto;
+	margin-bottom:10px;
+}
+
+.admin-page-handle {
+	background:#FAFAFA;
+	padding:10px;
+	padding-left:15px;
+	padding-right:15px;
+	display:inline-block;
+	cursor:pointer;
+	border:1px solid #DDDDDD;
+	border-top:none;
+	margin-top:-1px;
+	-webkit-border-bottom-left-radius:7px;
+	-webkit-border-bottom-right-radius:7px;
+	-moz-border-radius-bottomleft:7px;
+	-moz-border-radius-bottomright:7px;
+}
+
+.admin-page-settings input.submitbutton {
+	background:#F5F5F5;
+	border:1px solid #E0E0E0;
+	display:none;
+}
+
+.admin-page-footer {
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#FAFAFA;
+	border-top:2px solid #DDDDDD;
+	display:none;
+}
+
+.admin-page-footer-inner {
+	width:1000px;
+	margin:auto;
+}
+
+.admin-page-save-button {
+	background:#CCCCCC;
+	padding:10px;
+	padding-left:15px;
+	padding-right:15px;
+	border:1px solid #EEEEEE;
+	display:inline-block;
+	color:white;
+	margin:7px;
+	text-shadow:1px 1px 1px #777777;
+	cursor:pointer;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
