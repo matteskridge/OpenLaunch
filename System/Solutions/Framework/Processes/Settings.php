@@ -14,7 +14,7 @@ class Settings {
 		$config = array();
 		foreach ($file->listSubs() as $f) {
 			$settings = array();
-			@include($f->getPath());
+			include($f->getPath());
 			foreach ($settings as $key => $set) $config[$key] = $set;
 		}
 
