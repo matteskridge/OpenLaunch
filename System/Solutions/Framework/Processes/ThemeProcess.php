@@ -1,6 +1,7 @@
 <?php
 
 class ThemeProcess {
+
 	private static $themes;
 
 	public function run($name) {
@@ -21,7 +22,9 @@ class ThemeProcess {
 			}
 		}
 
-		if (Settings::get("website.nocache") == "true" || Settings::get("website.nocache") == "1") {
+		$theme = new File("Public/theme.css");
+		$notheme = new File("Public/notheme.css");
+		if (Settings::get("website.nocache") == "true" || Settings::get("website.nocache") == "1" || !$theme->exists() || !$notheme->exists()) {
 			self::resetStyleCache();
 			//ScriptProcess::resetScriptCache();
 		}
@@ -58,7 +61,7 @@ class ThemeProcess {
 
 		foreach (Platform::getSolutions("Styles") as $solution) {
 			foreach ($solution->getFile()->listSubs() as $sub) {
-				$str .= $sub->read()."\n\n";
+				$str .= $sub->read() . "\n\n";
 			}
 		}
 
@@ -81,10 +84,10 @@ class ThemeProcess {
 		$str = "";
 
 		$file = new File("System/Solutions/$sol/Themes/$name/Theme.css");
-		$str .= $file->read()."\n\n";
+		$str .= $file->read() . "\n\n";
 
 		$file = new File("System/Solutions/$sol/Themes/$name/$style.css");
-		$str .= $file->read()."\n\n";
+		$str .= $file->read() . "\n\n";
 
 		// http://websitetips.com/articles/optimization/css/crunch/
 		$str = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $str);
@@ -101,19 +104,18 @@ class ThemeProcess {
 
 		$file = new File("Public/theme.css");
 		$file->write($str);
-
-
 	}
+
 }
 
 class Theme {
+
 	private $file;
 	private $info;
 	private $id;
 	private $styleid;
 	private $solution;
 	private $loaded = false;
-
 	private $name;
 	private $author;
 
@@ -126,17 +128,20 @@ class Theme {
 	}
 
 	public function getName() {
-		if (!$this->loaded) $this->loadYml();
+		if (!$this->loaded)
+			$this->loadYml();
 		return $this->name;
 	}
 
 	public function getAuthorName() {
-		if (!$this->loaded) $this->loadYml();
+		if (!$this->loaded)
+			$this->loadYml();
 		return $this->author["name"];
 	}
 
 	public function getAuthorWebsite() {
-		if (!$this->loaded) $this->loadYml();
+		if (!$this->loaded)
+			$this->loadYml();
 		return $this->author["website"];
 	}
 
@@ -145,13 +150,13 @@ class Theme {
 	}
 
 	public function getImageHtml($width = "", $height = "") {
-		$file = new File("Public/Images/Data/Themes/".$this->getId()."/$width/$height.png");
+		$file = new File("Public/Images/Data/Themes/" . $this->getId() . "/$width/$height.png");
 		if (!$file->exists()) {
 			$f = new File("System/Solutions/$this->solution/Themes/$this->id/$this->styleid.png");
 			$file->getParent()->makeDirectories();
 			$file->write($f->read());
 		}
-		return "<img src='/Images/Data/Themes/".$this->getId()."/$width/$height.png' style='width:".$width."px;height:".$height."px;' />";
+		return "<img src='/Images/Data/Themes/" . $this->getId() . "/$width/$height.png' style='width:" . $width . "px;height:" . $height . "px;' />";
 	}
 
 	public function getId() {
@@ -166,4 +171,6 @@ class Theme {
 		$this->name = $theme["theme"]["name"];
 		$this->author = $yml->YAMLLoadString(base64_decode($theme["theme"]["author"]));
 	}
+
 }
+

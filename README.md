@@ -14,6 +14,95 @@ and OpenID.
     * GD graphics library
   * Apache 2 with mod_rewrite
 
+## Installation
+
+1. Acquire access to a webserver or localhost server.
+2. Either fork this project on github, or download the source.
+3. Place the source into the root directory of a domain name on the server.
+4. Create the database configuration file: System/Data/database.php (see below).
+5. Create the website configuration file: System/Data/website.php (see below).
+6. Copy the database structure below and paste it as an SQL query into phpMyAmin, SQL Query browser, or similar.
+
+Sample database config file:
+
+	$settings["database.server"] = "localhost";
+	$settings["database.name"] = "framework";
+	$settings["database.user"] = "root";
+	$settings["database.password"] = "root";
+
+Sample website config file:
+
+	$settings["website.name"] = "Name";
+	$settings["website.theme"] = "Framework-Open-Blue";
+	$settings["website.organization"] = "CreationShare";
+
+Sample database structure:
+
+	CREATE TABLE IF NOT EXISTS `LoginSession` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `cs_created` int(24) NOT NULL,
+	  `cs_modified` int(24) NOT NULL,
+	  `user` int(11) NOT NULL,
+	  `cookie` varchar(256) NOT NULL,
+	  `sessionid` varchar(256) NOT NULL,
+	  `browser` varchar(48) NOT NULL,
+	  `platform` varchar(48) NOT NULL,
+	  `ipaddress` varchar(48) NOT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=175 ;
+
+	CREATE TABLE IF NOT EXISTS `Person` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `cs_created` int(24) NOT NULL,
+	  `cs_modified` int(24) NOT NULL,
+	  `prefix` varchar(10) NOT NULL,
+	  `first` varchar(48) NOT NULL,
+	  `middle` varchar(48) NOT NULL,
+	  `last` varchar(48) NOT NULL,
+	  `suffix` varchar(24) NOT NULL,
+	  `nickname` varchar(48) NOT NULL,
+	  `email` varchar(128) NOT NULL,
+	  `phone` varchar(24) NOT NULL,
+	  `street` varchar(48) NOT NULL,
+	  `suite` varchar(48) NOT NULL,
+	  `city` varchar(48) NOT NULL,
+	  `province` varchar(48) NOT NULL,
+	  `country` varchar(48) NOT NULL,
+	  `website` varchar(128) NOT NULL,
+	  `organization` varchar(48) NOT NULL,
+	  `facebook` varchar(48) NOT NULL,
+	  `twitter` varchar(48) NOT NULL,
+	  `openid` varchar(1024) NOT NULL,
+	  `office` varchar(128) NOT NULL,
+	  `building` int(11) NOT NULL,
+	  `profile` text NOT NULL,
+	  `roles` varchar(20000) NOT NULL,
+	  `ipaddress` varchar(64) NOT NULL,
+	  `zip` varchar(24) NOT NULL,
+	  `ban` int(1) NOT NULL,
+	  `confirmed` int(1) DEFAULT NULL,
+	  `confirmkey` varchar(128) DEFAULT NULL,
+	  `signature` varchar(128) DEFAULT NULL,
+	  `unique` varchar(128) DEFAULT NULL,
+	  `type` varchar(128) NOT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
+
+	CREATE TABLE IF NOT EXISTS `Role` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `cs_created` int(24) NOT NULL,
+	  `cs_modified` int(24) NOT NULL,
+	  `name` varchar(128) NOT NULL,
+	  `permissions` varchar(30000) NOT NULL,
+	  `category` varchar(128) NOT NULL,
+	  `allmembers` int(1) NOT NULL,
+	  `allguests` int(1) NOT NULL,
+	  `allemployees` int(1) NOT NULL,
+	  `icon` varchar(128) DEFAULT NULL,
+	  `importance` int(32) DEFAULT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
 ## Essential Concepts
 
 ### Processes
