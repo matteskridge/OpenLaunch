@@ -1,10 +1,10 @@
 <div class="admin">
 	<div class="admin-menu">
 		<div class="admin-menu-inner">
-			<div class="admin-menu-item"><a href="">Community</a></div>
-			<div class="admin-menu-item"><a href="">Comments</a></div>
-			<div class="admin-menu-item"><a href="">Moderator Control Panel</a></div>
-			<div class="admin-menu-item"><a href="">Administrators</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/community/">Community</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/community/comments/">Comments</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/community/moderator/">Moderator Control Panel</a></div>
+			<div class="admin-menu-item"><a href="/admin/index/community/admins/">Administrators</a></div>
 		</div>
 	</div>
 	<div class="admin-main">

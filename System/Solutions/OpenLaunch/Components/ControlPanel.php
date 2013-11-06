@@ -1,4 +1,4 @@
-<?php echo Component::get("OpenLaunch.Template", array(
+<?php echo Component::get("Framework.Template", array(
 	"content" => $content,
 	"nowrap" => true
 )) ?>
