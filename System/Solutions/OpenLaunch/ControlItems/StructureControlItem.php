@@ -21,13 +21,31 @@ class StructureControlItem extends ControlItem {
 			} else {
 				$edit = new Page($id);
 			}
+			
+			if ($mode != "" && $edit instanceof Page) {
+				$edit->set("template", $mode);
+				return new Redirect("/admin/index/structure/page/".$edit->get("id")."/");
+			}
 
 			$form = new Form("create-page");
-			$form->add(new TextField("name", "Name"));
+			$form->add(new TextField("name", "Page Name"));
 			$form->controls($edit);
+			
 			$content = Component::get("OpenLaunch.StructurePage", array("page" => $edit, "form" => $form->getHtml()));
+			
+			if ($form->sent() && $form->get("home")) {
+				mysql_query("UPDATE `Page` SET `home`='0' WHERE `id`!='".Security::prepareForDatabase($id)."'");
+			} else if ($form->sent()) {
+				$id = ($edit instanceof Page)?$edit->get("id"):mysql_insert_id();
+				return new Redirect("/admin/index/structure/page/".$id."/");
+			}
+			
 		}
-		return Component::get("OpenLaunch.Structure", $content);
+		return Component::get("OpenLaunch.Structure", array(
+			"content" => $content,
+			"action" => $action,
+			"id" => $id,
+			"mode" => $mode));
 	}
 
 	public function getName() {

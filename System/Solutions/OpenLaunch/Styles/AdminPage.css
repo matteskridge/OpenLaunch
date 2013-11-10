@@ -5,18 +5,26 @@
 	margin-top:20px;
 }
 
+.admin-pages a:link, .admin-pages a:visited, .admin-pages a {
+	color:black;
+}
+
 .admin-page {
 	display:inline-block;
 	background-repeat:no-repeat;
 	background-position-x:center;
-	background-position-y:15px;
-	background-size:185px 185px;
-	width:250px;
-	height:250px;
+	background-position-y:35px;
+	background-size:150px 150px;
+	width:241px;
+	height:241px;
+    border:2px solid #EEEEEE;
+    background-color:#FAFAFA;
+    margin-right:5px;
 }
 
 .admin-page-add {
 	border:2px dashed #DDDDDD;
+    background-color:transparent;
 	background-image:url(/Images/Flat/IconFinder/Add.png);
 }
 
@@ -31,11 +39,14 @@
 	margin:auto;
 	padding-top:25px;
 	padding-bottom:7px;
+	color:white;
+	text-shadow:0px 1px 1px #444444;
 }
 
 .admin-page-settings-outer {
-	margin-top:2px;
-	background:#F0F0F0;
+	margin-top:0px;
+	background:#56A6C5;
+	border-bottom:2px solid #217596;
 }
 
 .admin-page-settings-bottom {
@@ -101,4 +112,39 @@
 	cursor:pointer;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
+}
+
+.admin-page-types {
+	width:1000px;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.admin-page-type {
+	width:150px;
+	height:150px;
+	background-repeat:no-repeat;
+	background-position-x:center;
+	background-position-y:15px;
+	background-size:100px 100px;
+	font-size:small;
+	text-align:center;
+	display:inline-block;
+}
+
+.admin-page-types a:link, .admin-page-types a:visited, .admin-page-types a {
+	color:black;
+	text-decoration:none;
+}
+
+.admin-page-type-text {
+	padding-top:125px;
+}
+
+.admin-pagetype-form {
+	width:1000px;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
 }

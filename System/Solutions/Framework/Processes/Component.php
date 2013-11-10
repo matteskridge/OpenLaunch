@@ -19,8 +19,21 @@ class Component {
 	}
 
 	public static function get($name, $arr = array()) {
-		if (!is_array($arr)) $arr = array("content" => $arr);
-		return (array_key_exists($name, self::$index))?self::template(self::$index[$name], $arr):"";
+		if (substr($name, 0, 2) == "*.") {
+			$text = "";
+			foreach (self::$index as $key => $value) {
+				$bits = explode(".", $key);
+				$bits2 = explode(".", $name);
+				if ($bits[1] == $bits2[1]) {
+					if (!is_array($arr)) $send = array("content" => $arr); else $send = $arr;
+					$text .= self::template($value, $send);
+				}
+			}
+			return $text;
+		} else {
+			if (!is_array($arr)) $arr = array("content" => $arr);
+			return (array_key_exists($name, self::$index))?self::template(self::$index[$name], $arr):"";
+		}
 	}
 
 	public static function template($file, $args) {

@@ -11,31 +11,13 @@ class Page extends Model {
 			"order" => "integer",
 			"template" => "string",
 			"can" => "list",
-			"link" => "string"
+			"link" => "string",
+			"html" => "string+"
 		);
 	}
 
-	public function getContent($args = array()) {
-
-		$website = Website::getWebsite();
-		$type = $website->get("type");
-
-		$system = Website::getTypes();
-		foreach ($system as $sys) {
-			if ($sys->getId() == $type) {
-				$system = $sys;
-				break;
-			}
-		}
-
-		if (is_array($system)) {
-			return new NotFoundError();
-		} else {
-			$text = $system->renderPage($this, $args);
-			if ($this->get("template") != "") {
-				return Template::get($this->get("template"), $text, $this);
-			} else return $text;
-		}
+	public function getHtml() {
+		return $this->getType()->render($this);
 	}
 
 	public function getManagement() {
@@ -119,6 +101,10 @@ class Page extends Model {
 			return "/".$this->get("link")."/";
 		} else return "/page/".$this->get("id")."/";
 	}
+	
+	public function getLink() {
+		return $this->getUrl();
+	}
 
 	private static $page;
 	public static function getPage() {
@@ -146,5 +132,20 @@ class Page extends Model {
 		}
 
 		return false;
+	}
+	
+	public function getType() {
+		$types = PageType::getTypes();
+		foreach ($types as $type) {
+			if (get_class($type) == $this->get("template")) return $type;
+		}
+		return null;
+	}
+	
+	public function getIcon() {
+		$type = $this->getType();
+		
+		if ($this->get("home")) return "/Images/Flat/IconFinder/Home.png";
+		return ($type == null) ? "/Images/Flat/IconFinder/Add.png" : $type->getIcon();
 	}
 }

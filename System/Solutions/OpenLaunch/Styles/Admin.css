@@ -15,7 +15,7 @@
 
 .adminbar-menu {
 	float:right;
-    margin-top:15px;
+    margin-top:17px;
 }
 
 .adminbar-menu-item {
@@ -42,11 +42,23 @@
 }
 
 .adminbar-logo {
-	padding:5px;
+	padding:15px;
+    padding-left:0px;
 	font-weight:bold;
 }
 
 .adminbar-logo img {
     width:242px;
     height:50px;
+}
+
+.adminbar-logo {
+    font-size:25px;
+    text-shadow:0px 1px 0px #467B9C;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.adminbar-logo a:link, .adminbar-logo a:visited, .adminbar-logo a {
+    color:#5598c2;
+    text-decoration:none;
 }

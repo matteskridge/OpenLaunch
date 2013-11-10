@@ -14,7 +14,7 @@
 			<?php } ?>
 
 		</div>
-		<div class="menu-item"><a href="/">Home</a></div>
+		<?php echo Component::get("*.TopMenu") ?>
 	</div>
 	<div class="main">
 		<?php echo $content ?>
