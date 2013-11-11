@@ -1,6 +1,6 @@
-# CreationShare Web Framework
+# Eskridge Web Framework
 
-The CreationShare Web Framework is a revolutionary model-view-controller
+The Eskridge Web Framework is a revolutionary model-view-controller
 framework which enables an incredible degree of connectivity between
 different code modules within a website, while allowing such modules to remain
 independent from each other. The framework also provides a standardized
@@ -34,7 +34,7 @@ Sample website config file:
 
 	$settings["website.name"] = "Name";
 	$settings["website.theme"] = "Framework-Open-Blue";
-	$settings["website.organization"] = "CreationShare";
+	$settings["website.organization"] = "Eskridge";
 
 Sample database structure:
 
@@ -158,7 +158,7 @@ do this:
 
 ### Controllers
 
-The CreationShare Web Framework has a concept of controllers which is almost
+The Eskridge Web Framework has a concept of controllers which is almost
 identical to most MVC frameworks. Here is an example controller.
 
     <?php
@@ -392,7 +392,7 @@ which are visible to the end-user.
 
 ## Contributions & Ownership
 
-This project is owned by CreationShare Technology. If you'd like to make changes
+This project is owned by Eskridge Technology. If you'd like to make changes
 to this framework, then create a fork of it on github. You are free to do whatever
 you like with this form, so long as it follows the MIT license. If you want your
 changes merged into our project, contact us with a link to your fork, and we will
