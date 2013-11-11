@@ -24,7 +24,7 @@
 		
 		<div class="admin-footer">
 			<div class="admin-footer-inner">
-				Powered by OpenLaunch, an open source product of Eskridge Technology LLC.
+				Powered by <a href="http://openlaunch.org/">OpenLaunch</a>, an open source product of <a href="http://eskridgetech.com/">Eskridge Technology LLC</a>.
 			</div>
 		</div>
 		<?php } ?>
