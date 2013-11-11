@@ -1,4 +1,5 @@
 
+/*
 .admin-pages {
 	overflow:scroll;
 	width:90%;
@@ -7,6 +8,13 @@
 	margin-bottom:20px;
 	height:600px;
 	white-space:nowrap;
+}*/
+
+.admin-pages {
+	width:1000px;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 
 .admin-pages a:link, .admin-pages a:visited, .admin-pages a {
@@ -21,6 +29,7 @@
 	margin-right:5px;
 	vertical-align:top;
 	margin-bottom:5px;
+	background:white;
 }
 
 .admin-page-subs {
@@ -40,6 +49,7 @@
     background-color:#FAFAFA;
 	height:241px;
 	border-bottom:2px solid #EEEEEE;
+	cursor:move;
 }
 
 .admin-page-sub {
