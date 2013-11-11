@@ -98,14 +98,14 @@ class Page extends Model {
 		return $this->parent;
 	}
 
-	public function getUrl() {
+	public function getUrl($link = "") {
 		if ($this->get("link") != "") {
-			return "/".$this->get("link")."/";
-		} else return "/page/".$this->get("id")."/";
+			return "/".$this->get("link")."/$link";
+		} else return "/page/".$this->get("id")."/$link";
 	}
 	
-	public function getLink() {
-		return $this->getUrl();
+	public function getLink($link = "") {
+		return $this->getUrl($link);
 	}
 
 	private static $page;

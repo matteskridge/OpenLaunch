@@ -1,9 +1,10 @@
-<!--<script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function() {
-	$(".admin-pages").css({marginLeft:(($(window).width()/2)-500)+"px"});
+	$(".admin-page-spacer").width((($(window).width()/2)-550)+"px").css({display:"inline-block"});
 })
-</script>-->
+</script>
 <div class="admin-pages">
+	<div class="admin-page-spacer"></div>
 	<?php foreach (Page::findAll("Page", array("parent" => "0")) as $page) { ?><div class="admin-page">
 		<a href="/admin/index/structure/page/<?php echo $page->get("id") ?>"><div class="admin-page-item-top" style="background-image:url(<?php echo $page->getIcon() ?>);"><div class="admin-page-name"><?php echo $page->get("name") ?></div></div></a>
 		<div class="admin-page-subs">

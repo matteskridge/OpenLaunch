@@ -84,3 +84,19 @@
 .page-menu-item a:link, .page-menu-item a:visited, .page-menu-item a {
 	color:black;
 }
+
+.page-toolbar {
+	background:#FAFAFA;
+	border:1px solid #F0F0F0;
+}
+
+.page-toolbar-item {
+	padding:8px;
+	padding-left:15px;
+	padding-right:15px;
+	display:inline-block;
+}
+
+.page-toolbar-item a:link, .page-toolbar-item a:visited, .page-toolbar-item a {
+	color:black;
+}

@@ -10,7 +10,7 @@ class BlogPageType extends PageType {
 	}
 
 	public function render($page) {
-		
+		return Component::get("OpenLaunch.Blog", array("page" => $page));
 	}
 
 	public function renderAdmin($page) {

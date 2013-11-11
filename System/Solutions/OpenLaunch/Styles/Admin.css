@@ -79,6 +79,21 @@ html, body {
 	height:40px;
 }
 
+.admin-menu-form {
+	padding:10px;
+	color:white;
+}
+
+.admin-menu-form label {
+	display:inline-block;
+	width:100px;
+}
+
+.admin-menu-form input {
+	width:875px;
+	padding:5px;
+}
+
 .admin-footer {
 	background:#F0F0F0;
 }
