@@ -15,9 +15,8 @@ $(document).ready(function() {
 			</div>
 			<?php } ?>
 			<a href="/admin/index/structure/"><div class="admin-menu-item">Structure</div></a>
-			<a href="/admin/index/structure/posts/"><div class="admin-menu-item">Posts</div></a>
-			<a href="/admin/index/structure/design/"><div class="admin-menu-item">Design</div></a>
-			<a href="/admin/index/structure/upgrade/"><div class="admin-menu-item">Upgrade</div></a>
+			<a href="/admin/index/structure/posts/"><div class="admin-menu-item">Blog Posts</div></a>
+			<a href="/admin/index/structure/design/"><div class="admin-menu-item">Select Design</div></a>
 		</div>
 	</div>
 	<div class="admin-main">

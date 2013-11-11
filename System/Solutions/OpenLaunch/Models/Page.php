@@ -48,16 +48,18 @@ class Page extends Model {
 			$page = null;
 		} else {
 			$chain = array();
-			while ($page->getParent() != null && $page->getParent()->exists() && $page->getParent()->get("id") != "0") {
+			//array_unshift($chain, $page);
+			while ($page instanceof Page && $page->exists()) {
 				array_unshift($chain, $page);
-				$page = $page->get("parent");
+				$page = $page->getParent();
 			}
-
+			array_unshift($chain, new Page(0));
+			
 			if (array_key_exists($level, $chain)) {
 				$pageid = $chain[$level]->get("id");
 				$page = $chain[$level];
 			} else {
-				$pageid = $page->get("id");
+				return array();
 			}
 		}
 

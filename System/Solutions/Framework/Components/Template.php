@@ -15,6 +15,18 @@
 			<?php if (isset($nowrap) && $nowrap) { echo $content; } else { ?>
 			<?php echo Component::get("Framework.Website", $content) ?>
 			<?php } ?>
+			
+			<?php if (isset($nowrap) && $nowrap) { ?>
+			<div class="admin-footer-push"></div>
+			<?php } ?>
 		</div>
+		<?php if (isset($nowrap) && $nowrap) { ?>
+		
+		<div class="admin-footer">
+			<div class="admin-footer-inner">
+				Powered by OpenLaunch, an open source product of Eskridge Technology LLC.
+			</div>
+		</div>
+		<?php } ?>
 	</body>
 </html>

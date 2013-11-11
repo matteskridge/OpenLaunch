@@ -8,7 +8,7 @@ $(document).ready(function() {
 			"searchreplace visualblocks code fullscreen",
 			"insertdatetime media table contextmenu paste emoticons"
 		],
-		toolbar: "undo redo | styleselect | bold italic | bullist numlist outdent indent | link image paste | hr emoticons inserttime | fullscreen",
+		toolbar: "undo redo | styleselect | bold italic | bullist numlist outdent indent | link image | hr emoticons",
 		menubar: false,
 		statusbar: false,
 		content_css: "/Styles/Editor.css"
