@@ -1,0 +1,35 @@
+
+.admin .mce-container.mce-first.mce-stack-layout-item {
+	background:#EEEEEE;
+}
+
+.admin .mce-container.mce-toolbar {
+	width:1000px;
+	margin:auto;
+	padding:5px;
+}
+
+.admin .mce-tinymce {
+	background:white;
+}
+
+.mce-widget.mce-btn {
+	height:27px;
+}
+
+.admin .mce-edit-area.mce-container.mce-panel {
+	background:white;
+}
+
+.admin .mce-tinymce iframe {
+	width:1000px !important;
+	margin:auto !important;
+}
+
+.admin .mce-tinymce iframe body {
+	font-size:large;
+}
+
+.ContentEditor > div {
+	vertical-align:top;
+}
