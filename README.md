@@ -28,7 +28,7 @@ Sample website config file:
 
 	$settings["website.name"] = "Name";
 	$settings["website.theme"] = "Framework-Open-Blue";
-	$settings["website.organization"] = "CreationShare";
+	$settings["website.organization"] = "Eskridge";
 
 Sample database structure:
 
