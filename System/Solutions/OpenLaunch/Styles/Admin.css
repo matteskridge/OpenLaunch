@@ -1,7 +1,7 @@
 
 .adminbar {
-	background:#FEFEFE;
-	border-bottom:1px solid #F0F0F0;
+	background:#009EEB;
+	border-bottom:2px solid #0088CA;
 	margin-bottom:10px;
 	padding:10px;
 	padding-top:12px;
@@ -33,18 +33,22 @@
 }
 
 .adminbar-menu-item a:link, .adminbar-menu-item a:visited, .adminbar-menu-item a {
-	color:#333333;
+	color:#FFFFFF;
 	text-decoration:none;
 }
 
 .adminbar-menu-item-button a:link, .adminbar-menu-item-button a:visited, .adminbar-menu-item-button a {
-	color:#0776A0;
+	color:#FFFFFF;
+	font-weight:bold;
 }
 
 .adminbar-logo {
 	padding:15px;
     padding-left:0px;
 	font-weight:bold;
+	color:white;
+	font-size:25px;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
 .adminbar-logo img {
@@ -52,13 +56,7 @@
     height:50px;
 }
 
-.adminbar-logo {
-    font-size:25px;
-    text-shadow:0px 1px 0px #467B9C;
-    font-family:"Trebuchet MS", Helvetica, sans-serif;
-}
-
 .adminbar-logo a:link, .adminbar-logo a:visited, .adminbar-logo a {
-    color:#5598c2;
+    color:white;
     text-decoration:none;
 }
