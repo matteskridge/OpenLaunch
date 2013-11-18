@@ -15,7 +15,7 @@
 
 .adminbar-menu {
 	float:right;
-    margin-top:17px;
+    margin-top:45px;
 }
 
 .adminbar-menu-item {
@@ -25,7 +25,7 @@
 	padding-left:10px;
 	padding-right:10px;
 	vertical-align:middle;
-	font-size:medium;
+	font-size:large;
 }
 
 .adminbar-menu-item-button {
@@ -49,8 +49,8 @@
 }
 
 .adminbar-logo img {
-    width:242px;
-    height:50px;
+	height:75px;
+	width:287px;
 }
 
 .adminbar-logo {
