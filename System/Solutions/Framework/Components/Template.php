@@ -11,22 +11,13 @@
 	</head>
 	<body>
 		<div class="wrap">
-			<?php echo Component::get("OpenLaunch.Admin") ?>
-			<?php if (isset($nowrap) && $nowrap) { echo $content; } else { ?>
-			<?php echo Component::get("Framework.Website", $content) ?>
-			<?php } ?>
-			
-			<?php if (isset($nowrap) && $nowrap) { ?>
-			<div class="admin-footer-push"></div>
-			<?php } ?>
+			<?php echo Component::get("OpenLaunch.AdminTop") ?>
+			<?php if (isset($nowrap) && $nowrap) {
+				echo $content;
+			} else { ?>
+				<?php echo Component::get("Framework.Website", $content) ?>
+<?php } ?>
+<?php echo Component::get("OpenLaunch.AdminBottom") ?>
 		</div>
-		<?php if (isset($nowrap) && $nowrap) { ?>
-		
-		<div class="admin-footer">
-			<div class="admin-footer-inner">
-				Powered by <a href="http://openlaunch.org/">OpenLaunch</a>, an open source product of <a href="http://eskridgetech.com/">Eskridge Technology LLC</a>.
-			</div>
-		</div>
-		<?php } ?>
 	</body>
 </html>

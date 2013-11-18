@@ -1,19 +1,22 @@
 <?php
 
 class CommunityControlItem extends ControlItem {
+
 	public function canView() {
-		if (true) return true;
+		if (true)
+			return true;
 		return Permission::can("EditWebsite");
 	}
 
 	public function getContent($action, $id, $mode) {
-        if ($action == "index" || $action == "") {
-            $content = Component::get("OpenLaunch.People");
-        } else if ($action == "person") {
-            $person = new Person($id);
-            if (!$person->exists()) return new NotFoundError();
-            $content = Component::get("OpenLaunch.Person", array("person" => $person));
-        }
+		if ($action == "index" || $action == "") {
+			$content = Component::get("OpenLaunch.People");
+		} else if ($action == "person") {
+			$person = new Person($id);
+			if (!$person->exists())
+				return new NotFoundError();
+			$content = Component::get("OpenLaunch.Person", array("person" => $person));
+		}
 		return Component::get("OpenLaunch.Community", $content);
 	}
 
@@ -21,7 +24,18 @@ class CommunityControlItem extends ControlItem {
 		return "Community";
 	}
 
+	public function getMenu() {
+		return array(
+			"index" => "People",
+			"communications" => "Communications",
+			"comments" => "Comments",
+			"statistics" => "Statistics",
+			"admins" => "Administrators"
+		);
+	}
+
 	public function getOrder() {
 		return 200;
 	}
+
 }

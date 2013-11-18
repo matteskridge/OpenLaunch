@@ -1,9 +1,81 @@
 
+.admin-table {
+	width:100%;
+	min-height:100%;
+	border-spacing:0px;
+}
+
+.admin-table td {
+	vertical-align:top;
+	border-spacing:0px;
+}
+
+.admin-sidebar {
+	width:200px;
+	background:#0E74E6;
+	border-right:1px solid #0756AF;
+}
+
+.admin-sidebar-logo {
+	text-align:center;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.admin-sidebar-logo img {
+	width:128px;
+	height:128px;
+}
+
+.admin-sidebar-item, .admin-sidebar-logo {
+	border-bottom:1px solid #0756AF;
+}
+
+.admin-sidebar-item {
+	padding:15px;
+	padding-left:15px;
+}
+
+.admin-sidebar-item a:link, .admin-sidebar-item a:visited, .admin-sidebar-item a {
+	color:#B9D8FA;
+}
+
+.admin-sidebar-item.selected {
+	background:#0756AF;
+}
+
+.admin-sidebar-subs {
+	background:#0756AF;
+}
+
+.admin-sidebar-subs .admin-sidebar-item {
+	background:#0756AF;
+	font-size:small;
+	padding:5px;
+	padding-left:25px;
+}
+
+.admin-sidebar-subs .admin-sidebar-item:last-of-type {
+	padding-bottom:15px;
+}
+
+.admin-sidebar-wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
+}
+
+.admin-sidebar-push, .admin-sidebar-footer {
+	height:40px;
+}
+
+
+/*
 .adminbar {
-	background:white;
+	background:#0E74E6;
 	margin-bottom:10px;
 	padding:10px;
-	padding-top:12px;
 	-webkit-box-shadow:0px 1px 1px #DDDDDD;
 }
 
@@ -14,7 +86,7 @@
 
 .adminbar-menu {
 	float:right;
-    margin-top:45px;
+    margin-top:40px;
 }
 
 .adminbar-menu-item {
@@ -27,23 +99,20 @@
 	font-size:large;
 }
 
-.adminbar-menu-item-button {
-	/*-webkit-box-shadow:0px 1px 1px #CCCCCC;*/
-}
-
 .adminbar-menu-item a:link, .adminbar-menu-item a:visited, .adminbar-menu-item a {
-	color:black;
+	color:white;
 	text-decoration:none;
 }
 
 .adminbar-menu-item-button a:link, .adminbar-menu-item-button a:visited, .adminbar-menu-item-button a {
-	color:black;
+	color:white;
 	font-weight:bold;
 }
 
 .adminbar-logo {
 	padding:15px;
-    padding-left:0px;
+	padding-top:10px;
+    padding-left:20px;
 	font-weight:bold;
 	color:black;
 	font-size:25px;
@@ -104,3 +173,4 @@ html, body {
 	margin:auto;
 	padding-top:10px;
 }
+*/

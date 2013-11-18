@@ -1,6 +1,7 @@
 <?php
 
 class Response {
+
 	private static $response, $controller, $action, $args, $nowrap, $title = "";
 
 	public function run($name) {
@@ -17,33 +18,34 @@ class Response {
 		//	self::$action = $link["action"];
 		//	self::$args = $link["args"];
 		//} else {
-			$url = Request::getUrlBits();
+		$url = Request::getUrlBits();
 
-			$length = count($url);
-			if ($length == 0) {
-				$controller = "index";
-				$action = "index";
-				$args = array();
-			} else if ($length == 1) {
-				$controller = $url[0];
-				$action = "index";
-				$args = array();
-			} else if ($length == 2) {
-				$controller = $url[0];
-				$action = (is_numeric($url[1]))?"view":$url[1];
-				$args = (is_numeric($url[1]))?array($url[1]):array();
-			} else if ($length > 2) {
-				$controller = $url[0];
-				$action = (is_numeric($url[1]))?"view":$url[1];
-				$args = (is_numeric($url[1]))?array($url[1]):array();
-				array_shift($url);
-				array_shift($url);
-				foreach ($url as $item) array_push($args, $item);
-			}
+		$length = count($url);
+		if ($length == 0) {
+			$controller = "index";
+			$action = "index";
+			$args = array();
+		} else if ($length == 1) {
+			$controller = $url[0];
+			$action = "index";
+			$args = array();
+		} else if ($length == 2) {
+			$controller = $url[0];
+			$action = (is_numeric($url[1])) ? "view" : $url[1];
+			$args = (is_numeric($url[1])) ? array($url[1]) : array();
+		} else if ($length > 2) {
+			$controller = $url[0];
+			$action = (is_numeric($url[1])) ? "view" : $url[1];
+			$args = (is_numeric($url[1])) ? array($url[1]) : array();
+			array_shift($url);
+			array_shift($url);
+			foreach ($url as $item)
+				array_push($args, $item);
+		}
 
-			self::$controller = $controller;
-			self::$action = $action;
-			self::$args = $args;
+		self::$controller = $controller;
+		self::$action = $action;
+		self::$args = $args;
 		//}
 	}
 
@@ -59,12 +61,19 @@ class Response {
 		return self::$args;
 	}
 
+	public static function getArg($arg) {
+		if (array_key_exists($arg, self::$args))
+			return self::$args[$arg];
+		return false;
+	}
+
 	public static function notFound() {
 		self::$response = new NotFoundError();
 	}
 
 	public static function html($text, $nowrap = false) {
-		if (self::$response instanceof Redirect) return false;
+		if (self::$response instanceof Redirect)
+			return false;
 		Request::disableController();
 		self::$nowrap = $nowrap;
 		self::$response = new HtmlResponse($text);
@@ -88,12 +97,12 @@ class Response {
 		} else if (self::$response instanceof AjaxResponse) {
 			echo self::$response;
 		} else if (self::$response instanceof Redirect) {
-			header("Location: ".self::$response);
+			header("Location: " . self::$response);
 		}
 	}
 
 	public static function getTitle() {
-		return (self::$title == "")?Website::getName():self::$title." - ".Website::getName();
+		return (self::$title == "") ? Website::getName() : self::$title . " - " . Website::getName();
 	}
 
 	public static function setTitle($title) {
@@ -120,11 +129,15 @@ class Response {
 		$_SESSION["flash"] = "";
 		return $flash;
 	}
+
 }
 
-class NotFoundError {}
+class NotFoundError {
+
+}
 
 class HtmlResponse {
+
 	public $text;
 
 	public function __construct($text) {
@@ -134,9 +147,11 @@ class HtmlResponse {
 	public function __toString() {
 		return $this->text;
 	}
+
 }
 
 class AjaxResponse {
+
 	public $text;
 
 	public function __construct($text) {
@@ -146,9 +161,11 @@ class AjaxResponse {
 	public function __toString() {
 		return $this->text;
 	}
+
 }
 
 class Redirect {
+
 	private $text;
 
 	public function __construct($where) {
@@ -158,4 +175,6 @@ class Redirect {
 	public function __toString() {
 		return $this->text;
 	}
+
 }
+
