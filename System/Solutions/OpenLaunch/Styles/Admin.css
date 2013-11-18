@@ -14,7 +14,7 @@
 
 .adminbar-menu {
 	float:right;
-    margin-top:17px;
+    margin-top:45px;
 }
 
 .adminbar-menu-item {
@@ -24,7 +24,7 @@
 	padding-left:10px;
 	padding-right:10px;
 	vertical-align:middle;
-	font-size:medium;
+	font-size:large;
 }
 
 .adminbar-menu-item-button {
@@ -51,12 +51,17 @@
 }
 
 .adminbar-logo img {
-    width:242px;
-    height:50px;
+	height:75px;
+	width:287px;
 }
 
 .adminbar-logo a:link, .adminbar-logo a:visited, .adminbar-logo a {
     color:black;
+    text-decoration:none;
+}
+
+.adminbar-logo a:link, .adminbar-logo a:visited, .adminbar-logo a {
+    color:#5598c2;
     text-decoration:none;
 }
 
