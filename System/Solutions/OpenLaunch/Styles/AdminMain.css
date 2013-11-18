@@ -4,10 +4,10 @@
 }
 
 .admin-menu {
-	background:#1BA9EE;
+	background:#1595D3;
 	margin-top:-10px;
     padding:0px;
-	border-bottom:2px solid #0088CA;
+	border-bottom:5px solid #0088CA;
 }
 
 .admin-menu-inner {
@@ -43,7 +43,7 @@
 }
 
 .admin-menu-right .admin-menu-item {
-	background:#49A3C5;
+	background:#0088CA;
 	text-shadow:0px 1px 1px #3E7286;
 	padding:10px;
 	padding-left:15px;
@@ -52,4 +52,49 @@
 	cursor:pointer;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
+}
+
+.page-manager {
+	width:1000px;
+	margin:auto;
+	background:#FAFAFA;
+	margin-top:20px;
+	padding:10px;
+	border:1px solid #EEEEEE;
+	-webkit-box-shadow:0px 3px 3px #F2F2F2;
+}
+
+.page-manager h1 {
+	font-size:x-large;
+	margin:0px;
+	padding:0px;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:10px;
+	border-bottom:1px solid #DDDDDD;
+}
+
+.page-manager-category {
+	background:#F2F2F2;
+	border:1px solid #DDDDDD;
+	padding:15px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.page-manager-category-notice {
+	text-align:center;
+}
+
+.page-manager-form {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.page-manager-button {
+	float:right;
+	padding:10px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:10px;
 }

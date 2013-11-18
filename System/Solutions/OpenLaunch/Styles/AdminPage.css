@@ -1,8 +1,20 @@
 
+/*
+.admin-pages {
+	overflow:scroll;
+	width:90%;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	height:600px;
+	white-space:nowrap;
+}*/
+
 .admin-pages {
 	width:1000px;
 	margin:auto;
 	margin-top:20px;
+	margin-bottom:20px;
 }
 
 .admin-pages a:link, .admin-pages a:visited, .admin-pages a {
@@ -11,25 +23,64 @@
 
 .admin-page {
 	display:inline-block;
+	width:241px;
+    border:1px solid #EEEEEE;
+	border-bottom-width:2px;
+	margin-right:5px;
+	vertical-align:top;
+	margin-bottom:5px;
+	background:white;
+}
+
+.admin-page-subs {
+	height:250px;
+	overflow:scroll;
+}
+
+.admin-page-index-add {
+	height:auto;
+}
+
+.admin-page-item-top {
 	background-repeat:no-repeat;
 	background-position-x:center;
 	background-position-y:35px;
 	background-size:150px 150px;
-	width:241px;
-	height:241px;
-    border:2px solid #EEEEEE;
     background-color:#FAFAFA;
-    margin-right:5px;
+	height:241px;
+	border-bottom:2px solid #EEEEEE;
+	cursor:move;
+}
+
+.admin-page-sub {
+	background:#FEFEFE;
+	background-size:24px 24px;
+	background-position-x:10px;
+	background-position-y:center;
+	background-repeat:no-repeat;
+	border-bottom:1px solid #EEEEEE;
+	padding:20px;
+	padding-left:45px;
+}
+
+.admin-page-sub-add {
+	background-image:url(/Images/Flat/IconFinder/Add.png);
+	border-top:1px solid #EEEEEE;
+	background-color:#FAFAFA;
 }
 
 .admin-page-add {
-	border:2px dashed #DDDDDD;
     background-color:transparent;
 	background-image:url(/Images/Flat/IconFinder/Add.png);
+	border:none;
+}
+
+.admin-page-index-add {
+	background-color:#FAFAFA;
 }
 
 .admin-page-name {
-	margin-top:210px;
+	padding-top:210px;
 	text-align:center;
 	font-size:large;
 }

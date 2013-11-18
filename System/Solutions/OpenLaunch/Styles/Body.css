@@ -2,3 +2,8 @@
 html body {
     background:#FFFFFF;
 }
+
+a:link, a:visited, a {
+	color:#0776A0;
+	text-decoration:none;
+}

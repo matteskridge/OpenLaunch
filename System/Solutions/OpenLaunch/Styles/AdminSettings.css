@@ -1,0 +1,36 @@
+
+.admin-settings-inner {
+	width:1000px;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.admin-settings-sidebar {
+	width:250px;
+	display:inline-block;
+	vertical-align:top;
+	border:1px solid #999999;
+	margin-right:10px;
+}
+
+.admin-settings-category {
+	font-size:x-large;
+	color:#999999;
+	padding:15px;
+	border-bottom:1px solid #999999;
+}
+
+.admin-settings-category-item {
+	padding:15px;
+	font-size:large;
+	border-bottom:1px solid #999999;
+}
+
+.admin-settings-main {
+	width:730px;
+	display:inline-block;
+	vertical-align:top;
+	padding-top:20px;
+	padding-bottom:20px;
+}

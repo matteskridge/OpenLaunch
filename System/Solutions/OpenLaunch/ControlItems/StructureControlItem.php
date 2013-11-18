@@ -29,6 +29,7 @@ class StructureControlItem extends ControlItem {
 
 			$form = new Form("create-page");
 			$form->add(new TextField("name", "Page Name"));
+			if ($mode != "") $form->add(new HiddenField("parent", "Parent", new Page($mode)));
 			$form->controls($edit);
 			
 			$content = Component::get("OpenLaunch.StructurePage", array("page" => $edit, "form" => $form->getHtml()));
@@ -41,6 +42,7 @@ class StructureControlItem extends ControlItem {
 			}
 			
 		}
+		
 		return Component::get("OpenLaunch.Structure", array(
 			"content" => $content,
 			"action" => $action,

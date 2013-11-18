@@ -1,0 +1,102 @@
+
+.page {
+	background:white;
+}
+
+.page h1 {
+	font-size:x-large;
+	padding-bottom:10px;
+	padding-top:10px;
+	border-bottom:1px solid #DDDDDD;
+	margin:0px;
+	margin-bottom:5px;
+}
+
+.page h2 {
+	font-size:large;
+	margin:0px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.page-columns {
+	width:100%;
+	margin:auto;
+	border:none;
+	border-spacing:0px;
+}
+
+.page-columns td {
+	vertical-align:top;
+}
+
+.page-sidebar {
+	width:200px;
+	height:500px;
+	background:#EEEEEE;
+}
+
+.page-sidebar-item {
+	padding:10px;
+	padding-left:15px;
+}
+
+.page-sidebar-item.selected {
+	background:#F2F2F2;
+}
+
+.page-sidebar-item a:link, .page-sidebar-item a:visited, .page-sidebar-item a {
+	color:#333333;
+}
+
+.page-sidebar-item.selected a:link, .page-sidebar-item.selected a:visited, .page-sidebar-item.selected a {
+	color:#444444;
+	font-weight:bold;
+}
+
+.page-main {
+	padding:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.page-content {
+	line-height:1.5em;
+}
+
+.page-menu {
+	background:#F2F2F2;
+}
+
+.page-menu-item {
+	padding:12px;
+	padding-left:15px;
+	padding-right:15px;
+	display:inline-block;
+	border-right:1px solid #EEEEEE;
+	font-size:small;
+}
+
+.page-menu-item.selected {
+	background-color:#FAFAFA;
+}
+
+.page-menu-item a:link, .page-menu-item a:visited, .page-menu-item a {
+	color:black;
+}
+
+.page-toolbar {
+	background:#FAFAFA;
+	border:1px solid #F0F0F0;
+}
+
+.page-toolbar-item {
+	padding:8px;
+	padding-left:15px;
+	padding-right:15px;
+	display:inline-block;
+}
+
+.page-toolbar-item a:link, .page-toolbar-item a:visited, .page-toolbar-item a {
+	color:black;
+}

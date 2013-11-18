@@ -1,7 +1,6 @@
 
 .adminbar {
-	background:#009EEB;
-	border-bottom:2px solid #0088CA;
+	background:white;
 	margin-bottom:10px;
 	padding:10px;
 	padding-top:12px;
@@ -33,12 +32,12 @@
 }
 
 .adminbar-menu-item a:link, .adminbar-menu-item a:visited, .adminbar-menu-item a {
-	color:#FFFFFF;
+	color:black;
 	text-decoration:none;
 }
 
 .adminbar-menu-item-button a:link, .adminbar-menu-item-button a:visited, .adminbar-menu-item-button a {
-	color:#FFFFFF;
+	color:black;
 	font-weight:bold;
 }
 
@@ -46,7 +45,7 @@
 	padding:15px;
     padding-left:0px;
 	font-weight:bold;
-	color:white;
+	color:black;
 	font-size:25px;
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
@@ -57,6 +56,46 @@
 }
 
 .adminbar-logo a:link, .adminbar-logo a:visited, .adminbar-logo a {
-    color:white;
+    color:black;
     text-decoration:none;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
+}
+
+.admin-footer, .admin-footer-push {
+	height:40px;
+}
+
+.admin-menu-form {
+	padding:10px;
+	color:white;
+}
+
+.admin-menu-form label {
+	display:inline-block;
+	width:100px;
+}
+
+.admin-menu-form input {
+	width:875px;
+	padding:5px;
+}
+
+.admin-footer {
+	background:#F0F0F0;
+}
+
+.admin-footer-inner {
+	width:1000px;
+	margin:auto;
+	padding-top:10px;
 }
