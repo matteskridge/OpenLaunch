@@ -66,7 +66,14 @@
 }
 
 .admin-person-header a:link, .admin-person-header a:visited, .admin-person-header a {
+	font-size:small;
+	text-transform:uppercase;
+}
+
+.admin-person-header .admin-person-header-options a:link, .admin-person-header .admin-person-header-options a:visited, .admin-person-header .admin-person-header-options a {
 	color:black;
+	text-transform:none;
+	font-size:medium;
 }
 
 .admin-person-header-option-dashboard {

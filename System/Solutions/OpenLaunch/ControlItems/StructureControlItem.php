@@ -42,6 +42,10 @@ class StructureControlItem extends ControlItem {
 				return new Redirect("/admin/index/structure/page/" . $id . "/");
 			}
 		} else if ($action == "design") {
+			if ($id != "") {
+				Settings::set("website.theme", $id);
+			}
+			
 			$content = Component::get("OpenLaunch.StructureDesign");
 		} else if ($action == "posts") {
 			$content = Component::get("OpenLaunch.StructurePosts");

@@ -1,0 +1,12 @@
+
+.header {
+	background:#B44340;
+}
+
+.menu {
+	background:#922826;
+}
+
+.menu-item:hover {
+	background:#9C4745;
+}

@@ -8,6 +8,6 @@ class SettingsCategory {
 	}
 	
 	public function getName() {
-		return $name;
+		return $this->name;
 	}
 }

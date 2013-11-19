@@ -10,10 +10,16 @@ class BrandingSettingsItem extends SettingsItem {
 	}
 	
 	public function getContent() {
-		$form = new Form("settings-branding");
+		$form = new Form("website");
 		$form->add(new TextField("name", "Website Name"));
 		$form->add(new TextField("description", "Website Description"));
 		$form->add(new TextField("organization", "Organization Name"));
+		$form->controls(new SettingsCategory("website"));
+		
+		if ($form->sent()) {
+			return new Redirect("/admin/index/settings/branding/");
+		}
+		
 		return $form->getHtml();
 	}
 }

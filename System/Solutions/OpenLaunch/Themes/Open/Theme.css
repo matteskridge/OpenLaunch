@@ -15,14 +15,12 @@ html body {
 }
 
 .header {
-	background:#0776A0;
 	padding:25px;
 	color:white;
 	font-size:xx-large;
 }
 
 .menu {
-	background:#045D7E;
 	padding-left:10px;
 }
 
@@ -44,10 +42,6 @@ html body {
 	background:#196988;
 
 }*/
-
-.menu-item:hover {
-	background:#196988;
-}
 
 .menu-item a:link, .menu-item a:visited, .menu-item a {
 	color:white;

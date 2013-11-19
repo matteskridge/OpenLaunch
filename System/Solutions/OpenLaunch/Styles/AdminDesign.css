@@ -1,0 +1,48 @@
+
+.admin-designs {
+	width:1000px;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.admin-designs-list {
+	width:500px;
+	display:inline-block;
+	vertical-align:top;
+	margin-top:10px;
+}
+
+.admin-designs-info {
+	width:500px;
+	vertical-align:top;
+	display:inline-block;
+}
+
+.admin-designs-info-inner {
+	padding:10px;
+}
+
+.admin-designs h2 {
+	margin:0px;
+	font-size:large;
+	color:#222222;
+	border-bottom:1px solid #555555;
+	padding:5px;
+	margin-bottom:10px;
+}
+
+.admin-design {
+	display:inline-block;
+	border:1px solid white;
+	cursor:pointer;
+}
+
+.admin-design.selected {
+	border:1px solid blue;
+	cursor:default;
+}
+
+.theme-sidebar-item {
+	padding:10px;
+}

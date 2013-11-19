@@ -33,10 +33,26 @@ class Settings {
 		$file = new File("System/Data/Settings/$name.php");
 		$text = "<?php\n";
 		
-		foreach ($data as $key => $value) {
-			$text .= "\$settings[\"$name.$key\"] = \"$value\";\n";
+		$arr = array();
+		foreach (self::$settings as $k => $v) {
+			if (substr($k, 0, strlen($name.".")) == $name.".") $arr[$k] = $v;
+		}
+		
+		foreach ($data as $k => $v) {
+			$arr["$name.".$k] = $v;
+		}
+		
+		foreach ($arr as $key => $value) {
+			$value = htmlentities($value);
+			$text .= "\$settings[\"$key\"] = \"$value\";\n";
 		}
 		
 		$file->write($text);
+	}
+	
+	public static function set($key, $value) {
+		$bits = explode(".", $key);
+		$file = $bits[0];
+		Settings::save($file, array($bits[1] => $value));
 	}
 }

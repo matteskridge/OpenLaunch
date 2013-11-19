@@ -132,6 +132,10 @@ class Theme {
 			$this->loadYml();
 		return $this->name;
 	}
+	
+	public function getVariant() {
+		return $this->styleid;
+	}
 
 	public function getAuthorName() {
 		if (!$this->loaded)

@@ -1,12 +1,12 @@
-/* 
-    Document   : Blue
-    Created on : Oct 22, 2013, 10:30:57 PM
-    Author     : matt
-    Description:
-        Purpose of the stylesheet follows.
-*/
 
-root { 
-    display: block;
+.header {
+	background:#0776A0;
 }
 
+.menu {
+	background:#045D7E;
+}
+
+.menu-item:hover {
+	background:#196988;
+}
