@@ -1,6 +1,7 @@
 <?php
 
 class SettingsControlItem extends ControlItem {
+
 	public function canView() {
 		return true;
 	}
@@ -10,9 +11,9 @@ class SettingsControlItem extends ControlItem {
 	}
 
 	public function getContent($action, $id, $mode) {
-		
+
 		$content = "";
-		
+
 		if ($action == "branding" || $action == "") {
 			if ($id == "" || $id == "website") {
 				$form = new Form("settings-branding");
@@ -27,11 +28,21 @@ class SettingsControlItem extends ControlItem {
 		} else if ($action == "maintenance") {
 			$content = Component::get("OpenLaunch.SettingsMaintenance");
 		}
-		
+
 		return Component::get("OpenLaunch.Settings", $content);
+	}
+
+	public function getMenu() {
+		return array(
+			"index" => "Website Branding",
+			"security" => "Security Settings",
+			"about" => "About OpenLaunch"
+		);
 	}
 
 	public function getOrder() {
 		return 500;
 	}
+
 }
+

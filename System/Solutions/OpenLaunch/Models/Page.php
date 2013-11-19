@@ -1,6 +1,7 @@
 <?php
 
 class Page extends Model {
+
 	public function getStructure() {
 		return array(
 			"name" => "string",
@@ -40,8 +41,10 @@ class Page extends Model {
 	}
 
 	private static $menuItems = array();
+
 	public static function getMenuItems($level = 0, $page = null) {
-		if (array_key_exists($level, self::$menuItems[$page])) return self::$menuItems[$page][$level];
+		if (array_key_exists($level, self::$menuItems[$page]))
+			return self::$menuItems[$page][$level];
 
 		if ($page == null) {
 			$pageid = 0;
@@ -54,7 +57,7 @@ class Page extends Model {
 				$page = $page->getParent();
 			}
 			array_unshift($chain, new Page(0));
-			
+
 			if (array_key_exists($level, $chain)) {
 				$pageid = $chain[$level]->get("id");
 				$page = $chain[$level];
@@ -64,10 +67,13 @@ class Page extends Model {
 		}
 
 		$pages = Page::findAll("Page", array("parent" => $pageid), "`order`, `id`");
-		if ($page != null && (count($pages) > 0 || Session::isEditing())) array_unshift($pages, $page);
+		if ($page != null && (count($pages) > 0 || Session::isEditing()))
+			array_unshift($pages, $page);
 
 		$new = array();
-		foreach ($pages as $p) if ($p->canView()) array_push($new, $p);
+		foreach ($pages as $p)
+			if ($p->canView())
+				array_push($new, $p);
 
 		self::$menuItems[$page][$level] = $new;
 		return $new;
@@ -81,34 +87,40 @@ class Page extends Model {
 		$items = self::getMenuItems($level, $page);
 		$text = "";
 
-		foreach ($items as $item) $text .= Component::get("CreationShare.PageMenuItem", array(
-			"page" => $item
-		));
+		foreach ($items as $item)
+			$text .= Component::get("CreationShare.PageMenuItem", array(
+						"page" => $item
+			));
 
 		return Component::get("CreationShare.PageMenu", array(
-			"content" => $text,
-			"number" => count($items),
-			"pageid" => ($page instanceof Page)?$page->get("id"):0
+					"content" => $text,
+					"number" => count($items),
+					"pageid" => ($page instanceof Page) ? $page->get("id") : 0
 		));
 	}
 
 	private $parent;
+
 	public function getParent() {
-		if ($this->parent == null) $this->parent = $this->get("parent");
+		if ($this->parent == null)
+			$this->parent = $this->get("parent");
 		return $this->parent;
 	}
 
 	public function getUrl($link = "") {
 		if ($this->get("link") != "") {
-			return "/".$this->get("link")."/$link";
-		} else return "/page/".$this->get("id")."/$link";
+			return "/" . $this->get("link") . "/$link";
+		}
+		else
+			return "/page/" . $this->get("id") . "/$link";
 	}
-	
+
 	public function getLink($link = "") {
 		return $this->getUrl($link);
 	}
 
 	private static $page;
+
 	public static function getPage() {
 		return self::$page;
 	}
@@ -119,35 +131,48 @@ class Page extends Model {
 
 	public function canView($person = null) {
 		$can = $this->get("can");
-		if (!$this->exists()) return false;
+		if (!$this->exists())
+			return false;
 
-		if ($can == array()) return true;
-		if (!Session::loggedIn()) return false;
-		if ($person == null) $person = Session::getPerson();
+		if ($can == array())
+			return true;
+		if (!Session::loggedIn())
+			return false;
+		if ($person == null)
+			$person = Session::getPerson();
 
 		$groups = $person->get("roles");
 
 		foreach ($can as $item) {
 			foreach ($groups as $role) {
-				if ($role == $item) return true;
+				if ($role == $item)
+					return true;
 			}
 		}
 
 		return false;
 	}
-	
+
 	public function getType() {
 		$types = PageType::getTypes();
 		foreach ($types as $type) {
-			if (get_class($type) == $this->get("template")) return $type;
+			if (get_class($type) == $this->get("template"))
+				return $type;
 		}
 		return null;
 	}
-	
+
 	public function getIcon() {
 		$type = $this->getType();
-		
-		if ($this->get("home")) return "/Images/Flat/IconFinder/Home.png";
+
+		if ($this->get("home"))
+			return "/Images/Flat/IconFinder/Home.png";
 		return ($type == null) ? "/Images/Flat/IconFinder/Add.png" : $type->getIcon();
 	}
+
+	public function listAll($parent = null, $arr = null) {
+		
+	}
+
 }
+
