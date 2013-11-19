@@ -10,7 +10,7 @@ $pageId = ($page instanceof Page) ? $page->get("id") : "0";
             $(".admin-page-settings-outer").hide();
         }
         
-        $(".admin-page-settings-button").click(function() {
+        $(".admin-menu-item-settings").click(function() {
             pageVisible = !pageVisible;
             if (pageVisible) {
                 $(".admin-page-settings-outer").hide();
@@ -21,6 +21,13 @@ $pageId = ($page instanceof Page) ? $page->get("id") : "0";
     });
 </script>
 <div class="admin-page-wrap" data-id="<?php echo ($page instanceof Page)? $page->getId() : "" ?>">
+	<div class="admin-entries-top">
+		<div class="admin-entries-top-inner">
+			<div class='admin-entries-button admin-menu-item-publish'>Publish</div>
+			<div class='admin-entries-button admin-menu-item-settings'>Settings</div>
+			<h2><?php echo ($page instanceof Page)?$page->get("name"):"New Page" ?> <a href='/admin/index/structure/'>back</a></h2>
+		</div>
+	</div>
 	<div class="admin-page-top">
 		<div class="admin-page-settings-outer">
 			<div class="admin-page-settings">

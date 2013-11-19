@@ -1,7 +1,7 @@
 
  <script type="text/javascript">
 $(document).ready(function() {
-	$(".admin-page-type-basic").height($(window).height()-195);
+	$(".admin-page-type-basic").height($(window).height()-120);
 });
 </script>
 

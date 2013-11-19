@@ -90,14 +90,13 @@
 	margin:auto;
 	padding-top:25px;
 	padding-bottom:7px;
-	color:white;
-	text-shadow:0px 1px 1px #444444;
+	color:black;
 }
 
 .admin-page-settings-outer {
 	margin-top:0px;
-	background:#56A6C5;
-	border-bottom:2px solid #217596;
+	background:#EEEEEE;
+	color:black;
 }
 
 .admin-page-settings-bottom {

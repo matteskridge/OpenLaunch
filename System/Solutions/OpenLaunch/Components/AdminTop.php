@@ -17,7 +17,7 @@
 							<div class="admin-sidebar-subs">
 								<?php foreach ($item->getMenu() as $k => $m) { ?>
 									<div class="admin-sidebar-item">
-										<a href="<?php echo $item->getLink() ?>/<?php echo $k ?>"><?php echo $m ?></a>
+										<a href="<?php echo $item->getLink() ?><?php echo $k ?>/"><?php echo $m ?></a>
 									</div>
 								<?php } ?>
 							</div>

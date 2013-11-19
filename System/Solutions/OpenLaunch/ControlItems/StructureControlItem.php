@@ -41,6 +41,10 @@ class StructureControlItem extends ControlItem {
 				$id = ($edit instanceof Page) ? $edit->get("id") : mysql_insert_id();
 				return new Redirect("/admin/index/structure/page/" . $id . "/");
 			}
+		} else if ($action == "design") {
+			$content = Component::get("OpenLaunch.StructureDesign");
+		} else if ($action == "posts") {
+			$content = Component::get("OpenLaunch.StructurePosts");
 		}
 
 		return Component::get("OpenLaunch.Structure", array(

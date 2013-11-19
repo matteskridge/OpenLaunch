@@ -13,31 +13,22 @@ class SettingsControlItem extends ControlItem {
 	public function getContent($action, $id, $mode) {
 
 		$content = "";
-
-		if ($action == "branding" || $action == "") {
-			if ($id == "" || $id == "website") {
-				$form = new Form("settings-branding");
-				$form->add(new TextField("name", "Website Name", Settings::get("website.name")));
-			} else if ($id == "organization") {
-				$form = new Form("settings-branding");
-				$form->add(new TextField("name", "Organization Name", Settings::get("website.organization")));
+		
+		foreach (SettingsItem::listAll() as $item) {
+			if ($action == $item->getId()) {
+				$content = $item->getContent();
 			}
-			$content = Component::get("OpenLaunch.SettingsBranding", $form->getHtml());
-		} else if ($action == "security") {
-			$content = Component::get("OpenLaunch.SettingsSecurity");
-		} else if ($action == "maintenance") {
-			$content = Component::get("OpenLaunch.SettingsMaintenance");
 		}
 
 		return Component::get("OpenLaunch.Settings", $content);
 	}
 
 	public function getMenu() {
-		return array(
-			"index" => "Website Branding",
-			"security" => "Security Settings",
-			"about" => "About OpenLaunch"
-		);
+		$arr = array();
+		foreach (SettingsItem::listAll() as $item) {
+			$arr[$item->getId()] = $item->getName();
+		}
+		return $arr;
 	}
 
 	public function getOrder() {

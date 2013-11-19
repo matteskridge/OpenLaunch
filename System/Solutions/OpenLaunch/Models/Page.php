@@ -1,6 +1,8 @@
 <?php
 
 class Page extends Model {
+	
+	private $depth;
 
 	public function getStructure() {
 		return array(
@@ -170,9 +172,36 @@ class Page extends Model {
 		return ($type == null) ? "/Images/Flat/IconFinder/Add.png" : $type->getIcon();
 	}
 
-	public function listAll($parent = null, $arr = null) {
+	public function setDepth($d) {
+		$this->depth = $d;
+	}
+	
+	public function getDepth() {
+		return $this->depth;
+	}
+	
+	private static $allPages = array();
+	public static function listAll($parent = null, $depth = 0) {
+		if ($parent == null && self::$allPages != array()) return self::$allPages;
 		
+		if ($parent == null) { 
+			$subs = Page::findAll("Page", array("parent" => "0"), "`order`, `id`");
+		} else {
+			$subs = Page::findAll("Page", array("parent" => $parent->getId()), "`order`, `id`");
+		}
+		
+		foreach ($subs as $sub) {
+			$sub->setDepth($depth);
+			array_push(self::$allPages, $sub);
+			self::listAll($sub, $depth+1);
+		}
+		
+		return self::$allPages;
 	}
 
+	public function indention() {
+		return $this->depth*40;
+	}
+	
 }
 
