@@ -13,12 +13,18 @@ class SettingsControlItem extends ControlItem {
 	public function getContent($action, $id, $mode) {
 
 		$content = "";
-		
+
 		foreach (SettingsItem::listAll() as $item) {
 			if ($action == $item->getId()) {
 				$content = $item->getContent();
 			}
 		}
+
+		if ($content == "")
+			$content = Component::get("OpenLaunch.System");
+
+		if ($content instanceof Redirect)
+			return $content;
 
 		return Component::get("OpenLaunch.Settings", $content);
 	}

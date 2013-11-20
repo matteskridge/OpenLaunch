@@ -1,4 +1,8 @@
 
+body, html, .wrap {
+	height:100%;
+}
+
 body table.admin-table {
 	width:100%;
 	min-height:100%;

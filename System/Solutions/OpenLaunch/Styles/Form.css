@@ -17,7 +17,7 @@ label {
 	display:inline-block;
 }
 
-input.TextField {
+input.textfield {
 	width:75%;
 	padding:5px;
 	font-size:large;

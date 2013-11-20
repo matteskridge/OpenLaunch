@@ -14,30 +14,42 @@ html body {
 	margin-bottom:20px;
 }
 
-.header {
+.header-wrap {
 	padding:25px;
+	padding-bottom:15px;
 	color:white;
 	font-size:xx-large;
+	border-bottom:4px solid white;
+}
+
+.header {
+	display:inline-block;
+	vertical-align:top;
 }
 
 .menu {
-	padding-left:10px;
-	float:right;
-	margin-top:-45px;
+	padding-left:25px;
+	display:inline-block;
+	vertical-align:bottom;
+	margin-top:6px;
 }
 
 .menu-right {
 	float:right;
+	padding-left:0px;
+	margin:0px;
 }
 
 .menu-item {
 	display:inline-block;
-	padding-left:15px;
-	padding-right:15px;
+	padding-left:10px;
+	padding-right:10px;
 	padding-top:12px;
 	padding-bottom:12px;
 	color:white;
 	cursor:pointer;
+	text-transform:uppercase;
+	font-size:small;
 }
 
 .menu-item a:link, .menu-item a:visited, .menu-item a {

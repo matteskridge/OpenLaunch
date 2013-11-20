@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<title>OpenLaunch</title>
@@ -12,9 +13,11 @@
 	<body>
 		<div class="wrap">
 			<?php echo Component::get("OpenLaunch.AdminTop") ?>
-			<?php if (isset($nowrap) && $nowrap) {
+			<?php
+			if (isset($nowrap) && $nowrap) {
 				echo $content;
-			} else { ?>
+			} else {
+				?>
 				<?php echo Component::get("Framework.Website", $content) ?>
 <?php } ?>
 <?php echo Component::get("OpenLaunch.AdminBottom") ?>

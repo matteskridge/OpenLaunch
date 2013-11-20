@@ -1,3 +1,3 @@
 <?php
 
-define("PRODUCT_BUILD", 1);
+define("PRODUCT_BUILD", 1.1);
