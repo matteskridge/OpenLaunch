@@ -1,0 +1,10 @@
+
+.page-blogpost {
+	padding:20px;
+	border-bottom:1px solid #EEEEEE;
+}
+
+.page-blogpost-date {
+	float:right;
+	margin-top:5px;
+}

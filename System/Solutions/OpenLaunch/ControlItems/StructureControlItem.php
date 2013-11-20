@@ -48,7 +48,50 @@ class StructureControlItem extends ControlItem {
 			
 			$content = Component::get("OpenLaunch.StructureDesign");
 		} else if ($action == "posts") {
-			$content = Component::get("OpenLaunch.StructurePosts");
+			$content = "";
+			
+			if ($id != "") {
+				if ($id == 0) {
+					$content = Component::get("OpenLaunch.StructurePostCompose");
+				} else {
+					$content = Component::get("OpenLaunch.StructurePostCompose", array("post" => new BlogPost($id)));
+				}
+				
+				if (isset($_POST["blogpost-name"]) && isset($_GET["sid"]) && $_GET["sid"] == session_id()) {
+					$name = $_POST["blogpost-name"];
+					$bits = explode(",", $_POST["blogpost-category"]);
+					$page = $bits[0];
+					$category = $bits[1];
+					$text = $_POST["blogpost-text"];
+					
+					$data = array(
+						"name" => $name,
+						"page" => new Page($page),
+						"category" => $category,
+						"user" => Session::getPerson(),
+						"published" => true,
+						"content" => $text
+					);
+					
+					if ($id == "0") {
+						BlogPost::create("BlogPost", $data);
+					} else {
+						$post = new BlogPost($id);
+						if ($post->exists()) {
+							$post->set($data);
+						}
+					}
+					
+					return new Redirect("/admin/index/structure/posts/");
+				}
+			} else {
+				$content = Component::get("OpenLaunch.StructureBlogPosts");
+			}
+			
+			$content = Component::get("OpenLaunch.StructurePosts", array(
+				"content" => $content,
+				"id" => $id
+			));
 		}
 
 		return Component::get("OpenLaunch.Structure", array(
