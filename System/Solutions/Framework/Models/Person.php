@@ -287,6 +287,14 @@ class Person extends Model {
 		$id = strtolower($id);
 		return $id;
 	}
+	
+	public function getProfile() {
+		if ($this->get("profile") == "") {
+			return "This person has not defined a profile";
+		} else {
+			return Parser::parse($this->get("profile"));
+		}
+	}
 }
 
 class FakePerson extends Person {

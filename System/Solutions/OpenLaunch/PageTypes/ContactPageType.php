@@ -17,6 +17,7 @@ class ContactPageType extends PageType {
 		if (!$contact->exists() || $contact->get("askemail")) $form->add(new TextField("email", "Your Email"));
 		if (!$contact->exists() || $contact->get("askphone")) $form->add(new TextField("phone", "Phone Number"));
 		if (!$contact->exists() || $contact->get("askcomment")) $form->add(new ContentEditor("content", "Message"));
+		$form->controls("Communication");
 		return Component::get("OpenLaunch.Contact", $form->getHtml());
 	}
 

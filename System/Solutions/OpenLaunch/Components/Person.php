@@ -25,4 +25,60 @@
             </div>
         </div>
     </div>
+	<div class="admin-person-main">
+		<div class="admin-person-main-item">
+			<div class="admin-person-main-item-inner">
+				<div class="admin-person-main-item-right"><a href="">Remove Profile</a></div>
+				<h2>Public Profile</h2>
+				<div class="admin-person-main-text">
+					<?php echo $person->getProfile() ?>
+				</div>
+			</div>
+		</div>
+		<div class="admin-person-main-item">
+			<div class="admin-person-main-item-inner">
+				<div class="admin-person-main-item-right"><a href="">Edit Details</a></div>
+				<h2>Account Details</h2>
+				<div class="admin-person-main-text">
+					<table>
+						<tr>
+							<th style="width:250px;">Detail</th>
+							<th>Value</th>
+						</tr>
+						<tr>
+							<td>Real Name</td>
+							<td><?php echo $person->getRealName() ?></td>
+						</tr>
+						<tr>
+							<td>Email Address</td>
+							<td><?php echo $person->get("email") ?></td>
+						</tr>
+						<tr>
+							<td>Phone Number</td>
+							<td><?php echo $person->getPhone() ?></td>
+						</tr>
+						<tr>
+							<td>Address</td>
+							<td><?php echo $person->getAddress() ?></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="admin-person-main-item">
+			<div class="admin-person-main-item-inner">
+				<h2>Moderator Tools</h2>
+			</div>
+		</div>
+		<div class="admin-person-main-item">
+			<div class="admin-person-main-item-inner">
+				<h2>Statistics</h2>
+			</div>
+		</div>
+		<div class="admin-person-main-item">
+			<div class="admin-person-main-item-inner">
+				<h2>Contact this Person</h2>
+			</div>
+		</div>
+	</div>
 </div>

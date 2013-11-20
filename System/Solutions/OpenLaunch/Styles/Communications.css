@@ -1,0 +1,26 @@
+
+.communication {
+	padding:20px;
+	border-bottom:1px solid #DDDDDD;
+}
+
+.communication-last {
+	font-size:x-large;
+	text-align:center;
+	padding:50px;
+	color:#AAAAAA;
+}
+
+.communication-inner {
+	width:1000px;
+	margin:auto;
+	line-height:1.5em;
+}
+
+.communication-inner h2 {
+	font-size:large;
+}
+
+.communication-right {
+	float:right;
+}

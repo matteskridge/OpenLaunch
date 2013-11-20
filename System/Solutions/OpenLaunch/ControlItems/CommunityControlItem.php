@@ -16,6 +16,9 @@ class CommunityControlItem extends ControlItem {
 			if (!$person->exists())
 				return new NotFoundError();
 			$content = Component::get("OpenLaunch.Person", array("person" => $person));
+		} else if ($action == "communications") {
+			$communications = Communication::findAll("Communication", array(), "`id` DESC");
+			$content = Component::get("OpenLaunch.Communications", array("communications" => $communications));
 		}
 		return Component::get("OpenLaunch.Community", $content);
 	}
