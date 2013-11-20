@@ -25,6 +25,7 @@ class RolesSettingsItem extends SettingsItem {
 			$form->add(new PermissionField("permissions", "Permissions", $permissions));
 			$form->add(new CheckboxField("allmembers", "Assign to Everyone"));
 			$form->add(new CheckboxField("allguests", "Assign to Guests"));
+			$form->controls((isset($role))?$role:"Role");
 			$data["form"] = $form->getHtml();
 		}
 		

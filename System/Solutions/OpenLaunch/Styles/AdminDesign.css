@@ -13,6 +13,11 @@
 	margin-top:10px;
 }
 
+.admin-designs-scroll {
+	height:700px;
+	overflow:scroll;
+}
+
 .admin-designs-info {
 	width:500px;
 	vertical-align:top;

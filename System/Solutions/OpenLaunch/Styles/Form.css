@@ -4,16 +4,27 @@
 	text-align:center;
 }
 
-label {
+form label {
 	width:20%;
 	display:inline-block;
 	text-align:left;
+	vertical-align:top;
+	padding-top:10px;
+}
+
+label {
+	width:20%;
+	display:inline-block;
 }
 
 input.TextField {
 	width:75%;
 	padding:5px;
 	font-size:large;
+	-webkit-box-shadow:0px 1px 1px #BBBBBB inset;
+	-moz-box-shadow:0px 1px 1px #BBBBBB inset;
+	-webkit-appearance:none;
+	border:1px solid #BBBBBB;
 }
 
 input.submitbutton {
@@ -34,10 +45,50 @@ input.submitbutton {
 	cursor:pointer;
 }
 
-input.checkboxfield {
+.checkboxfield > div {
 	width:75%;
+	text-align:left;
+}
+
+input.checkboxfield {
+	vertical-align:middle;
+}
+
+.listboxwrap {
+	width:74%;
+	display:inline-block;
+	background:white;
+	border:1px solid #BBBBBB;
+	padding:5px;
+	-webkit-box-shadow:0px 1px 1px #BBBBBB inset;
+	-moz-box-shadow:0px 1px 1px #BBBBBB inset;
+	text-align:left;
+}
+
+.listboxmain > div {
+	padding:5px;
+}
+
+.listboxmain label {
+	width:80%;
+	vertical-align:middle;
+}
+
+.listboxmain input {
+	vertical-align:middle;
 }
 
 input.submitbutton:hover {
 	background:#EEEEEE;
+}
+
+div.selectbox {
+	width:75%;
+	display:inline-block;
+	vertical-align:middle;
+	text-align:left;
+}
+
+div.selectbox select {
+
 }

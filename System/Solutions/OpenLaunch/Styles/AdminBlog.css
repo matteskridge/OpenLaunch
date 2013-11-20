@@ -59,3 +59,7 @@
 .blog-center .mce-tinymce.mce-container.mce-panel {
 	border:none;
 }
+
+.admin-page-content .mce-tinymce.mce-container.mce-panel {
+	border:none;
+}

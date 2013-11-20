@@ -26,9 +26,11 @@ $(document).ready(function() {
 	<div class='admin-designs'>
 		<div class='admin-designs-list'>
 			<h2>Avaliable Themes</h2>
-			<?php foreach (ThemeProcess::getThemes() as $theme) { ?><div class='admin-design' data-id='<?php echo $theme->getId() ?>'>
-				<?php echo $theme->getImageHtml(248,141) ?>
-			</div><?php } ?>
+			<div class="admin-designs-scroll">
+				<?php foreach (ThemeProcess::getThemes() as $theme) { ?><div class='admin-design' data-id='<?php echo $theme->getId() ?>'>
+					<?php echo $theme->getImageHtml(248,141) ?>
+				</div><?php } ?>
+			</div>
 		</div><div class='admin-designs-info'>
 			<div class='admin-designs-info-inner'>
 				

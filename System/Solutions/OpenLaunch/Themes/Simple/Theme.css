@@ -23,6 +23,7 @@ html body {
 .menu {
 	padding-left:10px;
 	float:right;
+	margin-top:-45px;
 }
 
 .menu-right {
@@ -43,5 +44,3 @@ html body {
 	color:white;
 	text-decoration:none;
 }
-
-
