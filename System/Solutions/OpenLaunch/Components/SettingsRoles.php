@@ -1,3 +1,8 @@
+<?php if (isset($form)) { ?>
+<div class="settings-roles">
+	<?php echo $form ?>
+</div>
+<?php } else { ?>
 <div class="settings-roles">
 	<?php foreach ($roles as $role) { ?>
 	<div class="settings-role">
@@ -10,3 +15,4 @@
 	</div>
 	<?php } ?>
 </div>
+<?php } ?>
