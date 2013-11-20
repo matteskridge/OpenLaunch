@@ -1,0 +1,14 @@
+
+.settings-role {
+	padding:30px;
+	border-bottom:1px solid #DDDDDD;
+}
+
+.settings-role-inner {
+	width:1000px;
+	margin:auto;
+}
+
+.settings-role-right {
+	float:right;
+}

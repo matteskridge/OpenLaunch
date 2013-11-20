@@ -10,7 +10,8 @@ class ComposeControlItem extends ControlItem {
 	}
 
 	public function getContent($action, $id, $mode) {
-		return Component::get("OpenLaunch.Compose");
+		return new Redirect("/admin/index/structure/posts/0/");
+		//return Component::get("OpenLaunch.Compose");
 	}
 
 	public function getOrder() {

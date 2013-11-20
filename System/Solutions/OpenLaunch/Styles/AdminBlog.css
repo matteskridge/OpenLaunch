@@ -55,3 +55,7 @@
 	float:right;
 	margin-top:3px;
 }
+
+.blog-center .mce-tinymce.mce-container.mce-panel {
+	border:none;
+}

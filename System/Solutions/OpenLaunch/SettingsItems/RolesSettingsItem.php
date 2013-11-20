@@ -10,6 +10,7 @@ class RolesSettingsItem extends SettingsItem {
 	}
 	
 	public function getContent() {
-		
+		$roles = Role::findAll("Role");
+		return Component::get("OpenLaunch.SettingsRoles", array("roles" => $roles));
 	}
 }
