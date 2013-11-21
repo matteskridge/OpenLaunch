@@ -88,3 +88,23 @@
 	color:#333333;
 	padding:15px;
 }
+
+.admin-entries-header {
+	background:#EEEEEE;
+	border-bottom:2px solid #DDDDDD;
+}
+
+.admin-entries-header-inner {
+	width:1000px;
+	margin:auto;
+	padding:15px;
+}
+
+.admin-entries-header h2 {
+	font-size:medium;
+	margin:0px;
+}
+
+.admin-entries-header-button {
+	float:right;
+}
