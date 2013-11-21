@@ -1,1 +1,1 @@
-<?php echo Component::get("OpenLaunch.Page", array("page" => $page)) ?>
+<?php echo Component::get("OpenLaunch.Page", array("page" => $page, "html" => $page->getHtml())) ?>

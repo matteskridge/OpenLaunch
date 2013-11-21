@@ -10,7 +10,19 @@ class BlogPageType extends PageType {
 	}
 
 	public function render($page) {
-		return Component::get("OpenLaunch.Blog", array("page" => $page));
+		$find = array("page" => $page);
+		$categories = BlogCategory::findAll("BlogCategory", array("page" => $page));
+
+		if (Response::getArg(1) != "") {
+			$find["category"] = new BlogCategory(Response::getArg(1));
+		}
+		
+		if (Request::isRSS()) {
+			return new AjaxResponse(BlogPost::getFeed("BlogPost", $find, "`id` DESC"));
+		} else {
+			$posts = BlogPost::findAll("BlogPost", $find, "`id` DESC");
+			return Component::get("OpenLaunch.Blog", array("page" => $page, "categories" => $categories, "posts" => $posts));
+		}
 	}
 
 	public function renderAdmin($page) {

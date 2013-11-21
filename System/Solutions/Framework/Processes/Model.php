@@ -313,6 +313,12 @@ class Model {
 	public function modified() {
 		Database::set(get_class($this), array("id" => $this->id), array("cs_modified" => time()));
 	}
+	
+	public static function getFeed($what = "", $find = array(), $order = "") {
+		$items = Model::findAll($what, $find, $order);
+		
+		return Component::get("OpenLaunch.RSS", array("items" => $items));
+	}
 }
 
 function relativeDate($time) {

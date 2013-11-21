@@ -27,7 +27,7 @@ $sidebar = 2;
 			<?php } ?>
 			<td class="page-main">
 				<div class="page-content">
-					<?php echo $page->getHtml() ?>
+					<?php echo $html ?>
 				</div>
 			</td>
 			

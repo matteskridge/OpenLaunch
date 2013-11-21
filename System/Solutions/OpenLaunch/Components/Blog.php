@@ -1,14 +1,8 @@
-<?php
-$find = array("page" => $page);
-$categories = BlogCategory::findAll("BlogCategory", array("page" => $page));
-
-if (Response::getArg(1) != "") {
-	$find["category"] = new BlogCategory(Response::getArg(1));
-}
-?>
-
 <?php if (count($categories) > 0) { ?>
 <div class="page-toolbar">
+	<div class="page-toolbar-icons">
+		<div><a href="<?php echo $page->getLink("feed.rss") ?>" target="_blank"><img src="/Images/Logos/ThirdParty/RSS.png" /></a></div>
+	</div>
 	<div class="page-toolbar-item"><a href="<?php echo $page->getLink() ?>">All Categories</a></div>
 	<?php foreach ($categories as $item) { ?>
 	<div class="page-toolbar-item"><a href="<?php echo $page->getLink($item->getId()."/") ?>"><?php echo $item->get("name") ?></a></div>
@@ -17,7 +11,7 @@ if (Response::getArg(1) != "") {
 <?php } ?>
 
 <div class="page-blogposts">
-	<?php foreach (BlogPost::findAll("BlogPost", $find, "`id` DESC") as $post) { ?>
+	<?php foreach ($posts as $post) { ?>
 	<div class="page-blogpost">
 		<div class="page-blogpost-date">
 			<?php echo $post->getCreated() ?>

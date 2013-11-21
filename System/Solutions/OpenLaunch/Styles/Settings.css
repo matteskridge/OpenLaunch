@@ -1,0 +1,42 @@
+
+.admin-entry-column {
+	width:500px;
+	display:inline-block;
+	vertical-align:top;
+	height:150px;
+	line-height:1.5em;
+}
+
+.admin-entry-column:first-of-type {
+	border-right:1px solid #DDDDDD;
+	width:480px;
+}
+
+.admin-entry-column h2 {
+	font-size:large;
+	margin:0px;
+	margin-bottom:10px;
+}
+
+.admin-entry-column-inner {
+	padding:20px;
+}
+
+div.admin-entry-column-inner img {
+	float:left;
+	width:100px;
+	height:100px;
+	margin:10px;
+	margin-right:20px;
+}
+
+.page-toolbar-icons {
+	float:right;
+}
+
+.page-toolbar-icons img {
+	width:24px;
+	height:24px;
+	margin-top:7px;
+	margin-right:7px;
+}

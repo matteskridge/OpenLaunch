@@ -6,5 +6,8 @@ class PageController extends AppController {
 		
 		if (!$page->exists()) return new NotFoundError();
 		$this->page = $page;
+		$this->html = $page->getHtml();
+		
+		if ($this->html instanceof AjaxResponse || $this->html instanceof Redirect) return "".$this->html;
 	}
 }

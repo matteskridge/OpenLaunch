@@ -209,4 +209,34 @@ class Request {
 	public static function getForms() {
 		return self::$forms;
 	}
+	
+	private static $types = array(
+		"rss" => "rss"
+	);
+	private static $type;
+	
+	public static function getType() {
+		if (!isset(self::$type)) {
+			$type = "html";
+			
+			foreach (self::$types as $t) {
+				$url = Request::getUrl();
+				if (substr($url, strlen($url)-strlen($t)-1, strlen($t)+1) == ".".$t) {
+					$type = $t;
+					break;
+				}
+			}
+			
+			self::$type = $type;
+		}
+		return self::$type;
+	}
+	
+	public static function isHtml() {
+		return self::getType() == "html";
+	}
+	
+	public static function isRSS() {
+		return self::getType() == "rss";
+	}
 }
