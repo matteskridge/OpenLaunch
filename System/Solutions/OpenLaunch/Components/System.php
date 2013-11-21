@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url: "/api/news/",
+			success: function(html) {
+				$(".admin-ajax-news").html(html);
+			}
+		});
+	});
+</script>
 <div class="admin-entries">
 	<div class="admin-entry">
 		<div class="admin-entry-inner">
@@ -20,7 +30,7 @@
 	</div>
 	<div class="admin-entry">
 		<div class="admin-entry-inner">
-			<h2>Urgent Security Bulletin</h2>
+			<div class="admin-ajax-news"><?php echo Component::get("OpenLaunch.Loading") ?></div>
 		</div>
 	</div>
 </div>

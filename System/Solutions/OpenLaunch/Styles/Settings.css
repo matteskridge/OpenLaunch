@@ -40,3 +40,13 @@ div.admin-entry-column-inner img {
 	margin-top:7px;
 	margin-right:7px;
 }
+
+.admin-ajax-news {
+	line-height:1.5em;
+}
+
+.admin-ajax-news h2 {
+	font-size:large;
+	margin:0px;
+	margin-bottom:5px;
+}

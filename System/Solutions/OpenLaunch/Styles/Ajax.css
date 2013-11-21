@@ -1,0 +1,10 @@
+
+.ajax-loading {
+	text-align:center;
+	margin:40px;
+}
+
+div.ajax-loading img {
+	width:48px;
+	height:48px;
+}
