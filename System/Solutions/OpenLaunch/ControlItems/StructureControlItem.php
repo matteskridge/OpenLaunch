@@ -3,8 +3,6 @@
 class StructureControlItem extends ControlItem {
 
 	public function canView() {
-		if (true)
-			return true;
 		return Permission::can("EditWebsite");
 	}
 
