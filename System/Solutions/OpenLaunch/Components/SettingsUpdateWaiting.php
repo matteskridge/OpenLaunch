@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.ajax({
-			url: "setup.php",
+			url: "/setup.php",
 			success: function() {
 				window.location = "/";
 			}

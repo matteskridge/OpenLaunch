@@ -1,0 +1,9 @@
+application:
+  product:
+    id: ettf
+    name: Torpedo Framework
+    version: 1.0
+  author:
+    name: Eskridge Technology
+  servers:
+    - plugins.eskridgetech.com
