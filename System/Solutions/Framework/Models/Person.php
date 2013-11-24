@@ -1,6 +1,7 @@
 <?php
 
 class Person extends Model {
+
 	public function getStructure() {
 		return array(
 			"prefix" => "string",
@@ -34,75 +35,85 @@ class Person extends Model {
 
 	public function onCreate($data) {
 		if ($data["nickname"] == "") {
-			$nickname = mt_rand(0,99999999);
-		} else $nickname = $data["nickname"];
+			$nickname = mt_rand(0, 99999999);
+		}
+		else
+			$nickname = $data["nickname"];
 
 		$other = new Person(array("nickname" => $data["nickname"], "id != '$this->id'"));
 		while ($other->exists()) {
-			$nickname = $data["nickname"]." ".mt_rand(0,99999999);
+			$nickname = $data["nickname"] . " " . mt_rand(0, 99999999);
 			$other = new Person(array("nickname" => $nickname, "`id`!='$this->id'"));
 		}
 
 		if ($nicknane != $data["nickname"]) {
 			$this->set("nickname", $nickname);
 		}
-
-
 	}
 
 	public function checkPassword($password) {
-		$hash = new File("System/Data/Credentials/person-".$this->get("id").".php");
-		if (!$hash->exists()) return false;
+		$hash = new File("System/Data/Credentials/person-" . $this->get("id") . ".php");
+		if (!$hash->exists())
+			return false;
 		return Security::checkHash($password, $hash->read());
 	}
 
 	public function setPassword($password) {
-		$hash = new File("System/Data/Credentials/person-".$this->get("id").".php");
+		$hash = new File("System/Data/Credentials/person-" . $this->get("id") . ".php");
 		$hash->write(Security::hash($password));
 	}
 
 	public function hasPassword() {
-		$hash = new File("System/Data/Credentials/person-".$this->get("id").".php");
+		$hash = new File("System/Data/Credentials/person-" . $this->get("id") . ".php");
 		return $hash->exists();
 	}
 
 	public function getPasswordFile() {
-		return new File("System/Data/Credentials/person-".$this->get("id").".php");
+		return new File("System/Data/Credentials/person-" . $this->get("id") . ".php");
 	}
 
 	public function getRoles() {
 		$roles = array();
-		foreach (Role::findAll("Role", array("allmembers" => true)) as $role) array_push($roles, $role);
-		if (is_array($this->get("roles"))) foreach ($this->get("roles") as $role) array_push($roles, new Role($role));
+		foreach (Role::findAll("Role", array("allmembers" => true)) as $role)
+			array_push($roles, $role);
+		if (is_array($this->get("roles")))
+			foreach ($this->get("roles") as $role)
+				array_push($roles, new Role($role));
 		return $roles;
 	}
 
 	public function getAvatarLink() {
-		foreach (Attachments::getInfo("person-photo-".$this->get("id")) as $info) {
+		foreach (Attachments::getInfo("person-photo-" . $this->get("id")) as $info) {
 			return $info["url"];
 		}
 		return get_gravatar($this->get("email"), 128, "identicon");
 	}
 
 	public function getAvatar($size = 128) {
-		return "<img src='".$this->getAvatarLink()."' width='$size' height='$size' style='width:".$size."px;height:".$size."px;' />";
+		return "<img src='" . $this->getAvatarLink() . "' width='$size' height='$size' style='width:" . $size . "px;height:" . $size . "px;' />";
 	}
 
 	public function getName() {
-		if ($this->get("nickname") == "") return "Un-Named";
+		if ($this->get("nickname") == "")
+			return "Un-Named";
 		return $this->get("nickname");
 	}
 
 	public function getRealName() {
 		$bits = array();
-		if ($this->get("prefix") != "") array_push($bits, $this->get("prefix"));
-		if ($this->get("first") != "") array_push($bits, $this->get("first"));
-		if ($this->get("middle") != "") array_push($bits, ucfirst(substr($this->get("middle"),0,1)));
-		if ($this->get("last") != "") array_push($bits, $this->get("last"));
-		if ($this->get("suffix") != "") array_push($bits, $this->get("suffix"));
+		if ($this->get("prefix") != "")
+			array_push($bits, $this->get("prefix"));
+		if ($this->get("first") != "")
+			array_push($bits, $this->get("first"));
+		if ($this->get("middle") != "")
+			array_push($bits, ucfirst(substr($this->get("middle"), 0, 1)));
+		if ($this->get("last") != "")
+			array_push($bits, $this->get("last"));
+		if ($this->get("suffix") != "")
+			array_push($bits, $this->get("suffix"));
 		$result = implode(" ", $bits);
 
-		return (trim($result) == "")?$this->getName():$result;
+		return (trim($result) == "") ? $this->getName() : $result;
 	}
 
 	public function getShortName() {
@@ -110,7 +121,7 @@ class Person extends Model {
 		$max = 20;
 
 		if (strlen($name) > $max) {
-			$name = substr($name, 0, $max-3)."...";
+			$name = substr($name, 0, $max - 3) . "...";
 		}
 		return $name;
 	}
@@ -129,17 +140,18 @@ class Person extends Model {
 	}
 
 	public function getStreet() {
-		return ($this->get("street") == "")?"Unknown":$this->get("street");
+		return ($this->get("street") == "") ? "Unknown" : $this->get("street");
 	}
 
 	public function getCity() {
-		return ($this->get("city") == "")?"Unknown":$this->get("city").", ".$this->get("province");
+		return ($this->get("city") == "") ? "Unknown" : $this->get("city") . ", " . $this->get("province");
 	}
 
 	public function getAddress() {
-		if ($this->get("street") == "") return "Unknown Address";
-		return $this->get("street")."\n".$this->get("suite")."\n".
-				$this->get("city").", ".$this->get("province").". ".$this->get("zip")."\n".
+		if ($this->get("street") == "")
+			return "Unknown Address";
+		return $this->get("street") . "\n" . $this->get("suite") . "\n" .
+				$this->get("city") . ", " . $this->get("province") . ". " . $this->get("zip") . "\n" .
 				$this->get("country");
 	}
 
@@ -149,9 +161,9 @@ class Person extends Model {
 		} else {
 			$n = str_split($this->get("phone"));
 			if (count($n) == 10) {
-				return "(".$n[0].$n[1].$n[2].") ".$n[3].$n[4].$n[5]."-".$n[6].$n[7].$n[8].$n[9];
+				return "(" . $n[0] . $n[1] . $n[2] . ") " . $n[3] . $n[4] . $n[5] . "-" . $n[6] . $n[7] . $n[8] . $n[9];
 			} else if (count($n) == 11) {
-				return "(".$n[1].$n[2].$n[3].") ".$n[4].$n[5].$n[6]."-".$n[7].$n[8].$n[9].$n[10];
+				return "(" . $n[1] . $n[2] . $n[3] . ") " . $n[4] . $n[5] . $n[6] . "-" . $n[7] . $n[8] . $n[9] . $n[10];
 			}
 		}
 		return $this->get("phone");
@@ -159,7 +171,8 @@ class Person extends Model {
 
 	public function hasRole($role) {
 		foreach ($this->get("roles") as $r) {
-			if ($r == $role->get("id")) return true;
+			if ($r == $role->get("id"))
+				return true;
 		}
 		return false;
 	}
@@ -181,25 +194,25 @@ class Person extends Model {
 
 	public function getRealm() {
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-		return $protocol.$_SERVER['HTTP_HOST']."/openid/".$this->getId()."/";
+		return $protocol . $_SERVER['HTTP_HOST'] . "/openid/" . $this->getId() . "/";
 	}
 
 	public function sendEmail($text) {
-		$domain = (Settings::get("email.domain")!="")?Settings::get("email.domain"):Request::getDomain();
+		$domain = (Settings::get("email.domain") != "") ? Settings::get("email.domain") : Request::getDomain();
 		$mail = new PHPMailer();
 
 		if (Settings::get("email.host") != "") {
 			$mail->IsSMTP();
 			$mail->Host = Settings::get("email.host");  // Specify main and backup server
-			$mail->SMTPAuth = true;                               // Enable SMTP authentication
-			$mail->Username = Settings::get("email.user");                            // SMTP username
-			$mail->Password = Settings::get("email.password");                           // SMTP password
+			$mail->SMTPAuth = true; // Enable SMTP authentication
+			$mail->Username = Settings::get("email.user"); // SMTP username
+			$mail->Password = Settings::get("email.password");   // SMTP password
 			$mail->SMTPSecure = 'tls';
 		} else {
 			$mail->IsMail();
 		}
 
-		$mail->From = "confirmation@".$domain;
+		$mail->From = "confirmation@" . $domain;
 		$mail->FromName = Website::getName();
 		$mail->AddAddress($this->get("email"), $this->get("nickname"));
 		$mail->AddReplyTo("support@$domain", Website::getName());
@@ -208,7 +221,7 @@ class Person extends Model {
 		$mail->IsHTML(true);
 
 		$mail->Subject = 'Please Confirm your Email';
-		$mail->Body    = $text;
+		$mail->Body = $text;
 		$mail->AltBody = strip_tags($text);
 
 		return $mail->Send();
@@ -217,8 +230,8 @@ class Person extends Model {
 	public function confirmEmail() {
 
 		$result = $this->sendEmail(Component::get("CreationShare.ConfirmEmail", array(
-			"key" => $key,
-			"person" => $this
+					"key" => $key,
+					"person" => $this
 		)));
 
 		if (!$result) {
@@ -256,7 +269,7 @@ class Person extends Model {
 	}
 
 	private function getStatisticCommon($column) {
-		$q = "SELECT `$column`, COUNT(*) AS magnitude FROM `PageView` WHERE `person`='".$this->get("id")."' GROUP BY `$column` ORDER BY magnitude DESC LIMIT 1";
+		$q = "SELECT `$column`, COUNT(*) AS magnitude FROM `PageView` WHERE `person`='" . $this->get("id") . "' GROUP BY `$column` ORDER BY magnitude DESC LIMIT 1";
 		$q = mysql_query($q);
 
 		while ($row = mysql_fetch_assoc($q)) {
@@ -287,7 +300,7 @@ class Person extends Model {
 		$id = strtolower($id);
 		return $id;
 	}
-	
+
 	public function getProfile() {
 		if ($this->get("profile") == "") {
 			return "This person has not defined a profile";
@@ -295,9 +308,28 @@ class Person extends Model {
 			return Parser::parse($this->get("profile"));
 		}
 	}
+
+	public function addRole($role) {
+		$roles = $this->get("roles");
+		if (!in_array($role->getId(), $roles))
+			array_push($roles, $role->getId());
+		$this->set("roles", $roles);
+	}
+
+	public function removeRole($role) {
+		$arr = array();
+		foreach ($this->get("roles") as $r) {
+			if ($role->getId() != $r) {
+				array_push($arr, $r);
+			}
+		}
+		$this->set("roles", $arr);
+	}
+
 }
 
 class FakePerson extends Person {
+
 	private $data = array(
 		"id" => "0",
 		"name" => "Anonymous"
@@ -310,19 +342,23 @@ class FakePerson extends Person {
 	public function get($key) {
 		if (!array_key_exists($key, $this->data)) {
 			return "";
-		} else return $this->data[$key];
+		}
+		else
+			return $this->data[$key];
 	}
+
 }
 
-function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
+function get_gravatar($email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array()) {
 	$url = 'http://www.gravatar.com/avatar/';
-	$url .= md5( strtolower( trim( $email ) ) );
+	$url .= md5(strtolower(trim($email)));
 	$url .= "?s=$s&d=$d&r=$r";
-	if ( $img ) {
+	if ($img) {
 		$url = '<img src="' . $url . '"';
-		foreach ( $atts as $key => $val )
+		foreach ($atts as $key => $val)
 			$url .= ' ' . $key . '="' . $val . '"';
 		$url .= ' />';
 	}
 	return $url;
 }
+

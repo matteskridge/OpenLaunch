@@ -7,7 +7,7 @@ class UpdateSettingsItem extends SettingsItem {
 	}
 
 	public function getOrder() {
-		return 500;
+		return 600;
 	}
 
 	public function getContent() {

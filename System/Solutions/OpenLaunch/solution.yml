@@ -1,0 +1,9 @@
+solution:
+  product:
+    id: etol
+    name: OpenLaunch
+    version: 1.0
+  author:
+    name: Eskridge Technology
+  servers:
+    - plugins.eskridgetech.com
