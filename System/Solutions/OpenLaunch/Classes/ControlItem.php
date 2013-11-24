@@ -121,5 +121,11 @@ abstract class ControlItem {
 		return null;
 	}
 
+	public function inMenu($item) {
+		if ($item == "")
+			$item = "index";
+		return array_key_exists($item, $this->getMenu());
+	}
+
 }
 

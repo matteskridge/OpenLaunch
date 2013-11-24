@@ -3,17 +3,21 @@
 class StructureControlItem extends ControlItem {
 
 	public function canView() {
-		return Permission::can("EditWebsite");
+		return $this->getMenu() != array();
 	}
 
 	public function getContent($action, $id, $mode) {
+
+		if (!$this->inMenu($action) && $action != "page")
+			return;
+
 		if ($action == "index" || $action == "") {
 			$content = Component::get("OpenLaunch.StructurePages", array(
 						"action" => $action,
 						"id" => $id,
 						"mode" => $mode
 			));
-		} else if ($action == "page") {
+		} else if ($action == "page" && Permission::can("EditWebsite")) {
 			if ($id == 0) {
 				$edit = "Page";
 			} else {
@@ -43,25 +47,25 @@ class StructureControlItem extends ControlItem {
 			if ($id != "") {
 				Settings::set("website.theme", $id);
 			}
-			
+
 			$content = Component::get("OpenLaunch.StructureDesign");
 		} else if ($action == "posts") {
 			$content = "";
-			
+
 			if ($id != "") {
 				if ($id == 0) {
 					$content = Component::get("OpenLaunch.StructurePostCompose");
 				} else {
 					$content = Component::get("OpenLaunch.StructurePostCompose", array("post" => new BlogPost($id)));
 				}
-				
+
 				if (isset($_POST["blogpost-name"]) && isset($_GET["sid"]) && $_GET["sid"] == session_id()) {
 					$name = $_POST["blogpost-name"];
 					$bits = explode(",", $_POST["blogpost-category"]);
 					$page = $bits[0];
 					$category = $bits[1];
 					$text = $_POST["blogpost-text"];
-					
+
 					$data = array(
 						"name" => $name,
 						"page" => new Page($page),
@@ -70,7 +74,7 @@ class StructureControlItem extends ControlItem {
 						"published" => true,
 						"content" => $text
 					);
-					
+
 					if ($id == "0") {
 						BlogPost::create("BlogPost", $data);
 					} else {
@@ -79,16 +83,16 @@ class StructureControlItem extends ControlItem {
 							$post->set($data);
 						}
 					}
-					
+
 					return new Redirect("/admin/index/structure/posts/");
 				}
 			} else {
 				$content = Component::get("OpenLaunch.StructureBlogPosts");
 			}
-			
+
 			$content = Component::get("OpenLaunch.StructurePosts", array(
-				"content" => $content,
-				"id" => $id
+						"content" => $content,
+						"id" => $id
 			));
 		}
 
@@ -100,15 +104,18 @@ class StructureControlItem extends ControlItem {
 	}
 
 	public function getName() {
-		return "Builder";
+		return "Edit Website";
 	}
 
 	public function getMenu() {
-		return array(
-			"index" => "Web Pages",
-			"posts" => "Blog Posts",
-			"design" => "Website Design"
-		);
+		$arr = array();
+		if (Permission::can("EditWebsite"))
+			$arr["index"] = "Web Pages";
+		if (Permission::can("BlogPost"))
+			$arr["posts"] = "Blog Posts";
+		if (Permission::can("DesignWebsite"))
+			$arr["design"] = "Website Design";
+		return $arr;
 	}
 
 	public function getOrder() {
