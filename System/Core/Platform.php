@@ -2,6 +2,7 @@
 
 require_once("System/Core/Process.php");
 require_once("System/Core/Solution.php");
+require_once("System/Core/Application.php");
 require_once("System/Core/Utilities/File.php");
 require_once("System/Core/Utilities/ArrayList.php");
 require_once("System/Core/Utilities/Random.php");
@@ -12,15 +13,18 @@ require_once("System/Solutions/Framework/Fields/SelectField.php");
 
 class Platform {
 
+	private static $applications;
 	private static $solutions;
 	private static $processes;
 
 	public static function main() {
+		self::$applications = new ArrayList();
 		self::$solutions = new ArrayList();
 		self::$processes = new ArrayList();
 
 		$file = new File("System/Solutions");
 		foreach ($file->listSubs() as $f) {
+			self::$applications->add($f);
 			foreach ($f->listSubs() as $sub) {
 				self::$solutions->add($sub);
 				self::importFeature($sub);
@@ -49,6 +53,14 @@ class Platform {
 				continue;
 			if (strtolower($sol->getName()) == strtolower($name))
 				array_push($arr, new Solution($sol));
+		}
+		return $arr;
+	}
+
+	public static function getApplications() {
+		$arr = array();
+		foreach (self::$applications->each() as $app) {
+			array_push($arr, new Application($app));
 		}
 		return $arr;
 	}

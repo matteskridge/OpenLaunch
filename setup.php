@@ -1,5 +1,7 @@
 <?php
 
+$branch = "production";
+
 function recurse_copy($src, $dst) {
 	$dir = opendir($src);
 	@mkdir($dst);
@@ -31,17 +33,17 @@ function rrmdir($dir) {
 	}
 }
 
-$fh = fopen("master.zip", "w");
-fwrite($fh, file_get_contents("http://github.com/Eskridge/OpenLaunch/archive/master.zip"));
+$fh = fopen("$branch.zip", "w");
+fwrite($fh, file_get_contents("http://github.com/Eskridge/OpenLaunch/archive/$branch.zip"));
 fclose($fh);
 
 $zip = new ZipArchive();
-$zip->open("master.zip");
+$zip->open("$branch.zip");
 $zip->extractTo(".");
 $zip->close();
 
-recurse_copy("OpenLaunch-master", ".");
+recurse_copy("OpenLaunch-$branch", ".");
 
-unlink("master.zip");
-rrmdir("OpenLaunch-master");
+unlink("$branch.zip");
+rrmdir("OpenLaunch-$branch");
 header("Location: index.php");

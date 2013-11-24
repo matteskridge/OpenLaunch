@@ -1,4 +1,4 @@
-solution:
+application:
   product:
     id: etol
     name: OpenLaunch
