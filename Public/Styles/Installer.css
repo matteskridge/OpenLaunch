@@ -1,0 +1,153 @@
+
+body {
+	margin:0px;
+	font-family: sans-serif;
+}
+
+.installer-header {
+	background:#006dcc;
+	padding-top:20px;
+	padding-bottom:30px;
+	border-bottom:5px solid #005CAE;
+	text-align:center;
+}
+
+.installer-header-inner {
+	width:1000px;
+	margin:auto;
+
+}
+
+body, html {
+	height:100%;
+}
+
+.installer {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+.installer-footer, .installer-main-push {
+	height:60px;
+}
+
+.installer-footer {
+	background:#006dcc;
+	border-top:3px solid #005CAE;
+	padding-top:17px;
+	color:white;
+}
+
+.installer-footer-inner {
+	width:1000px;
+	margin:auto;
+	text-align:center;
+}
+
+a:link, a:visited, a {
+	color:white;
+	text-decoration:none;
+}
+
+.installer-main-form-item {
+
+	padding-top:30px;
+	padding-bottom:30px;
+	border-bottom:1px solid #CCCCCC;
+}
+
+.installer-main-form-item-inner {
+	width:1000px;
+	margin:auto;
+}
+
+.installer-main-form-item label {
+	width:20%;
+	display:inline-block;
+	text-align:right;
+	margin-right:20px;
+}
+
+.installer-main-form-item input {
+	width:75%;
+	border:1px solid #888888;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	padding:7px;
+}
+
+.installer-submit {
+	padding:40px;
+	text-align:center;
+}
+
+.installer-submit input {
+	padding:20px;
+	-webkit-appearance:none;
+	background:#FF9500;
+	border:none;
+	border-bottom:4px solid #DA8000;
+	width:400px;
+	font-size:x-large;
+	color:white;
+}
+
+.installer-select-provider {
+	margin:auto;
+	width:1000px;
+}
+
+.installer-provider {
+	background:#F2F2F2;
+	border:1px solid #CCCCCC;
+	height:125px;
+	width:470px;
+	margin:10px;
+	text-align:center;
+	background-position:center center;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	display:inline-block;
+}
+
+.installer a:link, .installer a:visited, .installer a {
+	color:white;
+	font-size:x-large;
+}
+
+div.installer-provider-aol {
+	background-image:url(/Images/Logos/ThirdParty/AOL.png);
+	background-size:213px 100px;
+	background-color:#07B313;
+}
+
+div.installer-provider-google {
+	background-image:url(/Images/Logos/ThirdParty/Google.png);
+	background-size:178px 100px;
+	background-color:#3686EF;
+}
+
+div.installer-provider-yahoo {
+	background-image:url(/Images/Logos/ThirdParty/Yahoo.png);
+	background-size:244px 100px;
+	background-color:#592c71;
+}
+
+.installer h2 {
+	border-bottom:1px solid #DDDDDD;
+	color:black;
+	font-size:x-large;
+	margin:auto;
+	margin-bottom:15px;
+	margin-top:25px;
+	padding-bottom:5px;
+	width:1000px;
+}
+
+.installer-error {
+	background:orange;
+	padding:10px;
+	margin:10px;
+}

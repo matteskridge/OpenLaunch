@@ -1,7 +1,7 @@
 <?php
 
 class Page extends Model {
-	
+
 	private $depth;
 
 	public function getStructure() {
@@ -69,7 +69,7 @@ class Page extends Model {
 		}
 
 		$pages = Page::findAll("Page", array("parent" => $pageid), "`order`, `id`");
-		if ($page != null && (count($pages) > 0 || Session::isEditing()))
+		if ($page != null && (count($pages) > 0))
 			array_unshift($pages, $page);
 
 		$new = array();
@@ -175,33 +175,35 @@ class Page extends Model {
 	public function setDepth($d) {
 		$this->depth = $d;
 	}
-	
+
 	public function getDepth() {
 		return $this->depth;
 	}
-	
+
 	private static $allPages = array();
+
 	public static function listAll($parent = null, $depth = 0) {
-		if ($parent == null && self::$allPages != array()) return self::$allPages;
-		
-		if ($parent == null) { 
+		if ($parent == null && self::$allPages != array())
+			return self::$allPages;
+
+		if ($parent == null) {
 			$subs = Page::findAll("Page", array("parent" => "0"), "`order`, `id`");
 		} else {
 			$subs = Page::findAll("Page", array("parent" => $parent->getId()), "`order`, `id`");
 		}
-		
+
 		foreach ($subs as $sub) {
 			$sub->setDepth($depth);
 			array_push(self::$allPages, $sub);
-			self::listAll($sub, $depth+1);
+			self::listAll($sub, $depth + 1);
 		}
-		
+
 		return self::$allPages;
 	}
 
 	public function indention() {
-		return $this->depth*40;
+		return $this->depth * 40;
 	}
-	
+
 }
 
