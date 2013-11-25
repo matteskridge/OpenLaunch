@@ -18,6 +18,8 @@ $pageId = ($page instanceof Page) ? $page->get("id") : "0";
 				$(".admin-page-settings-outer").show();
 			}
 		});
+
+
 	});
 </script>
 <div class="admin-page-wrap" data-id="<?php echo ($page instanceof Page) ? $page->getId() : "" ?>">
