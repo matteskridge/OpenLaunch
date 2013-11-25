@@ -116,6 +116,8 @@ class InstallProcess {
 				$file = new File("System/Data/superadmins.yml");
 				$file->write("");
 
+				ThemeProcess::resetStyleCache();
+
 				header("Location: /");
 				Request::disableController();
 				Response::redirect($response);

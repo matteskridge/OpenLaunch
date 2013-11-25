@@ -46,6 +46,7 @@ class StructureControlItem extends ControlItem {
 		} else if ($action == "design") {
 			if ($id != "") {
 				Settings::set("website.theme", $id);
+				ThemeProcess::resetStyleCache($id);
 			}
 
 			$content = Component::get("OpenLaunch.StructureDesign");
