@@ -22,4 +22,8 @@ class CensorSettingsItem extends SettingsItem {
 		return $form->getHtml();
 	}
 
+	public function can() {
+		return Permission::can("SettingsCensor");
+	}
+
 }

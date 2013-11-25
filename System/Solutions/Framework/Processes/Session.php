@@ -73,8 +73,27 @@ class Session {
 		setcookie("cs_auth_key", "", 0, "/");
 	}
 
-	public function isEditing() {
-		return $_SESSION["cs_edit"] && Permission::can("EditWebsite");
+	private static $showAdminBar = null;
+
+	public static function showAdminBar() {
+		if (self::$showAdminBar != null)
+			return self::$showAdminBar;
+		$result = false;
+
+		foreach (Platform::getSolutions("ControlItems") as $sol) {
+			foreach ($sol->getFile()->listSubs() as $sub) {
+				$name = $sub->getExtensionlessName();
+				$sub->import();
+				$obj = new $name();
+				if ($obj->canView()) {
+					$result = true;
+					break 2;
+				}
+			}
+		}
+
+		self::$showAdminBar = $result;
+		return $result;
 	}
 
 }

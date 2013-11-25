@@ -18,5 +18,9 @@ class UpdateSettingsItem extends SettingsItem {
 		return Component::get("OpenLaunch.SettingsUpdate");
 	}
 
+	public function can() {
+		return Permission::can("SettingsUpdate");
+	}
+
 }
 

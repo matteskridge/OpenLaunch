@@ -36,5 +36,9 @@ class RolesSettingsItem extends SettingsItem {
 		return Component::get("OpenLaunch.SettingsRoles", $data);
 	}
 
+	public function can() {
+		return Permission::can("SettingsRoles");
+	}
+
 }
 

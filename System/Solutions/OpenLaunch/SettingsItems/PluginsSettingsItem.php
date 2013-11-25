@@ -15,5 +15,9 @@ class PluginsSettingsItem extends SettingsItem {
 		return 500;
 	}
 
+	public function can() {
+		return Permission::can("SettingsPlugin");
+	}
+
 }
 

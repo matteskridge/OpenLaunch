@@ -3,7 +3,7 @@
 class SettingsControlItem extends ControlItem {
 
 	public function canView() {
-		return true;
+		return $this->getMenu() != array();
 	}
 
 	public function getName() {
@@ -15,7 +15,7 @@ class SettingsControlItem extends ControlItem {
 		$content = "";
 
 		foreach (SettingsItem::listAll() as $item) {
-			if ($action == $item->getId()) {
+			if ($action == $item->getId() && $this->inMenu($action)) {
 				$content = $item->getContent();
 			}
 		}
@@ -32,6 +32,8 @@ class SettingsControlItem extends ControlItem {
 	public function getMenu() {
 		$arr = array();
 		foreach (SettingsItem::listAll() as $item) {
+			if (!$item->can())
+				continue;
 			$arr[$item->getId()] = $item->getName();
 		}
 		return $arr;

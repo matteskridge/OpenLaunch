@@ -1,4 +1,4 @@
-<?php if (Session::loggedIn()) { ?>
+<?php if (Session::showAdminBar()) { ?>
 	</td>
 	</tr>
 	</table>
