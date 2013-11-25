@@ -16,6 +16,13 @@
 	font-size:large;
 	margin:0px;
 	margin-top:5px;
+	margin-bottom:10px;
+}
+
+.page h3 {
+	font-size:medium;
+	margin:0px;
+	margin-top:5px;
 	margin-bottom:5px;
 }
 

@@ -1,15 +1,14 @@
 <?php
 
 class Session {
+
 	private static $loggedIn, $person;
 
 	public function run($name) {
-		if ($name == "platform.start") {
+		if ($name == "platform.start.2") {
 			session_start();
-		} else if ($name == "platform.start.5") {
+		} else if ($name == "platform.start.5" && InstallProcess::installed()) {
 			$this->initLogin();
-		} else if ($name == "platform.start.7") {
-			$this->initEditing();
 		}
 	}
 
@@ -39,19 +38,15 @@ class Session {
 		}
 	}
 
-	public function initEditing() {
-		if (Permission::can("EditWebsite") && isset($_GET["edit"])) {
-			$_SESSION["cs_edit"] = ($_GET["edit"])?true:false;
-		}
-	}
-
 	public static function loggedIn() {
-		if (Settings::get("security.demo")) return true;
+		if (Settings::get("security.demo"))
+			return true;
 		return self::$loggedIn;
 	}
 
 	public static function getPerson() {
-		if (Settings::get("security.demo")) return new FakePerson();
+		if (Settings::get("security.demo"))
+			return new FakePerson();
 		return self::$person;
 	}
 
@@ -59,15 +54,15 @@ class Session {
 		$key = Random::getText(256);
 
 		$session = LoginSession::create("LoginSession", array(
-			"user" => $person->get("id"),
-			"cookie" => $key,
-			"sessionid" => session_id(),
-			"browser" => Request::getBrowser(),
-			"platform" => Request::getPlatform(),
-			"ipaddress" => Request::getIPAddress()
+					"user" => $person->get("id"),
+					"cookie" => $key,
+					"sessionid" => session_id(),
+					"browser" => Request::getBrowser(),
+					"platform" => Request::getPlatform(),
+					"ipaddress" => Request::getIPAddress()
 		));
 
-		$expire = time()+(86400*365*5);
+		$expire = time() + (86400 * 365 * 5);
 		setcookie("cs_auth_id", $session->get("id"), $expire, "/");
 		setcookie("cs_auth_key", $key, $expire, "/");
 	}
@@ -81,4 +76,6 @@ class Session {
 	public function isEditing() {
 		return $_SESSION["cs_edit"] && Permission::can("EditWebsite");
 	}
+
 }
+

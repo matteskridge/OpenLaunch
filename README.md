@@ -2,20 +2,20 @@
 
 OpenLaunch is a revolutionary open source web content management system.
 
+## Installation
+
+### Command Line
+
+The following linux commands will install the CMS:
+
+    wget https://github.com/Eskridge/OpenLaunch/archive/production.zip
+    unzip production.zip
+
 ## Developer Guide
 
 OpenLaunch is a product which is built upon the CreationShare Web Framework. For
 a guide on how to develop applications within OpenLaunch and its framework, view
 the documentation for the CSframework project
-
-## Installation
-
-1. Acquire access to a webserver or localhost server.
-2. Either fork this project on github, or download the source.
-3. Place the source into the root directory of a domain name on the server.
-4. Create the database configuration file: System/Data/database.php (see below).
-5. Create the website configuration file: System/Data/website.php (see below).
-6. Copy the database structure below and paste it as an SQL query into phpMyAmin, SQL Query browser, or similar.
 
 Sample database config file:
 

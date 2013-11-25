@@ -1,10 +1,11 @@
 <?php
 
 class Permission {
+
 	private static $permissions = array();
 
 	public function run($name) {
-		if ($name == "platform.start.6") {
+		if ($name == "platform.start.6" && InstallProcess::installed()) {
 			$this->findPermissions();
 		}
 	}
@@ -20,7 +21,7 @@ class Permission {
 		if (Session::loggedIn()) {
 			foreach (Session::getPerson()->getRoles() as $role) {
 				foreach ($role->get("permissions") as $perm) {
-					if (class_exists($perm)) {
+					if (class_exists($perm) || $perm == "*") {
 						array_push(self::$permissions, $perm);
 					}
 				}
@@ -37,8 +38,11 @@ class Permission {
 	}
 
 	public static function can($name) {
-		if (Settings::get("security.demo")) return true;
-		return in_array($name."Permission", self::$permissions);
+		if (Settings::get("security.demo"))
+			return true;
+		if (in_array("*", self::$permissions))
+			return true;
+		return in_array($name . "Permission", self::$permissions);
 	}
 
 	public function getName() {
@@ -46,5 +50,9 @@ class Permission {
 		return $class;
 	}
 
-	public function meetsRequirements($person) { return true; }
+	public function meetsRequirements($person) {
+		return true;
+	}
+
 }
+
