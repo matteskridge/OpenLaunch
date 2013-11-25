@@ -20,8 +20,10 @@ class StructureControlItem extends ControlItem {
 		} else if ($action == "page" && Permission::can("EditWebsite")) {
 			if ($id == 0) {
 				$edit = "Page";
+				$admin = "";
 			} else {
 				$edit = new Page($id);
+				$admin = $edit->getType()->renderAdmin($edit);
 			}
 
 			if ($mode != "" && $edit instanceof Page) {
@@ -35,13 +37,16 @@ class StructureControlItem extends ControlItem {
 				$form->add(new HiddenField("parent", "Parent", new Page($mode)));
 			$form->controls($edit);
 
-			$content = Component::get("OpenLaunch.StructurePage", array("page" => $edit, "form" => $form->getHtml()));
+			$content = Component::get("OpenLaunch.StructurePage", array("page" => $edit, "form" => $form->getHtml(), "admin" => $admin));
 
 			if ($form->sent() && $form->get("home")) {
 				mysql_query("UPDATE `Page` SET `home`='0' WHERE `id`!='" . Security::prepareForDatabase($id) . "'");
+				return new Redirect("/admin/index/structure/page/" . $id . "/");
 			} else if ($form->sent()) {
 				$id = ($edit instanceof Page) ? $edit->get("id") : mysql_insert_id();
 				return new Redirect("/admin/index/structure/page/" . $id . "/");
+			} else if ($admin instanceof Redirect) {
+				return $admin;
 			}
 		} else if ($action == "design") {
 			if ($id != "") {

@@ -64,8 +64,9 @@ abstract class ControlItem {
 
 	function getHtml($action, $id, $mode) {
 		$content = $this->getContent($action, $id, $mode);
-		if ($content instanceof Redirect)
+		if ($content instanceof Redirect) {
 			return $content;
+		}
 
 		return Component::get("OpenLaunch.ControlPanel", array(
 					"header" => $this->getHeader(),
