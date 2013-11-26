@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>OpenLaunch</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
 		<script type='text/javascript' src='/JavaScript/jquery.color.js'></script>
 		<script type='text/javascript' src='/JavaScript/jquery-ui-1.10.3.custom.min.js'></script>
@@ -19,8 +20,8 @@
 			} else {
 				?>
 				<?php echo Component::get("Framework.Website", $content) ?>
-<?php } ?>
-<?php echo Component::get("OpenLaunch.AdminBottom") ?>
+			<?php } ?>
+			<?php echo Component::get("OpenLaunch.AdminBottom") ?>
 		</div>
 	</body>
 </html>
