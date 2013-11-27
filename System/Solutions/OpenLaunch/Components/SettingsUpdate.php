@@ -1,4 +1,4 @@
-<div class="admin-entry">
+<div class="admin-entry admin-entry-update">
 	<div class="admin-entry-inner">
 		<h2>Update OpenLaunch</h2>
 

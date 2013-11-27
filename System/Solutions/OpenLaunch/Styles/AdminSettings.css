@@ -5,3 +5,11 @@
 	margin-top:30px;
 	margin-bottom:30px;
 }
+
+.admin-entry-update {
+    line-height:1.5em;
+}
+
+.admin-entry-update h2 {
+    font-size:large;
+}

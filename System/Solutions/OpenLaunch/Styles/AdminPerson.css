@@ -178,3 +178,7 @@
 .admin-entry-column-smaller.unassigned h2 {
 	color:#AAAAAA;
 }
+
+div.admin-entry-column-smaller a:link, div.admin-entry-column-smaller a:visited, div.admin-entry-column-smaller a {
+    color:black;
+}

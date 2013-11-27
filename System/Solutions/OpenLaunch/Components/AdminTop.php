@@ -1,5 +1,5 @@
 <?php if (Session::showAdminBar()) { ?>
-	<table class="admin-table" b>
+	<table class="admin-table">
 		<tr>
 			<td class="admin-sidebar">
 				<div class="admin-sidebar-wrap">
