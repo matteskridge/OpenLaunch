@@ -45,5 +45,7 @@ $zip->close();
 recurse_copy("OpenLaunch-$branch", ".");
 
 unlink("$branch.zip");
+unlink("Public/notheme.css");
+unlink("Public/theme.css");
 rrmdir("OpenLaunch-$branch");
 header("Location: index.php");
