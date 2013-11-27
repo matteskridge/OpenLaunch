@@ -17,8 +17,8 @@ class CensorSettingsItem extends SettingsItem {
 		}
 
 		$form = new Form("settings-censor");
-		$form->add(new SelectField("age", "Minimum Age", 0, $options));
-		$form->add(new TextField("disclaimer", "Content Disclaimer"));
+		//$form->add(new SelectField("age", "Minimum Age", 0, $options));
+		//$form->add(new TextField("disclaimer", "Content Disclaimer"));
 		return $form->getHtml();
 	}
 

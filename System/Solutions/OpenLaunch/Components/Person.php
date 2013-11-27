@@ -87,6 +87,25 @@
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
 				<h2>Moderator Tools</h2>
+                <div class="admin-entry-column-smaller"><a href="">
+                    <div class="admin-entry-column-smaller-inner">
+                        <img src="/Images/Flat/IconFinder/Delete.png" />
+                        <h2>Suspend Account</h2>
+                        Prevent user from signing in
+                    </div>
+                    </a></div><div class="admin-entry-column-smaller"><a href="">
+                    <div class="admin-entry-column-smaller-inner">
+                        <img src="/Images/Flat/IconFinder/Warning.png" />
+                        <h2>Issue Warning</h2>
+                        warning user must acknowledge.
+                    </div>
+                    </a></div><div class="admin-entry-column-smaller"><a href="">
+                    <div class="admin-entry-column-smaller-inner">
+                        <img src="/Images/Flat/IconFinder/Remove.png" />
+                        <h2>Ban Account</h2>
+                        <a href="">Permenant account suspension</a>
+                    </div>
+                </a></div>
 			</div>
 		</div>
 		<div class="admin-person-main-item">

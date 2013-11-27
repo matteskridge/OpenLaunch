@@ -11,7 +11,14 @@ class SecuritySettingsItem extends SettingsItem {
 	}
 
 	public function getContent() {
+        $form = new Form("security");
+        $form->controls(new SettingsCategory("security"));
 
+        if ($form->sent()) {
+            return new Redirect("/admin/index/settings/branding/");
+        }
+
+        return $form->getHtml();
 	}
 
 	public function can() {
