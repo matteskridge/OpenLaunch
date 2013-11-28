@@ -326,6 +326,9 @@ class Person extends Model {
 		$this->set("roles", $arr);
 	}
 
+	public function getProfileLink() {
+		return "/profile/".$this->getId()."/";
+	}
 }
 
 class FakePerson extends Person {

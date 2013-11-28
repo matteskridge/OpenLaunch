@@ -23,6 +23,7 @@ class RolesSettingsItem extends SettingsItem {
 
 			$form = new Form("settings-role");
 			$form->add(new TextField("name", "Role Name"));
+			$form->add(new ImportanceField("importance", "Order of Precedence"));
 			$form->add(new PermissionField("permissions", "Permissions", $permissions));
 			$form->add(new CheckboxField("allmembers", "Assign to Everyone"));
 			$form->add(new CheckboxField("allguests", "Assign to Guests"));

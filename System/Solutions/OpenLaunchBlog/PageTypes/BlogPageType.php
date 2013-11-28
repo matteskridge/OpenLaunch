@@ -22,8 +22,6 @@ class BlogPageType extends PageType {
 			$feed = $page->getLink("/feed.rss");
 		}
 
-
-
 		if (Request::isRSS()) {
 			return new AjaxResponse(BlogPost::getFeed("BlogPost", $find, "`id` DESC"));
 		} else {

@@ -31,7 +31,7 @@ input.submitbutton {
 	padding:10px;
 	padding-left:20px;
 	padding-right:20px;
-	background:#FBFBFB;
+	background:#EEEEEE;
 	-webkit-border-radius:7px;
 	-moz-border-radius:7px;
 	border:none;
@@ -43,6 +43,7 @@ input.submitbutton {
 	margin-top:20px;
 	width:200px;
 	cursor:pointer;
+    border:1px solid #DDDDDD;
 }
 
 .checkboxfield > div {
@@ -79,7 +80,7 @@ input.checkboxfield {
 }
 
 input.submitbutton:hover {
-	background:#EEEEEE;
+	background:#E0E0E0;
 }
 
 div.selectbox {

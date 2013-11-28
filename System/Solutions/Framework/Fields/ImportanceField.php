@@ -2,6 +2,7 @@
 
 class ImportanceField extends SelectField {
 	public function init() {
+		if ($this->value == "") $this->Value = "21";
 		$this->options = array(
 			"#01 - Company Owner",
 			"#02 - Board of Directors",
