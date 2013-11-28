@@ -86,5 +86,18 @@ class Platform {
 		return $arr;
 	}
 
+	public static function getSolutionObjects($name) {
+		$arr = array();
+		foreach (Platform::getSolutions($name) as $sol) {
+			foreach ($sol->getFile()->listSubs() as $item) {
+				$item->import();
+				$name = $item->getExtensionlessName();
+				$obj = new $name();
+				array_push($arr, $obj);
+			}
+		}
+		return $arr;
+	}
+
 }
 

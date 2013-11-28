@@ -8,7 +8,14 @@ class DeveloperSettingsItem extends SettingsItem {
     public function getContent() {
         if (isset($_GET["recache"]) && $_GET["recache"] == session_id()) {
             ThemeProcess::resetStyleCache();
-        }
+			return new Redirect("/".Request::getUrl());
+        } else if (isset($_GET["cache"]) && $_GET["cache"] == session_id()) {
+			Settings::set("website.nocache", "false");
+			return new Redirect("/".Request::getUrl());
+		} else if (isset($_GET["nocache"]) && $_GET["nocache"] == session_id()) {
+			Settings::set("website.nocache", "true");
+			return new Redirect("/".Request::getUrl());
+		}
         return Component::get("OpenLaunch.SettingsDeveloper");
     }
 

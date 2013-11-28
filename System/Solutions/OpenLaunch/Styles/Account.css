@@ -1,0 +1,32 @@
+.account-item {
+    padding:20px;
+    border-bottom:1px solid #CCCCCC;
+}
+
+.account-item h2 {
+    font-size:large;
+    margin:0px;
+    margin-bottom:15px;
+}
+
+.account-menu {
+
+}
+
+.account-menu-item {
+    display:inline-block;
+    width:350px;
+    padding:10px;
+    font-size:large;
+}
+
+.account-item img {
+    float:right;
+    margin-left:15px;
+    width:128px;
+    height:128px;
+}
+
+.account-main {
+    padding:30px;
+}
