@@ -1,0 +1,27 @@
+
+.wiki-category {
+    width:33%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.wiki-category-inner {
+    padding:20px;
+}
+
+.wiki-category h2 {
+    font-size:large;
+    border-bottom:1px solid #888888;
+    padding-bottom:5px;
+    margin:0px;
+    margin-bottom:10px;
+}
+
+.wiki-back {
+    float:right;
+    padding:10px;
+}
+
+.wiki-article h1 {
+    margin-bottom:15px;
+}

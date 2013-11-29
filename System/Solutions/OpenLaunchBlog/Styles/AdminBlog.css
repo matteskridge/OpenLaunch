@@ -56,10 +56,10 @@
 	margin-top:3px;
 }
 
-.blog-center .mce-tinymce.mce-container.mce-panel {
+.admin-full-editor .mce-tinymce.mce-container.mce-panel {
 	border:none;
 }
 
-.admin-page-content .mce-tinymce.mce-container.mce-panel {
+.admin-full-editor .mce-tinymce.mce-container.mce-panel {
 	border:none;
 }

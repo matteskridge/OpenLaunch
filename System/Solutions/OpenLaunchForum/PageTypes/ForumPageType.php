@@ -26,7 +26,7 @@ class ForumPageType extends PageType {
 	}
 
 	private function index($page) {
-		$categories = ForumCategory::findAll("ForumCategory", array(), "`order`, `id`");
+		$categories = ForumCategory::findAll("ForumCategory", array("page" => $page), "`order`, `id`");
 		return Component::get("OpenLaunchForum.Index", array(
 			"page" => $page,
 			"categories" => $categories
@@ -118,6 +118,7 @@ class ForumPageType extends PageType {
 
 		$form = new Form("admin-category");
 		$form->add(new TextField("name", "Category Name", ""));
+		$form->add(new HiddenField("page", "Page", $page));
 		$form->controls($controls);
 		if ($form->sent()) return new Redirect("/admin/index/structure/page/".$page->getId());
 		return "<div class='admin-entry'><div class='admin-entry-inner'>".$form->getHtml()."</div></div>";

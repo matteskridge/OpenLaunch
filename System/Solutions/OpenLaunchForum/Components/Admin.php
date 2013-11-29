@@ -1,5 +1,5 @@
 <div class="admin-entries">
-	<?php foreach (ForumCategory::findAll("ForumCategory", array(), "`order`,`id`") as $category) { ?>
+	<?php foreach (ForumCategory::findAll("ForumCategory", array("page" => $page), "`order`,`id`") as $category) { ?>
 	<div class="admin-entries-header">
 		<div class="admin-entries-header-inner">
 			<div class='admin-entries-header-button'>

@@ -22,7 +22,7 @@ $(document).ready(function() {
 				<?php } ?>
 			</select>
 		</div>
-	</div><div class='blog-compose-main'>
+	</div><div class='blog-compose-main admin-full-editor'>
 		<?php echo Component::get("OpenLaunch.RichTextEditor", array("id" => "blogpost-text", "content" => Parser::parse($content))) ?>
 	</div>
 </form>

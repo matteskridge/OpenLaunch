@@ -1,11 +1,12 @@
 <?php
 
-class ForumCategory extends Model {
+class WikiPage extends Model {
 	public function getStructure() {
 		return array(
 			"name" => "string",
 			"order" => "integer",
-			"page" => "Page"
+			"category" => "WikiCategory",
+			"content" => "string+"
 		);
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-class ForumCategory extends Model {
+class WikiCategory extends Model {
 	public function getStructure() {
 		return array(
 			"name" => "string",
