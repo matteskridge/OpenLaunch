@@ -1,4 +1,18 @@
 
+@font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://themes.googleusercontent.com/static/fonts/opensanscondensed/v6/gk5FxslNkTTHtojXrkp-xGAzD5WKQVN4wSyA0MYYi4rr7w4p9aSvGirXi6XmeXNA.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url(http://themes.googleusercontent.com/static/fonts/opensanscondensed/v6/gk5FxslNkTTHtojXrkp-xM6Eyu0BCqAfob_z3hhzRFzr7w4p9aSvGirXi6XmeXNA.woff) format('woff');
+}
+
 .forum-category, .forum-topics {
     border:1px solid #DDDDDD;
     border-bottom:4px solid #DDDDDD;
@@ -46,7 +60,8 @@
     color:#333333;
     padding:10px;
     font-size:x-large;
-    font-family:Impact;
+    font-family:Open Sans Condensed;
+    font-weight:700;
 }
 
 .forum-header a {

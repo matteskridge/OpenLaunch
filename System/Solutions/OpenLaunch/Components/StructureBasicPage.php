@@ -7,6 +7,6 @@ $(document).ready(function() {
 
 <form action="" method="post">
 	<div class="admin-page-type-basic admin-full-editor">
-		<?php echo Component::get("OpenLaunch.RichTextEditor", array("id" => $id, "content" => $page->get("html"))) ?>
+		<?php echo Component::get("OpenLaunch.RichTextEditor", array("id" => $id, "value" => $page->get("html"))) ?>
 	</div>
 </form>

@@ -2,7 +2,7 @@
 
 class WikiPageType extends PageType {
 	public function getIcon() {
-
+		return "/Images/Flat/IconFinder/Help.png";
 	}
 
 	public function getName() {
@@ -42,6 +42,8 @@ class WikiPageType extends PageType {
 			return $this->adminPage($page);
 		} else if (isset($_GET["category"])) {
 			return $this->adminCategory($page);
+		} else if (isset($_GET["mainpage"])) {
+			return $this->adminMainPage($page);
 		} else {
 			return $this->adminIndex($page);
 		}
@@ -86,6 +88,15 @@ class WikiPageType extends PageType {
 		$form->add(new TextField("name", "Category Name", ""));
 		$form->add(new HiddenField("page", "Page", $page));
 		$form->controls($controls);
+		if ($form->sent()) return new Redirect("/admin/index/structure/page/".$page->getId()."/");
+		return "<div class='admin-entry'><div class='admin-entry-inner'>".$form->getHtml()."</div></div>";
+	}
+
+	private function adminMainPage($page) {
+		$form = new Form("mainpage");
+		$form->add(new TextEditor("html", "HTML", ""));
+		$form->controls($page);
+		if ($form->sent()) return new Redirect("/admin/index/structure/page/".$page->getId()."/");
 		return "<div class='admin-entry'><div class='admin-entry-inner'>".$form->getHtml()."</div></div>";
 	}
 }

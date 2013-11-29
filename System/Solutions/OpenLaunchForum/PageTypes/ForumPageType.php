@@ -7,7 +7,7 @@ class ForumPageType extends PageType {
 	}
 
 	public function getIcon() {
-		return "";
+		return "/Images/Flat/IconFinder/Discussion.png";
 	}
 
 	public function render($page) {

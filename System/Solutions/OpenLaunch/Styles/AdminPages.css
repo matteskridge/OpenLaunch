@@ -108,3 +108,19 @@
 .admin-entries-header-button {
 	float:right;
 }
+
+.admin-select-page-type h2 {
+    font-size:large;
+
+}
+
+.admin-select-page-type .admin-entry {
+    height:100px;
+}
+
+.admin-select-page-type img {
+    width:80px;
+    height:80px;
+    float:left;
+    margin-right:25px;
+}

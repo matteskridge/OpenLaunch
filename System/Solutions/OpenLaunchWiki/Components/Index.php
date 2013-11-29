@@ -1,4 +1,12 @@
 <div class="wiki">
+	<div class="wiki-mainpage">
+		<div class="wiki-mainpage-inner">
+			<h1><?php echo $page->get("name") ?></h1>
+			<div class="wiki-mainpage-text">
+				<?php echo Parser::parse($page->get("html")) ?>
+			</div>
+		</div>
+	</div>
 	<div class="wiki-categories">
 		<?php foreach ($categories as $category) { ?>
 			<div class="wiki-category">

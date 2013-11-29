@@ -198,3 +198,19 @@
 	margin-top:20px;
 	margin-bottom:20px;
 }
+
+.admin-entry-inner-button {
+    float:right;
+    background:#EEEEEE;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    border:1px solid #CCCCCC;
+    border-bottom-width:2px;
+    padding:10px;
+    margin-top:10px;
+}
+
+.admin-entry-inner-button:active {
+    border-bottom-width:1px;
+    border-top-width:2px;
+}
