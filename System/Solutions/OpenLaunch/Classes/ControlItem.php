@@ -17,7 +17,7 @@ abstract class ControlItem {
 	}
 
 	function getLink() {
-		return "/admin/index/" . $this->getId() . "/";
+		return "admin/index/" . $this->getId() . "/";
 	}
 
 	function getHeader() {
