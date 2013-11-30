@@ -8,9 +8,7 @@ class AttachmentField extends InputField {
 	public function getValue() {
 		$path = "";
 
-		if ($_FILES[$this->id]["error"] > 0) {
-			return false;
-		} else {
+		if (file_exists($_FILES['myfile']['tmp_name']) && $_FILES[$this->id]["error"] == 0) {
 			$dir = new File("System/Data/Uploads/$this->id-".time()."/");
 			$dir->makeDirectories();
 
@@ -31,6 +29,8 @@ class AttachmentField extends InputField {
 			$privkey = $dir->getSub("private.txt");
 			$privkey->write(Random::getText(256));
 			return $dir->getPath();
+		} else {
+			return $this->value;
 		}
 
 		return $path;
