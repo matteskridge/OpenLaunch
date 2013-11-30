@@ -239,4 +239,18 @@ class Request {
 	public static function isRSS() {
 		return self::getType() == "rss";
 	}
+
+	public static function getProtocol() {
+		return ($_SERVER["HTTPS"])?"https":"http";
+	}
+
+	public static function getBase() {
+		if (Settings::get("website.link") == "") {
+			return false;
+		}
+
+		$link = Settings::get("website.link");
+		if (substr($link, 0, 1) == "/") $link = substr($link, 1);
+		return Request::getProtocol()."://".Request::getDomain()."/".$link;
+	}
 }

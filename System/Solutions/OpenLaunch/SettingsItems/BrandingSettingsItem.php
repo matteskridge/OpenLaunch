@@ -15,6 +15,7 @@ class BrandingSettingsItem extends SettingsItem {
 		$form->add(new TextField("name", "Website Name"));
 		$form->add(new TextField("description", "Website Description"));
 		$form->add(new TextField("organization", "Organization Name"));
+		$form->add(new TextField("link", "Install Directory"));
 		$form->controls(new SettingsCategory("website"));
 
 		if ($form->sent()) {

@@ -79,6 +79,12 @@
 									<input type="text" name="database-name" value="openlaunch" />
 								</div>
 							</div>
+							<div class="installer-main-form-item">
+								<div class="installer-main-form-item-inner">
+									<label>Install Directory</label>
+									<input type="text" value="<?php echo Request::getUrl() ?>" name="website-link" />
+								</div>
+							</div>
 							<div class="installer-submit">
 								<input type="submit" value="Install Now" />
 							</div>

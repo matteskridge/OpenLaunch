@@ -43,7 +43,8 @@ class InstallProcess {
 					Settings::save("website", array(
 						"name" => $_POST["website-name"],
 						"description" => $_POST["website-description"],
-						"theme" => "OpenLaunch-Open-Blue"
+						"theme" => "OpenLaunch-Open-Blue",
+						"link" => $_POST["website-link"]
 					));
 
 					Settings::save("database", array(
