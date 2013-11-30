@@ -53,7 +53,7 @@ class StructureControlItem extends ControlItem {
 			return Component::get("OpenLaunch.StructurePageType");
 		} else if ($id == "create") {
 			Page::create("Page", array(
-				"template" => ucfirst($mode)."PageType",
+				"template" => $mode,
 				"name" => $_GET["name"],
 				"parent" => "0"
 			));

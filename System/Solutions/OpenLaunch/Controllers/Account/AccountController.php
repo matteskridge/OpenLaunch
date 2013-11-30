@@ -26,7 +26,38 @@ class AccountController extends AppController {
 	}
 
 	public function access() {
+		$signup = new Form("signup");
+		$signup->add(new TextField("email", "Email Address", ""));
+		$signup->add(new TextField("nickname", "You Name", ""));
+		$signup->add(new PasswordField("password", "Password", ""));
+		$signup->add(new PasswordField("confirm", "Confirm", ""));
+		$signup->add(new CaptchaField("captcha", "CAPTCHA", ""));
+		$this->signup = $signup->getHtml();
 
+		if ($signup->sent() && $signup->get("password") == $signup->get("confirm")) {
+			$check = new Person(array("email" => $signup->get("email")));
+			if (!$check->exists()) {
+				$person = Person::create("Person", $signup->getData());
+				$person->setPassword($signup->get("password"));
+				Session::login($person);
+				return new Redirect("/");
+			} else {
+				Response::flash("An account already exists with this email address.");
+			}
+		}
+
+		$signin = new Form("signin");
+		$signin->add(new TextField("email", "Email Address", ""));
+		$signin->add(new PasswordField("password", "Password", ""));
+		$this->signin = $signin->getHtml();
+
+		if ($signin->sent()) {
+			$person = new Person(array("email" => $signin->get("email")));
+			if ($person->get("openid") == "" && $person->checkPassword($signin->get("password"))) {
+				Session::login($person);
+			}
+			return new Redirect("/");
+		}
 	}
 
 	public function openid($who = "google") {

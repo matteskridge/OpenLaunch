@@ -8,6 +8,7 @@ class CaptchaField extends InputField {
 	}
 
 	public function isValid($data = "", $requirement = "") {
+		require_once("System/Libraries/SecureImage/securimage.php");
 		$securimage = new Securimage();
 		return $securimage->check($_POST[$this->id]);
 	}

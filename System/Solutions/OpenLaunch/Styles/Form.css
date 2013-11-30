@@ -93,3 +93,7 @@ div.selectbox {
 div.selectbox select {
 
 }
+
+.formitem input[type=file] {
+    width:75%;
+}

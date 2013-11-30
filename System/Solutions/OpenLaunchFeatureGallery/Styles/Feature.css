@@ -1,0 +1,21 @@
+
+.featuregallery-category h2 {
+    font-size:x-large;
+    padding:20px;
+    padding-bottom:0px;
+}
+
+.featuregallery-item {
+    min-height:200px;
+    border-bottom:2px solid #DDDDDD;
+    padding:20px;
+}
+
+.featuregallery-item-inner {
+    width:650px;
+}
+
+.featuregallery-item img {
+    float:right;
+    border:1px solid #AAAAAA
+}

@@ -30,3 +30,27 @@
 .account-main {
     padding:30px;
 }
+
+.account-login .account-login-inner h2 {
+    font-size:x-large;
+    padding-bottom:7px;
+    margin:0px;
+    margin-bottom:25px;
+    border-bottom:1px solid #CCCCCC
+}
+
+.account-login-signin, .account-login-signup {
+    width:45%;
+    display:inline-block;
+    vertical-align:top;
+    padding:20px;
+    padding-top:0px;
+}
+
+.account-login-signin input.textfield, .account-login-signup input.textfield {
+    width:65%;
+}
+
+.account-login-signin label, .account-login-signup label {
+    width:30%;
+}

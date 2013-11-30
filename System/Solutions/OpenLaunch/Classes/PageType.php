@@ -9,7 +9,7 @@ abstract class PageType {
 	public function getDescription() { return "No Description."; }
 
 	public function getId() {
-		return strtolower(str_replace("PageType", "", get_class($this)));
+		return get_class($this);
 	}
 
 	public static function getTypes() {
