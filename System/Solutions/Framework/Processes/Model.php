@@ -184,7 +184,7 @@ class Model {
 
 	}
 
-	private static $stringTypes = array("string", "string+");
+	private static $stringTypes = array("string", "string+", "attachment");
 	private static $numberTypes = array("number");
 	private static $intTypes = array("integer");
 	private static $booleanTypes = array("boolean");
@@ -205,9 +205,11 @@ class Model {
 		$struct = $this->getStructure();
 
 		if (array_key_exists($key, $struct) || $key == "id") {
-			$type = (key_exists($key, $struct)) ? $struct[$key] : "";
+			$type = (array_key_exists($key, $struct)) ? $struct[$key] : "";
 			if ($key == "id") {
 				return $this->row->get($key);
+			} else if ($type == "attachment") {
+				return new Attachment($this->row->get($key));
 			} else if (in_array($type, self::$stringTypes)) {
 				return $this->row->get($key);
 			} else if (in_array($type, self::$numberTypes)) {

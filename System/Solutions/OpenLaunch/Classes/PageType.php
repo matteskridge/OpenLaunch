@@ -6,7 +6,12 @@ abstract class PageType {
     public abstract function getIcon();
     public abstract function render($page);
     public abstract function renderAdmin($page);
-    
+	public function getDescription() { return "No Description."; }
+
+	public function getId() {
+		return get_class($this);
+	}
+
 	public static function getTypes() {
 		$arr = array();
 		

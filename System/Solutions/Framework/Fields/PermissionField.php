@@ -2,7 +2,7 @@
 
 class PermissionField extends ListField {
 	public function init() {
-		$options = array();
+		$options = array("*" => "Full Access to EVERYTHING");
 
 		foreach (Platform::getSolutions("Permissions") as $solution) {
 			foreach ($solution->getFile()->listSubs() as $file) {

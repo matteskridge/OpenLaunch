@@ -33,6 +33,6 @@ class Comment extends Model {
 		}
 
 		$comments = Comment::findAll("Comment", array("modeltype" => get_class($model), "model" => $model));
-		return Component::get("CreationShare.Comments", array("model" => $model, "comments" => $comments, "form" => $form->getHtml(), "locked" => $locked));
+		return Component::get("OpenLaunch.Comments", array("model" => $model, "comments" => $comments, "form" => $form->getHtml(), "locked" => $locked));
 	}
 }

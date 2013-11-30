@@ -46,7 +46,7 @@
 <div class="admin-entries">
 	<div class="admin-entries-top">
 		<div class="admin-entries-top-inner">
-			<div class='admin-entries-button'><a href="/admin/index/structure/page/0/">Create Page</a></div>
+			<div class='admin-entries-button'><a href="/admin/index/structure/index/select/">Create Page</a></div>
 			<h2>Page Center</h2>
 		</div>
 	</div>

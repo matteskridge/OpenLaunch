@@ -15,9 +15,9 @@ $(document).ready(function() {
 		<div class="admin-main">
 			<div class="admin-main-inner">
 
-					<div class="admin-compose">
-						<?php echo Component::get("OpenLaunch.RichTextEditor", array("id" => "compose-content")) ?>
-					</div>
+				<div class="admin-compose admin-full-editor">
+					<?php echo Component::get("OpenLaunch.RichTextEditor", array("id" => "compose-content")) ?>
+				</div>
 
 			</div>
 		</div>

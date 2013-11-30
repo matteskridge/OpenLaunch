@@ -37,7 +37,13 @@ class CommunityControlItem extends ControlItem {
 		} else if ($action == "communications") {
 			$communications = Communication::findAll("Communication", array(), "`id` DESC");
 			$content = Component::get("OpenLaunch.Communications", array("communications" => $communications));
-		}
+		} else if ($action == "statistics") {
+            $content = Component::get("OpenLaunch.Statistics");
+        } else if ($action == "comments") {
+            $content = Component::get("OpenLaunch.CommunityComments");
+        } else if ($action == "admins") {
+            $content = Component::get("OpenLaunch.CommunityAdmins");
+        }
 		return Component::get("OpenLaunch.Community", $content);
 	}
 

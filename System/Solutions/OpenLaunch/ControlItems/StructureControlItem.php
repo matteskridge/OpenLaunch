@@ -49,6 +49,15 @@ class StructureControlItem extends ControlItem {
 			if ($page->exists()) {
 				$page->set("home", "1");
 			}
+		} else if ($id == "select") {
+			return Component::get("OpenLaunch.StructurePageType");
+		} else if ($id == "create") {
+			Page::create("Page", array(
+				"template" => $mode,
+				"name" => $_GET["name"],
+				"parent" => "0"
+			));
+			return new Redirect("/admin/index/structure/page/".mysql_insert_id()."/");
 		}
 
 		return Component::get("OpenLaunch.StructurePages", array(

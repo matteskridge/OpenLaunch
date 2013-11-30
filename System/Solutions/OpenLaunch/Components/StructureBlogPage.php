@@ -32,8 +32,10 @@
 					</div>
 				</div>
 			<?php } if (count($categories) == 0) { ?>
-				<div class='page-manager-category page-manager-category-notice'>
-					You haven't defined any categories. <a href='/admin/index/structure/page/<?php echo $page->get("id") ?>/?create'>Create a Category</a>
+				<div class='admin-entry'>
+					<div class="admin-entry-inner">
+						You haven't defined any categories. <a href='/admin/index/structure/page/<?php echo $page->get("id") ?>/?create'>Create a Category</a>
+					</div>
 				</div>
 			<?php } ?>
 

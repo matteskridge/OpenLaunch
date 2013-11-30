@@ -24,5 +24,5 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div id="<?php echo $id ?>" style="height:300px;"><?php echo html_entity_decode($content) ?></div>
+<div id="<?php echo $id ?>" style="height:300px;"><?php echo html_entity_decode($value) ?></div>
 <textarea style="display:none;" id="<?php echo $id ?>-final" name="<?php echo $id ?>"></textarea>

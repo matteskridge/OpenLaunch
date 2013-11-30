@@ -56,6 +56,7 @@ class OpenID {
 				}
 
 				$data["confirmed"] = "1";
+				$data["openid"] = $openid->identity;
 				if ($data["email"] == "") {
 					return new Redirect("/");
 				}

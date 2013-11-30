@@ -1,0 +1,55 @@
+
+.profile-top {
+    background:#EEEEEE;
+    border-bottom:2px solid #DDDDDD;
+    padding:20px;
+    line-height:1.5em;
+}
+
+.profile-top-avatar {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.profile-top-details {
+    display:inline-block;
+    margin-left:20px;
+    vertical-align:middle;
+}
+
+.profile-top-name {
+    font-size:x-large;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.profile-top-title {
+    font-size:large;
+}
+
+.profile-entry {
+    padding:20px;
+    border-bottom:1px solid #AAAAAA;
+}
+
+.profile-entry h2 {
+    margin:0px;
+    margin-bottom:10px;
+    font-size:large;
+}
+
+.profile-entry-text {
+    line-height:1.5em;
+}
+
+.profile-entry-text h1 {
+     font-size:large;
+     margin:0px;
+     margin-bottom:5px;
+ }
+
+.profile-entry-text h2 {
+    font-size:medium;
+    margin:0px;
+    margin-bottom:5px;
+}
