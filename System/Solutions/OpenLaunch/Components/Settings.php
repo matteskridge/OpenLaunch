@@ -6,9 +6,9 @@
 	</div>
 	<div class='admin-entries-menu'>
 		<div class='admin-entries-menu-inner'>
-			<div class='admin-entries-menu-item'><a href='/admin/index/settings/'>Dashboard</a></div>
+			<div class='admin-entries-menu-item'><a href='admin/index/settings/'>Dashboard</a></div>
 			<?php foreach (SettingsItem::listAll() as $item) { ?>
-			<div class='admin-entries-menu-item'><a href='/admin/index/settings/<?php echo $item->getId() ?>/'><?php echo $item->getName() ?></a></div>
+			<div class='admin-entries-menu-item'><a href='admin/index/settings/<?php echo $item->getId() ?>/'><?php echo $item->getName() ?></a></div>
 			<?php } ?>
 		</div>
 	</div>

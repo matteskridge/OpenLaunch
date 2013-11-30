@@ -6,13 +6,13 @@
 					Branding
 				</div>
 				<div class="admin-settings-category-item">
-					<a href="/admin/index/settings/branding/website/">Website Name</a>
+					<a href="admin/index/settings/branding/website/">Website Name</a>
 				</div>
 				<div class="admin-settings-category-item">
-					<a href="/admin/index/settings/branding/logo/">Website Logo</a>
+					<a href="admin/index/settings/branding/logo/">Website Logo</a>
 				</div>
 				<div class="admin-settings-category-item">
-					<a href="/admin/index/settings/branding/organization/">Website Organization</a>
+					<a href="admin/index/settings/branding/organization/">Website Organization</a>
 				</div>
 			</div>
 		</div>

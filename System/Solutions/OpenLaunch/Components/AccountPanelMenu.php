@@ -5,7 +5,7 @@
 		<div class="account-menu">
 			<?php foreach ($panel->getMenu() as $key => $item) { ?>
 				<div class="account-menu-item">
-					<a href="/account/panel/<?php echo $panel->getId() ?>/<?php echo $key ?>/"><?php echo $item ?></a>
+					<a href="account/panel/<?php echo $panel->getId() ?>/<?php echo $key ?>/"><?php echo $item ?></a>
 				</div>
 			<?php } ?>
 		</div>

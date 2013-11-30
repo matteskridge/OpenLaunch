@@ -9,11 +9,11 @@ $(document).ready(function() {
 	<div class="admin-entries-top">
 		<div class="admin-entries-top-inner">
 			<?php if ($id == "") { ?>
-			<div class='admin-entries-button'><a href="/admin/index/structure/posts/0/">Compose</a></div>
+			<div class='admin-entries-button'><a href="admin/index/structure/posts/0/">Compose</a></div>
 			<?php } else { ?>
 			<div class='admin-entries-button admin-blog-publish'>Publish Now</div>
 			<?php } ?>
-			<h2>Blog Center<?php if ($id != "") { ?> <a href="/admin/index/structure/posts/">back</a><?php } ?></h2>
+			<h2>Blog Center<?php if ($id != "") { ?> <a href="admin/index/structure/posts/">back</a><?php } ?></h2>
 		</div>
 	</div>
 	<div class="blog-center">
