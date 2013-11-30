@@ -54,3 +54,9 @@
 .account-login-signin label, .account-login-signup label {
     width:30%;
 }
+
+.account-login div.captcha-wrap {
+    width:65%;
+    display:inline-block;
+    text-align:left;
+}

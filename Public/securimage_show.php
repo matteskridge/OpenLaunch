@@ -47,7 +47,7 @@
 // Remove the "//" from the following line for debugging problems
 // error_reporting(E_ALL); ini_set('display_errors', 1);
 
-require_once '../System/Libraries/securimage.php';
+require_once '../System/Libraries/SecureImage/securimage.php';
 
 $img = new Securimage();
 

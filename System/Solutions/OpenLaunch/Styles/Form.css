@@ -97,3 +97,8 @@ div.selectbox select {
 .formitem input[type=file] {
     width:75%;
 }
+
+.captcha-wrap {
+    display:inline-block;
+    width:75%;
+}
