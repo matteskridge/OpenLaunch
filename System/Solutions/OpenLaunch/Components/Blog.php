@@ -1,7 +1,7 @@
 <?php if (count($categories) > 0) { ?>
 	<div class="page-toolbar">
 		<div class="page-toolbar-icons">
-			<div><a href="<?php echo $feed ?>" target="_blank"><img src="/Images/Logos/ThirdParty/RSS.png" /></a></div>
+			<div><a href="<?php echo $feed ?>" target="_blank"><img src="Images/Logos/ThirdParty/RSS.png" /></a></div>
 		</div>
 		<div class="page-toolbar-item"><a href="<?php echo $page->getLink() ?>">All Categories</a></div>
 		<?php foreach ($categories as $item) { ?>

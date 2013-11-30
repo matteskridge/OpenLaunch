@@ -3,7 +3,7 @@
 		<title>OpenLaunch Installer</title>
 		<base href="http://<?php echo Request::getDomain() ?>/<?php echo Request::getUrl() ?>" />
 		<link rel="stylesheet" type="text/css" href="/Styles/Installer.css" />
-		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
+		<script type="text/javascript" src="JavaScript/jquery-1.9.0.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(".installer-provider-google").click(function() {
@@ -22,7 +22,7 @@
 		<div class="installer">
 			<div class="installer-header">
 				<div class="installer-header-inner">
-					<img src="/Images/Logos/OpenLaunch/White.png" />
+					<img src="Images/Logos/OpenLaunch/White.png" />
 				</div>
 			</div>
 			<?php if ($error != "") { ?>

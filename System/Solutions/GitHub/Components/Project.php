@@ -3,21 +3,21 @@
 		<div class="github-project-top">
 			<div class="github-project-top-item">
 				<a href="https://github.com/<?php echo $project->get("githubuser") ?>/<?php echo $project->get("githubproject") ?>/blob/master/LICENSE" target="_blank">
-					<img src="/Images/Flat/IconFinder/Refresh.png" />
+					<img src="Images/Flat/IconFinder/Refresh.png" />
 					<h2>Code License</h2>
 					View the GitHub license
 				</a>
 			</div>
 			<div class="github-project-top-item">
 				<a href="https://github.com/<?php echo $project->get("githubuser") ?>/<?php echo $project->get("githubproject") ?>/blob/master/README.md" target="_blank">
-					<img src="/Images/Flat/IconFinder/Question.png" />
+					<img src="Images/Flat/IconFinder/Question.png" />
 					<h2>Documentation</h2>
 					View the GitHub readme
 				</a>
 			</div>
 			<div class="github-project-top-item">
 				<a href="http://github.com/<?php echo $project->get("githubuser") ?>/<?php echo $project->get("githubproject") ?>/archive/<?php echo $project->get("production") ?>.zip" target="_blank">
-					<img src="/Images/Flat/IconFinder/Play.png" />
+					<img src="Images/Flat/IconFinder/Play.png" />
 					<h2>Download Now</h2>
 					Download a Zip file
 				</a>

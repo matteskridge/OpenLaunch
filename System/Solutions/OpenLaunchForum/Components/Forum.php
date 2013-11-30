@@ -26,15 +26,15 @@
 						<div class="forum-topics-topic-name">
 
 							<?php if ($topic->get("closed")) { ?>
-							<img src="/Images/Black/IconFinder/Lock.png" />
+							<img src="Images/Black/IconFinder/Lock.png" />
 							<?php } ?>
 
 							<?php if ($topic->get("pinned")) { ?>
-								<img src="/Images/Black/IconFinder/Pin.png" />
+								<img src="Images/Black/IconFinder/Pin.png" />
 							<?php } ?>
 
 							<?php if ($topic->get("hidden")) { ?>
-								<img src="/Images/Black/IconFinder/Delete.png" />
+								<img src="Images/Black/IconFinder/Delete.png" />
 							<?php } ?>
 
 							<?php echo $topic->get("name") ?>

@@ -55,9 +55,9 @@
 			<div class="admin-entry">
 				<div class="admin-entry-inner" data-page='<?php echo $page->getId() ?>'>
 					<div class="admin-entry-options">
-						<img src="/Images/Black/IconFinder/Move.png" class='page-sort' style='cursor:move;' />
-						<?php if (!$page->get("home")) { ?><img src="/Images/Black/IconFinder/Home.png" class='page-home' style='cursor:pointer;' /><?php } ?>
-						<img src="/Images/Black/IconFinder/Delete.png" class='page-delete' style='cursor:pointer;' />
+						<img src="Images/Black/IconFinder/Move.png" class='page-sort' style='cursor:move;' />
+						<?php if (!$page->get("home")) { ?><img src="Images/Black/IconFinder/Home.png" class='page-home' style='cursor:pointer;' /><?php } ?>
+						<img src="Images/Black/IconFinder/Delete.png" class='page-delete' style='cursor:pointer;' />
 					</div>
 					<div class='admin-entry-inner-main' style='padding-left:<?php echo $page->indention() ?>px;'>
 						<a href='admin/index/structure/page/<?php echo $page->getId() ?>/'><?php echo $page->get("name") ?></a>
