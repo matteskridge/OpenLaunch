@@ -6,7 +6,7 @@
 				<?php echo $person->getAvatar(188) ?>
             </div>
             <div class="admin-person-header-text">
-                <h1><?php echo $person->getName() ?> <a href='/admin/index/community/'>back</a></h1>
+                <h1><?php echo $person->getName() ?> <a href='admin/index/community/'>back</a></h1>
             </div>
             <div class="admin-person-header-options">
                 <a href=""><div class="admin-person-header-option admin-person-header-option-dashboard">

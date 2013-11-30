@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>OpenLaunch</title>
+		<base href="<?php echo Request::getBase() ?>">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
 		<script type='text/javascript' src='/JavaScript/jquery.color.js'></script>

@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>OpenLaunch Installer</title>
+		<base href="http://<?php echo Request::getDomain() ?>/<?php echo Request::getUrl() ?>" />
 		<link rel="stylesheet" type="text/css" href="/Styles/Installer.css" />
 		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
 		<script type="text/javascript">
@@ -77,6 +78,12 @@
 								<div class="installer-main-form-item-inner">
 									<label>MySQL Database</label>
 									<input type="text" name="database-name" value="openlaunch" />
+								</div>
+							</div>
+							<div class="installer-main-form-item">
+								<div class="installer-main-form-item-inner">
+									<label>Install Directory</label>
+									<input type="text" value="<?php echo Request::getUrl() ?>" name="website-link" />
 								</div>
 							</div>
 							<div class="installer-submit">

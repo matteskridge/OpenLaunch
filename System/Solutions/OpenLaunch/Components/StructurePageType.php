@@ -9,7 +9,7 @@
 <div class="admin-entries">
 	<div class="admin-entries-top">
 		<div class="admin-entries-top-inner">
-			<div class='admin-entries-button'><a href="/admin/index/structure/">Back</a></div>
+			<div class='admin-entries-button'><a href="admin/index/structure/">Back</a></div>
 			<h2>Page Center : Select Page Type</h2>
 		</div>
 	</div>

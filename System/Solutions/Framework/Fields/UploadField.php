@@ -63,14 +63,14 @@ class Attachments {
 
             if ($canEdit) {
                 $drop = "<span style='float:right;margin-left:10px;'>";
-                $drop .= "<a href='/file/delete/$url/?key=$writekey'>x</a>";
+                $drop .= "<a href='file/delete/$url/?key=$writekey'>x</a>";
                 $drop .= "</span>";
             } else {
                 $drop = "";
             }
 
             $text .= "<div class='attachment-entry'>$drop";
-            $text .= "<a href='/file/view/$url/?key=$readkey'>$fname</a>";
+            $text .= "<a href='file/view/$url/?key=$readkey'>$fname</a>";
             $text .= "</div>";
         }
 

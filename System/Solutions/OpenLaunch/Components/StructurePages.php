@@ -46,7 +46,7 @@
 <div class="admin-entries">
 	<div class="admin-entries-top">
 		<div class="admin-entries-top-inner">
-			<div class='admin-entries-button'><a href="/admin/index/structure/index/select/">Create Page</a></div>
+			<div class='admin-entries-button'><a href="admin/index/structure/index/select/">Create Page</a></div>
 			<h2>Page Center</h2>
 		</div>
 	</div>
@@ -60,7 +60,7 @@
 						<img src="/Images/Black/IconFinder/Delete.png" class='page-delete' style='cursor:pointer;' />
 					</div>
 					<div class='admin-entry-inner-main' style='padding-left:<?php echo $page->indention() ?>px;'>
-						<a href='/admin/index/structure/page/<?php echo $page->getId() ?>/'><?php echo $page->get("name") ?></a>
+						<a href='admin/index/structure/page/<?php echo $page->getId() ?>/'><?php echo $page->get("name") ?></a>
 					</div>
 				</div>
 			</div>

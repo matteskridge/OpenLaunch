@@ -8,7 +8,7 @@ $sidebar = 2;
 	<div class="page-menu">
 		<?php foreach (Page::getMenuItems($menu, $page) as $item) { ?>
 		<div class="page-menu-item<?php if ($page->getId() == $item->getId()) echo " selected"; ?>">
-			<a href="/page/<?php echo $item->getId() ?>/"><?php echo $item->get("name") ?></a>
+			<a href="page/<?php echo $item->getId() ?>/"><?php echo $item->get("name") ?></a>
 		</div>
 		<?php } ?>
 	</div>
@@ -20,7 +20,7 @@ $sidebar = 2;
 			<td class="page-sidebar">
 				<?php foreach (Page::getMenuItems($sidebar, $page) as $item) { ?>
 				<div class="page-sidebar-item<?php if ($page->getId() == $item->getId()) echo " selected"; ?>">
-					<a href="/page/<?php echo $item->getId() ?>/"><?php echo $item->get("name") ?></a>
+					<a href="page/<?php echo $item->getId() ?>/"><?php echo $item->get("name") ?></a>
 				</div>
 				<?php } ?>
 			</td>

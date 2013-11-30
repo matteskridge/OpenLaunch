@@ -8,7 +8,7 @@
 			<div class="settings-role">
 				<div class="settings-role-inner">
 					<div class="settings-role-right">
-						<a href="/admin/index/settings/roles/<?php echo $role->getId() ?>/">Edit</a>
+						<a href="admin/index/settings/roles/<?php echo $role->getId() ?>/">Edit</a>
 					</div>
 					<?php echo $role->get("name") ?>
 				</div>
@@ -16,7 +16,7 @@
 		<?php } ?>
 		<div class="settings-role">
 			<div class="settings-role-inner" style="text-align:center;">
-				<a href="/admin/index/settings/roles/0/">Create a new Role</a>
+				<a href="admin/index/settings/roles/0/">Create a new Role</a>
 			</div>
 		</div>
 	</div>

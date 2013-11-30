@@ -5,7 +5,7 @@
 		<div class="blog-center-post">
 			<div class="blog-center-post-inner">
 				<div class="blog-center-post-options">
-					<a href="/admin/index/structure/posts/<?php echo $item->getId() ?>/">Edit Post</a>
+					<a href="admin/index/structure/posts/<?php echo $item->getId() ?>/">Edit Post</a>
 				</div>
 				<h2><?php echo $item->get("name") ?></h2>
 				<?php echo Parser::parse($item->get("content")) ?>

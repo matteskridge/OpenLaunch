@@ -1,0 +1,39 @@
+
+.github-project-top {
+    padding:20px;
+    text-align:center;
+    background:#F7F7F7;
+}
+
+.github-project-top-item {
+    display:inline-block;
+    text-align:left;
+    width:32%;
+    vertical-align:top;
+}
+
+.github-project-top a:visited, .github-project-top a:link, .github-project-top a {
+    color:black;
+}
+
+.github-project-top-item img {
+    width:64px;
+    height:64px;
+    float:left;
+    margin-right:10px;
+}
+
+.github-project-stats {
+    border-bottom:1px solid #DDDDDD;
+    text-align:center;
+}
+
+.github-project-stat {
+    padding:10px;
+    display:inline-block;
+    width:200px;
+}
+
+.github-project-main {
+    padding:20px;
+}

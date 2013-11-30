@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$(".blog-compose-main").height($(window).height()-180);
 });
 </script>
-<form action="?sid=<?php echo session_id() ?>" method="post" class="blog-post-form">
+<form action="/admin/index/structure/posts/0/?sid=<?php echo session_id() ?>" method="post" class="blog-post-form">
 	<div class='blog-compose-settings'>
 		<div class="blog-compose-settings-inner">
 			Post Title:<input type='text' name='blogpost-name' value='<?php echo $name ?>' /><select name="blogpost-category">

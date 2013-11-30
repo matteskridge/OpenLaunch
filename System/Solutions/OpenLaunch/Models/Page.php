@@ -111,10 +111,10 @@ class Page extends Model {
 
 	public function getUrl($link = "") {
 		if ($this->get("link") != "") {
-			return "/" . $this->get("link") . "/$link";
+			return "" . $this->get("link") . "/$link";
 		}
 		else
-			return "/page/" . $this->get("id") . "/$link";
+			return "page/" . $this->get("id") . "/$link";
 	}
 
 	public function getLink($link = "") {

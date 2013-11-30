@@ -3,8 +3,8 @@
 	<div class="admin-entries-header">
 		<div class="admin-entries-header-inner">
 			<div class='admin-entries-header-button'>
-				<a href="/admin/index/structure/page/<?php echo $page->getId() ?>/?category=<?php echo $category->getId() ?>">Edit</a> -
-				<a href="/admin/index/structure/page/<?php echo $page->getId() ?>/?category=<?php echo $category->getId() ?>&forum">Add Forum</a>
+				<a href="admin/index/structure/page/<?php echo $page->getId() ?>/?category=<?php echo $category->getId() ?>">Edit</a> -
+				<a href="admin/index/structure/page/<?php echo $page->getId() ?>/?category=<?php echo $category->getId() ?>&forum">Add Forum</a>
 			</div>
 			<h2><?php echo $category->get("name") ?></h2>
 		</div>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="admin-entry">
 		<div class="admin-entry-inner">
-			<a href="/admin/index/structure/page/<?php echo $page->getId() ?>?category">Create a New Category</a>
+			<a href="admin/index/structure/page/<?php echo $page->getId() ?>?category">Create a New Category</a>
 		</div>
 	</div>
 </div>
