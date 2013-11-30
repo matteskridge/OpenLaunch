@@ -26,9 +26,9 @@ class InstallProcess {
 	}
 
 	public static function install() {
-		if (isset($_POST["website-name"])) {
+		$error = "";
 
-			$error = "";
+		if (isset($_POST["website-name"])) {
 			if (@mysql_connect($_POST["database-server"], $_POST["database-user"], $_POST["database-password"])) {
 				mysql_query("CREATE DATABASE IF NOT EXISTS `" . mysql_real_escape_string($_POST["database-name"]) . "`");
 				if (@mysql_select_db($_POST["database-name"])) {

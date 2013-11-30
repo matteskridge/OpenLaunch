@@ -246,7 +246,7 @@ class Request {
 
 	public static function getBase() {
 		if (Settings::get("website.link") == "") {
-			return false;
+			return Request::getProtocol()."://".Request::getDomain()."/";
 		}
 
 		$link = Settings::get("website.link");
