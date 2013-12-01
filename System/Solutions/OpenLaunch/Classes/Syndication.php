@@ -2,7 +2,7 @@
 
 class Syndication {
 
-	public static $news = "http://openlaunch.org/page/54/2/feed.rss";
+	public static $news = "http://openlaunch.org/page/8/1/feed.rss";
 
 	public static function getRSS($url) {
 		$xml = new SimpleXMLElement(file_get_contents($url));

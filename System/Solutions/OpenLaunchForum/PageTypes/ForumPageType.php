@@ -86,6 +86,7 @@ class ForumPageType extends PageType {
 				"content" => $form->get("content"),
 				"user" => $form->get("user")
 			));
+            return new Redirect($page->getLink("/"));
 		}
 
 		return Component::get("OpenLaunchForum.Create", array(
