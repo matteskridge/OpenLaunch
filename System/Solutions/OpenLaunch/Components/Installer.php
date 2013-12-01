@@ -2,7 +2,7 @@
 	<head>
 		<title>OpenLaunch Installer</title>
 		<base href="http://<?php echo Request::getDomain().str_replace("index.php", "", $_SERVER["PHP_SELF"]) ?>" />
-		<link rel="stylesheet" type="text/css" href="/Styles/Installer.css" />
+		<link rel="stylesheet" type="text/css" href="Styles/Installer.css" />
 		<script type="text/javascript" src="JavaScript/jquery-1.9.0.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
