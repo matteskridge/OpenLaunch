@@ -98,7 +98,7 @@ class Person extends Model {
 	public function getName() {
 		if ($this->get("nickname") == "")
 			return "Un-Named";
-		return $this->get("nickname");
+		return "<a href='profile/".$this->getId()."'>".$this->get("nickname")."</a>";
 	}
 
 	public function getRealName() {

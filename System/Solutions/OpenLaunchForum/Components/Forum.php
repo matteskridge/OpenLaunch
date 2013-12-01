@@ -40,7 +40,7 @@
 							<?php echo $topic->get("name") ?>
 						</div>
 						<div class="forum-topics-topic-info">
-							by <?php echo $topic->get("user")->getName() ?> <?php echo $topic->getCreated() ?>. <?php echo $replies ?> replies.
+							by <?php echo $topic->get("user")->getName() ?> <?php echo $topic->getCreated() ?>.
 						</div>
 					</div></a>
 				</div>
