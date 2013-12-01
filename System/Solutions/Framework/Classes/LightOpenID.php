@@ -689,9 +689,11 @@ class LightOpenID
         # id_res, in order to avoid throwing errors.
         if(isset($this->data['openid_user_setup_url'])) {
             $this->setup_url = $this->data['openid_user_setup_url'];
-            return false;
+			echo "error 1";
+			return false;
         }
         if($this->mode != 'id_res') {
+			echo "error 2";
             return false;
         }
 
@@ -716,11 +718,12 @@ class LightOpenID
                              .  'openid.claimed_id=' . $this->claimed_id;
         }
 
-        if ($this->data['openid_return_to'] != $this->returnUrl) {
+        //if ($this->data['openid_return_to'] != $this->returnUrl) {
             # The return_to url must match the url of current request.
             # I'm assuing that noone will set the returnUrl to something that doesn't make sense.
-            return false;
-        }
+			//echo "error 3";
+            //return false;
+        //}
 
         $server = $this->discover($this->claimed_id);
 

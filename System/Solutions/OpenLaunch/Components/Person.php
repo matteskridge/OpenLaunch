@@ -1,4 +1,28 @@
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".person-suspend").click(function() {
+			$(".admin-person-suspend").dialog("open");
+		});
+		$(".person-warn").click(function() {
+			$(".admin-person-warn").dialog("open");
+		});
+		$(".person-ban").click(function() {
+			$(".admin-person-ban").dialog("open");
+		});
+		$(".person-edit").click(function() {
+			$(".admin-person-edit").dialog("open");
+		});
+	});
+</script>
+<div class="dialog admin-person-suspend">
+	<?php echo $suspend ?>
+</div><div class="dialog admin-person-warn">
+	<?php echo $warn ?>
+</div><div class="dialog admin-person-edit">
+	<?php echo $edit ?>
+</div><div class="dialog admin-person-ban">
+	<?php echo $ban ?>
+</div>
 <div class="admin-person-wrap">
     <div class="admin-person-header">
         <div class="admin-person-header-inner">
@@ -9,35 +33,36 @@
                 <h1><?php echo $person->getName() ?> <a href='admin/index/community/'>back</a></h1>
             </div>
             <div class="admin-person-header-options">
-                <a href=""><div class="admin-person-header-option admin-person-header-option-dashboard">
-                        <div class="admin-person-header-option-inner">Dashboard</div>
-					</div></a><a href=""><div class="admin-person-header-option admin-person-header-option-suspend">
-                        <div class="admin-person-header-option-inner">Suspend</div>
-					</div></a><a href=""><div class="admin-person-header-option admin-person-header-option-ban">
-                        <div class="admin-person-header-option-inner">Ban Person</div>
-					</div></a><a href=""><div class="admin-person-header-option admin-person-header-option-profile">
-                        <div class="admin-person-header-option-inner">Profile</div>
-					</div></a><a href=""><div class="admin-person-header-option admin-person-header-option-statistics">
-                        <div class="admin-person-header-option-inner">Statistics</div>
-					</div></a><a href=""><div class="admin-person-header-option admin-person-header-option-contact">
-                        <div class="admin-person-header-option-inner">Contact</div>
-					</div></a>
+                <div class="admin-person-header-option admin-person-header-option-dashboard">
+					<div class="admin-person-header-option-inner">Dashboard</div>
+				</div><?php if (Permission::can("CommunitySuspend") && $controls) { ?><div class="admin-person-header-option admin-person-header-option-suspend person-suspend">
+					<div class="admin-person-header-option-inner">Suspend</div>
+				</div><?php } if (Permission::can("CommunityBan") && $controls) { ?><div class="admin-person-header-option admin-person-header-option-ban person-ban">
+					<div class="admin-person-header-option-inner">Ban Person</div>
+				</div><?php } ?><div class="admin-person-header-option admin-person-header-option-profile">
+					<div class="admin-person-header-option-inner">Profile</div>
+				</div><?php if (Permission::can("CommunityStatistics") && $controls) { ?><div class="admin-person-header-option admin-person-header-option-statistics">
+					<div class="admin-person-header-option-inner">Statistics</div>
+				</div><?php } ?><div class="admin-person-header-option admin-person-header-option-contact">
+					<div class="admin-person-header-option-inner">Contact</div>
+				</div>
             </div>
         </div>
     </div>
 	<div class="admin-person-main">
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
-				<div class="admin-person-main-item-right"><a href="">Remove Profile</a></div>
+				<?php if (Permission::can('RemoveProfile') && $controls) { ?><div class="admin-person-main-item-right"><a onclick="return confirm('Are you sure?')" href="admin/index/community/person/<?php echo $person->getId() ?>/?deprofile=1&sid=<?php echo session_id() ?>">Remove Profile</a></div><?php } ?>
 				<h2>Public Profile</h2>
 				<div class="admin-person-main-text">
 					<?php echo $person->getProfile() ?>
 				</div>
 			</div>
 		</div>
+		<?php if (Permission::can("CommunityAccount")) { ?>
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
-				<div class="admin-person-main-item-right"><a href="">Edit Details</a></div>
+				<?php if (Permission::can("CommunityEditAccount") && $controls) { ?><div class="admin-person-main-item-right person-edit"><a href="admin/index/community/person/<?php echo $person->get("id") ?>/#">Edit Details</a></div><?php } ?>
 				<h2>Account Details</h2>
 				<div class="admin-person-main-text">
 					<table>
@@ -65,49 +90,56 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
+		<?php if (Permission::can("CommunityAssignRoles") && $controls) { ?>
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
 				<h2>Assigned Roles</h2>
 				<?php
 				foreach ($roles as $role) {
-					$assigned = in_array($role, $person->getRoles())
+					$assigned = in_array($role, $person->getRoles());
+					if (!Session::getPerson()->canAssign($role)) continue;
 					?><div class="admin-entry-column-smaller <?php echo ($assigned) ? "assigned" : "unassigned" ?>">
 						<div class="admin-entry-column-smaller-inner">
 							<?php echo $role->getIcon() ?>
 							<h2><?php echo $role->get("name") ?></h2>
 							<?php if ($assigned) { ?>
-								<a href="?unrole=<?php echo $role->getId() ?>&sid=<?php echo session_id() ?>" onclick="return confirm('Remove this person from the <?php echo $role->get("name") ?> role?')">Assigned to this Role</a>
+								<a href="admin/index/community/person/<?php echo $person->getId() ?>/?unrole=<?php echo $role->getId() ?>&sid=<?php echo session_id() ?>" onclick="return confirm('Remove this person from the <?php echo $role->get("name") ?> role?')">Assigned to this Role</a>
 							<?php } else { ?>
-								<a href="?role=<?php echo $role->getId() ?>&sid=<?php echo session_id() ?>" onclick="return confirm('Assign this person to the <?php echo $role->get("name") ?> role?')">Not assigned to this Role</a>
+								<a href="admin/index/community/person/<?php echo $person->getId() ?>/?role=<?php echo $role->getId() ?>&sid=<?php echo session_id() ?>" onclick="return confirm('Assign this person to the <?php echo $role->get("name") ?> role?')">Not assigned to this Role</a>
 							<?php } ?>
 						</div>
 					</div><?php } ?>
 			</div>
 		</div>
+		<?php } ?>
+		<?php if ((Permission::can("CommunitySuspend") || Permission::can("CommunityWarn") || Permission::can("CommunityBan")) && $controls && !$me) { ?>
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
 				<h2>Moderator Tools</h2>
-                <div class="admin-entry-column-smaller"><a href="">
-                    <div class="admin-entry-column-smaller-inner">
+				<?php if (Permission::can("CommunitySuspend") && $controls) { ?>
+                <div class="admin-entry-column-smaller">
+                    <div class="admin-entry-column-smaller-inner person-suspend">
                         <img src="Images/Flat/IconFinder/Delete.png" />
                         <h2>Suspend Account</h2>
                         Prevent user from signing in
                     </div>
-                    </a></div><div class="admin-entry-column-smaller"><a href="">
-                    <div class="admin-entry-column-smaller-inner">
+                </div><?php } if (Permission::can("CommunityWarn") && $controls) { ?><div class="admin-entry-column-smaller">
+                    <div class="admin-entry-column-smaller-inner person-warn">
                         <img src="Images/Flat/IconFinder/Warning.png" />
                         <h2>Issue Warning</h2>
                         warning user must acknowledge.
                     </div>
-                    </a></div><div class="admin-entry-column-smaller"><a href="">
-                    <div class="admin-entry-column-smaller-inner">
+                </div><?php } if (Permission::can("CommunityBan") && $controls) { ?><div class="admin-entry-column-smaller">
+                    <div class="admin-entry-column-smaller-inner person-ban">
                         <img src="Images/Flat/IconFinder/Remove.png" />
                         <h2>Ban Account</h2>
-                        <a href="">Permenant account suspension</a>
+                        Permenant account suspension
                     </div>
-                </a></div>
+               </div><?php } ?>
 			</div>
 		</div>
+		<?php } ?>
 		<div class="admin-person-main-item">
 			<div class="admin-person-main-item-inner">
 				<h2>Statistics</h2>

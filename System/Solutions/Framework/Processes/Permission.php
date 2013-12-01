@@ -37,7 +37,7 @@ class Permission {
 		}
 	}
 
-	public static function can($name) {
+	public static function can($name = "*") {
 		if (Settings::get("security.demo"))
 			return true;
 		if (in_array("*", self::$permissions))
@@ -53,6 +53,5 @@ class Permission {
 	public function meetsRequirements($person) {
 		return true;
 	}
-
 }
 

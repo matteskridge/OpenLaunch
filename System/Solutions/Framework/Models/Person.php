@@ -129,6 +129,11 @@ class Person extends Model {
 	}
 
 	public function getTitle() {
+		$role = $this->getPrimaryRole();
+		return $role->get("name");
+	}
+
+	public function getPrimaryRole() {
 		$roles = $this->getRoles();
 		$top = 99;
 		foreach ($roles as $r) {
@@ -137,8 +142,7 @@ class Person extends Model {
 				$top = $r->get("importance");
 			}
 		}
-
-		return $role->get("name");
+		return $role;
 	}
 
 	public function getStreet() {
@@ -330,6 +334,23 @@ class Person extends Model {
 
 	public function getProfileLink() {
 		return "/profile/".$this->getId()."/";
+	}
+
+	public function getPrecedence() {
+		$role = $this->getPrimaryRole();
+		return $role->get("importance");
+	}
+
+	public function canControl($person) {
+		return $this->getPrecedence() < $person->getPrecedence() || Permission::can();
+	}
+
+	public function canAssign($role) {
+		$precedence = $this->getPrecedence();
+		if ($precedence > $role->get("importance") && !Permission::can()) {
+			return false;
+		}
+		return true;
 	}
 }
 

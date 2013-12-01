@@ -68,6 +68,7 @@ class OpenID {
 
 			return new Redirect((isset($_GET["return"]) ? $_GET["return"] : Request::getBase()));
 		} else {
+			echo $openid->mode." 3";
 			return new NotFoundError();
 		}
 	}
