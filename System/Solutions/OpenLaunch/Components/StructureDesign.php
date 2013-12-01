@@ -9,7 +9,7 @@ $(document).ready(function() {
 		var id = $(this).attr("data-id");
 		
 		$.ajax({
-			url: "/theme/info/"+id+"/",
+			url: "theme/info/"+id+"/",
 			success: function(html) {
 				$(".admin-designs-info-inner").html(html);
 			}

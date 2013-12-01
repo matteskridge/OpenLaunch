@@ -168,7 +168,9 @@ class Redirect {
 
 	private $text;
 
-	public function __construct($where) {
+	public function __construct($where = "") {
+		if (strlen($where) > 0 && substr($where,0,1) != "/") $where = "/$where";
+		$where = Request::getBase().$where;
 		$this->text = $where;
 	}
 

@@ -2,9 +2,11 @@
 
 class OpenID {
 
-	public static function client($who) {
+	public static function client($who, $link = "") {
 		$url = "";
 		$openid = new LightOpenID(Request::getDomain());
+		$openid->realm = Request::getBase()."$link?openid=$who";
+		$openid->returnUrl = $openid->realm;
 
 		if ($who == "google") {
 			$url = 'https://www.google.com/accounts/o8/id';
@@ -58,13 +60,13 @@ class OpenID {
 				$data["confirmed"] = "1";
 				$data["openid"] = $openid->identity;
 				if ($data["email"] == "") {
-					return new Redirect("/");
+					return new Redirect();
 				}
 
 				return $data;
 			}
 
-			return new Redirect((isset($_GET["return"]) ? $_GET["return"] : "/"));
+			return new Redirect((isset($_GET["return"]) ? $_GET["return"] : Request::getBase()));
 		} else {
 			return new NotFoundError();
 		}

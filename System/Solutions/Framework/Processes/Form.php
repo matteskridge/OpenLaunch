@@ -51,8 +51,7 @@ class Form {
     }
 
     public function getHtml() {
-        $url = Request::getUrl()."?".$_SERVER['QUERY_STRING'];
-		if (substr($url, 0, 1) != "/") $url = "/$url";
+        $url = Request::getBase()."/".Request::getUrl()."?".$_SERVER['QUERY_STRING'];
         $html = "<form action='".$url."' enctype='multipart/form-data' method='post'><input type='hidden' name='$this->name' value='1' />";
         $html .= "<input type='hidden' name='sessionid' value='".session_id()."' />";
         foreach ($this->items as $item) {

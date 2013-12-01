@@ -22,7 +22,7 @@ class RolesPermissionField extends InputField {
 		} else $extra = "";
 
         $text .= "<div class='listboxwrap rolespermissionfield'><div class='listboxmain'>";
-		$text .= "<div><input type='checkbox' id='$this->id-$key' name='$this->id-$key' value='1'$extra /> <label for='$this->id-$key'>Everyone</label></div>";
+		$text .= "<div><input type='checkbox' id='$this->id' name='$this->id' value='1'$extra /> <label for='$this->id'>Everyone</label></div>";
         foreach ($this->options as $key => $value) {
             $extra = "";
             if ((is_array($this->value) && in_array($key, $this->value)) || (!is_array($this->value) && $this->value == $key)) {

@@ -40,7 +40,7 @@ class AccountController extends AppController {
 				$person = Person::create("Person", $signup->getData());
 				$person->setPassword($signup->get("password"));
 				Session::login($person);
-				return new Redirect("/");
+				return new Redirect();
 			} else {
 				Response::flash("An account already exists with this email address.");
 			}
@@ -56,12 +56,12 @@ class AccountController extends AppController {
 			if ($person->get("openid") == "" && $person->checkPassword($signin->get("password"))) {
 				Session::login($person);
 			}
-			return new Redirect("/");
+			return new Redirect();
 		}
 	}
 
 	public function openid($who = "google") {
-		$data = OpenID::client($who);
+		$data = OpenID::client($who, "account/openid/");
 		if (is_array($data)) {
 			$check = new Person(array("email" => $data["email"]));
 			if ($check->exists()) {
@@ -77,7 +77,7 @@ class AccountController extends AppController {
 
 	public function signout() {
 		Session::logout();
-		return new Redirect("/");
+		return new Redirect();
 	}
 
 }

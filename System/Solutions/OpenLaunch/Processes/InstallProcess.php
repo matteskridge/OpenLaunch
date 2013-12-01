@@ -54,9 +54,7 @@ class InstallProcess {
 						"name" => $_POST["database-name"],
 					));
 
-					header("Location: /");
-					Request::disableController();
-					Response::redirect("/");
+					header("Location: ?");
 					return;
 				} else {
 					$error = "The MySQL database you provided does not exist.";

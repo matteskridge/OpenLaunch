@@ -241,7 +241,7 @@ class Request {
 	}
 
 	public static function getProtocol() {
-		return ($_SERVER["HTTPS"])?"https":"http";
+		return (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"])?"https":"http";
 	}
 
 	public static function getBase() {
@@ -251,6 +251,7 @@ class Request {
 
 		$link = Settings::get("website.link");
 		if (substr($link, 0, 1) == "/") $link = substr($link, 1);
+		if (substr($link, -1) == "/") $link = substr($link, 0, -1);
 		return Request::getProtocol()."://".Request::getDomain()."/".$link;
 	}
 }
