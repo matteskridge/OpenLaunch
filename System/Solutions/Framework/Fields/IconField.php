@@ -12,7 +12,7 @@ class IconField extends InputField {
 		$dir = new File("Public/Images/Public");
 		$size = 64;
         foreach ($dir->listSubs() as $key => $file) {
-            $text .= "<img src='Public/Images/Public/".$file->getName()."' onclick=\"$('#$this->id').val($(this).attr('src'));\" style='width:$size;height:$size;' />";
+            $text .= "<img src='/Public/Images/Public/".$file->getName()."' onclick=\"$('#$this->id').val($(this).attr('src'));\" style='width:$size;height:$size;' />";
         }
         $text .= "</div></div>";
         return $text;
