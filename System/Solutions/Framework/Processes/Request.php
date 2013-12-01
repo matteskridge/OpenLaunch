@@ -252,6 +252,7 @@ class Request {
 		$link = Settings::get("website.link");
 		if (substr($link, 0, 1) == "/") $link = substr($link, 1);
 		if (substr($link, -1) == "/") $link = substr($link, 0, -1);
+		if ($link == "/" || $link == "//") $link = "";
 		return Request::getProtocol()."://".Request::getDomain()."/".$link;
 	}
 }

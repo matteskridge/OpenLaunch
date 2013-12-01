@@ -169,6 +169,10 @@ class Redirect {
 	private $text;
 
 	public function __construct($where = "") {
+		if (strstr($where, "http://") || strstr($where, "https://")) {
+			$this->text = $where;
+			return;
+		}
 		if (strlen($where) > 0 && substr($where,0,1) != "/") $where = "/$where";
 		$where = Request::getBase().$where;
 		$this->text = $where;

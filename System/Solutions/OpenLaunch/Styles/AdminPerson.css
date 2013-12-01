@@ -126,8 +126,8 @@
 }
 
 .admin-person-main-text {
-	padding-top:20px;
-	padding-bottom:20px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 .admin-person-main-text table {
@@ -181,4 +181,12 @@
 
 div.admin-entry-column-smaller a:link, div.admin-entry-column-smaller a:visited, div.admin-entry-column-smaller a {
     color:black;
+}
+
+.admin-person-main-text {
+    line-height:1.5em;
+}
+
+.admin-person-header-option {
+    cursor:pointer;
 }

@@ -156,3 +156,10 @@ div.forum-topic-option a {
     width:16px;
     height:16px;
 }
+
+.forum-forum-right {
+    float:right;
+    font-size:small;
+    width:300px;
+    padding-top:17px;
+}
