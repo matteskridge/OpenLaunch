@@ -2,7 +2,7 @@
 	function createPage(type) {
 		var name = prompt("What would you like to name this page?");
 		if (name) {
-			window.location = "/admin/index/structure/index/create/"+type+"/?name="+name;
+			window.location = "admin/index/structure/index/create/"+type+"/?name="+name;
 		}
 	};
 </script>
@@ -18,9 +18,9 @@
 		<div class="admin-entry">
 			<div class="admin-entry-inner">
 				<div class="admin-entry-inner-button">
-					<a href="#" onclick="createPage('<?php echo $type->getId() ?>')">Create a Page</a>
+					<a href="admin/index/structure/index/select/#" onclick="createPage('<?php echo $type->getId() ?>')">Create a Page</a>
 				</div>
-				<img src="<?php echo $type->getIcon() ?>" />
+				<img src="<?php echo Request::getBase().$type->getIcon() ?>" />
 				<h2><?php echo $type->getName() ?></h2>
 				<?php echo $type->getDescription() ?>
 			</div>

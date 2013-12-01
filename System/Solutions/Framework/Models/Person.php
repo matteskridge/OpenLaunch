@@ -41,6 +41,8 @@ class Person extends Model {
 			$nickname = $data["nickname"];
 
 		$other = new Person(array("nickname" => $data["nickname"], "id != '$this->id'"));
+		$nickname = "";
+
 		while ($other->exists()) {
 			$nickname = $data["nickname"] . " " . mt_rand(0, 99999999);
 			$other = new Person(array("nickname" => $nickname, "`id`!='$this->id'"));

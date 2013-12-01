@@ -8,7 +8,7 @@ class AttachmentField extends InputField {
 	public function getValue() {
 		$path = "";
 
-		if (file_exists($_FILES['myfile']['tmp_name']) && $_FILES[$this->id]["error"] == 0) {
+		if (file_exists($_FILES[$this->id]['tmp_name']) && $_FILES[$this->id]["error"] == 0) {
 			$dir = new File("System/Data/Uploads/$this->id-".time()."/");
 			$dir->makeDirectories();
 

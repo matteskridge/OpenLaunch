@@ -1,7 +1,7 @@
 <div class="account-item">
 	<div class="account-item-inner">
 		<h2><?php echo $panel->getName() ?></h2>
-		<img src="<?php echo $panel->getIcon() ?>" />
+		<img src="<?php echo Request::getBase().$panel->getIcon() ?>" />
 		<div class="account-menu">
 			<?php foreach ($panel->getMenu() as $key => $item) { ?>
 				<div class="account-menu-item">

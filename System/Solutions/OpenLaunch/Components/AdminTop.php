@@ -4,7 +4,7 @@
 			<td class="admin-sidebar">
 				<div class="admin-sidebar-wrap">
 					<div class="admin-sidebar-logo">
-						<a href=""><img src="/Images/Logos/OpenLaunch/IconPlainWhite.png" /></a>
+						<a href=""><img src="Images/Logos/OpenLaunch/IconPlainWhite.png" /></a>
 					</div>
 					<div class="admin-sidebar-item">
 						<a href="">Website</a>

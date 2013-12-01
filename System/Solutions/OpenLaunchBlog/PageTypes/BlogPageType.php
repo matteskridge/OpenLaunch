@@ -34,11 +34,15 @@ class BlogPageType extends PageType {
 		$form = new Form("blog-category");
 		$form->add(new TextField("name", "Category Name"));
 		$form->add(new HiddenField("page", "Page", $page));
-		$form->add(new HiddenField("edit", "Edit", $_GET["edit"]));
+		if (isset($_GET["edit"])) $form->add(new HiddenField("edit", "Edit", $_GET["edit"]));
 		if (!is_numeric($form->get("edit"))) {
 			$form->controls("BlogCategory");
 		} else {
 			$form->controls(new BlogCategory($form->get("edit")));
+		}
+
+		if ($form->sent()) {
+			return new Redirect("/admin/index/structure/page/".$page->getId()."/");
 		}
 
 		if (isset($_GET["delete"])) {

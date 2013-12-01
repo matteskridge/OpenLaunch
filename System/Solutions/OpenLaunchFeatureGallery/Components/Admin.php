@@ -13,7 +13,7 @@
 			<div class="admin-entry">
 				<div class="admin-entry-inner">
 					<div class="admin-entry-options">
-						<a href="?item=<?php echo $item->getId() ?>">Edit</a>
+						<a href="admin/index/structure/page/<?php echo $page->getId() ?>/?item=<?php echo $item->getId() ?>">Edit</a>
 					</div>
 					<?php echo $item->get("name") ?>
 				</div>

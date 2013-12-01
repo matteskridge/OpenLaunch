@@ -13,7 +13,7 @@
 	<div class="admin-entry">
 		<div class="admin-entry-inner">
 			<div class="admin-entry-options">
-				<a href="?forum=<?php echo $forum->getId() ?>">Edit</a>
+				<a href="admin/index/structure/page/<?php echo $page->getId() ?>/?forum=<?php echo $forum->getId() ?>">Edit</a>
 			</div>
 			<?php echo $forum->get("name") ?>
 		</div>

@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<title>OpenLaunch Installer</title>
-		<base href="http://<?php echo Request::getDomain() ?>/<?php echo Request::getUrl() ?>" />
-		<link rel="stylesheet" type="text/css" href="/Styles/Installer.css" />
-		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
+		<base href="http://<?php echo $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"] ?>" />
+		<link rel="stylesheet" type="text/css" href="Styles/Installer.css" />
+		<script type="text/javascript" src="JavaScript/jquery-1.9.0.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(".installer-provider-google").click(function() {
@@ -22,7 +22,7 @@
 		<div class="installer">
 			<div class="installer-header">
 				<div class="installer-header-inner">
-					<img src="/Images/Logos/OpenLaunch/White.png" />
+					<img src="Images/Logos/OpenLaunch/White.png" />
 				</div>
 			</div>
 			<?php if ($error != "") { ?>
@@ -83,7 +83,7 @@
 							<div class="installer-main-form-item">
 								<div class="installer-main-form-item-inner">
 									<label>Install Directory</label>
-									<input type="text" value="<?php echo Request::getUrl() ?>" name="website-link" />
+									<input type="text" value="<?php echo $_SERVER["REQUEST_URI"] ?>" name="website-link" />
 								</div>
 							</div>
 							<div class="installer-submit">

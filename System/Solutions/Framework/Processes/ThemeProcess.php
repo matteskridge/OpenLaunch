@@ -160,7 +160,7 @@ class Theme {
 			$file->getParent()->makeDirectories();
 			$file->write($f->read());
 		}
-		return "<img src='/Images/Data/Themes/" . $this->getId() . "/$width/$height.png' style='width:" . $width . "px;height:" . $height . "px;' />";
+		return "<img src='Images/Data/Themes/" . $this->getId() . "/$width/$height.png' style='width:" . $width . "px;height:" . $height . "px;' />";
 	}
 
 	public function getId() {

@@ -2,15 +2,15 @@
 <html>
 	<head>
 		<title>OpenLaunch</title>
-		<base href="<?php echo Request::getBase() ?>">
+		<base href="<?php echo Request::getBase() ?>/">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<script type="text/javascript" src="/JavaScript/jquery-1.9.0.js"></script>
-		<script type='text/javascript' src='/JavaScript/jquery.color.js'></script>
-		<script type='text/javascript' src='/JavaScript/jquery-ui-1.10.3.custom.min.js'></script>
-		<script type='text/javascript' src='/JavaScript/TinyMCE/tinymce.min.js'></script>
-		<script type="text/javascript" src="/JavaScript/to-markdown.js"></script>
-		<link type="text/css" rel="stylesheet" href="/notheme.css" />
-		<?php if (!$nowrap) { ?><link type="text/css" rel="stylesheet" href="/theme.css" /><?php } ?>
+		<script type="text/javascript" src="JavaScript/jquery-1.9.0.js"></script>
+		<script type='text/javascript' src='JavaScript/jquery.color.js'></script>
+		<script type='text/javascript' src='JavaScript/jquery-ui-1.10.3.custom.min.js'></script>
+		<script type='text/javascript' src='JavaScript/TinyMCE/tinymce.min.js'></script>
+		<script type="text/javascript" src="JavaScript/to-markdown.js"></script>
+		<link type="text/css" rel="stylesheet" href="notheme.css" />
+		<?php if (!$nowrap) { ?><link type="text/css" rel="stylesheet" href="theme.css" /><?php } ?>
 	</head>
 	<body>
 		<div class="wrap">

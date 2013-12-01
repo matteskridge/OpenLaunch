@@ -1,13 +1,13 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".account-auth-google").click(function() {
-			window.location = "/account/openid/google/";
+			window.location = "account/openid/google/";
 		});
 		$(".account-auth-yahoo").click(function() {
-			window.location = "/account/openid/yahoo/";
+			window.location = "account/openid/yahoo/";
 		});
 		$(".account-auth-aol").click(function() {
-			window.location = "/account/openid/aol/";
+			window.location = "account/openid/aol/";
 		})
 	});
 </script>
