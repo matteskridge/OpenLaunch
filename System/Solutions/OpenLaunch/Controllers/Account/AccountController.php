@@ -30,9 +30,10 @@ class AccountController extends AppController {
 		$signup->add(new TextField("email", "Email Address", "", array("email")));
 		$signup->add(new TextField("nickname", "You Name", "", array("noempty")));
 		$signup->add(new PasswordField("password", "Password", array("noempty")));
-		$signup->add(new PasswordField("confirm", "Confirm", "", array("noempty")));
+		$signup->add(new PasswordField("confirm", "Confirm", "", array("noempty", "equals:password")));
 		$signup->add(new CaptchaField("captcha", "CAPTCHA", ""));
 		$this->signup = $signup->getHtml();
+        //print_r($signup->getData());
 
 		if ($signup->sent() && $signup->get("password") == $signup->get("confirm")) {
 			$check = new Person(array("email" => $signup->get("email")));
@@ -42,7 +43,7 @@ class AccountController extends AppController {
 				Session::login($person);
 				return new Redirect();
 			} else {
-				Response::flash("An account already exists with this email address.");
+				Response::flash("An account already exists with the email address ".$signup->get("email"));
 			}
 		}
 

@@ -20,6 +20,11 @@
 			<?php echo Component::get("*.TopMenu") ?>
 		</div>
 	</div>
+    <?php if (Response::hasFlash()) { ?>
+    <div class="flash">
+        <?php echo Response::getFlash() ?>
+    </div>
+    <?php } ?>
 	<div class="main">
 		<?php echo $content ?>
 	</div>
