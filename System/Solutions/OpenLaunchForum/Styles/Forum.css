@@ -163,3 +163,27 @@ div.forum-topic-option a {
     width:300px;
     padding-top:17px;
 }
+
+.forum-tools {
+    text-align:center;
+}
+
+.forum-tool {
+    display:inline-block;
+    padding:10px;
+    width:150px;
+    text-align:center;
+    border-right:1px solid #DDDDDD;
+}
+
+.forum-tool:first-of-type {
+    border-left:1px solid #DDDDDD;
+}
+
+.forum-navigation {
+    background:#F2F2F2;
+    border:1px solid #DDDDDD;
+    margin-bottom:7px;
+    border-bottom:3px solid #DDDDDD;
+    font-size:small;
+}

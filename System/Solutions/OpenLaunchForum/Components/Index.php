@@ -1,6 +1,6 @@
 <div class="forum">
 	<div class="forum-navigation">
-
+        <?php echo Component::get("OpenLaunchForum.Top", array("page" => $page)) ?>
 	</div>
 	<div class="forum-categories">
 		<?php foreach ($categories as $category) { ?>
