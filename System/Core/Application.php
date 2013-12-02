@@ -10,6 +10,10 @@ class Application {
 		$this->info = Spyc::YAMLLoadString($file->getSub("application.yml")->read());
 	}
 
+    public function getFile() {
+        return $this->file;
+    }
+
 	public function getName() {
 		return $this->info["application"]["product"]["name"];
 	}

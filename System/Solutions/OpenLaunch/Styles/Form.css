@@ -102,3 +102,16 @@ div.selectbox select {
     display:inline-block;
     width:75%;
 }
+
+.formitem input.valid {
+    border:1px solid green;
+}
+
+.formitem input.invalid {
+    border:1px solid red;
+}
+
+.flash {
+    background:#FF9500;
+    padding:15px;
+}

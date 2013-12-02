@@ -22,7 +22,13 @@ class ForumPageType extends PageType {
 			return $this->create($page, Response::getArg(2));
 		} else if ($action == "moderate") {
 			return $this->moderate($page, Response::getArg(2), Response::getArg(3), Response::getArg(4));
-		}
+		} else if ($action == "discussions") {
+            return $this->discussions($page);
+        } else if ($action == "replies") {
+            return $this->replies($page);
+        } else if ($action == "people") {
+            return $this->people($page);
+        }
 	}
 
 	private function index($page) {
@@ -86,6 +92,7 @@ class ForumPageType extends PageType {
 				"content" => $form->get("content"),
 				"user" => $form->get("user")
 			));
+            return new Redirect($page->getLink("/"));
 		}
 
 		return Component::get("OpenLaunchForum.Create", array(
@@ -94,6 +101,49 @@ class ForumPageType extends PageType {
 			"page" => $page
 		));
 	}
+
+    private function discussions($page) {
+        $categories = ForumCategory::findAll("ForumCategory", array("page" => $page));
+        $discussions = array();
+        foreach ($categories as $category) {
+            $forums = Forum::findAll("Forum", array("category" => $category));
+            foreach ($forums as $forum) {
+                $topics = ForumTopic::findAll("ForumTopic", array("forum" => $forum, "hidden" => "0"), "`cs_modified` DESC");
+                foreach ($topics as $topic) {
+                    array_push($discussions, $topic);
+                }
+            }
+        }
+
+        return Component::get("OpenLaunchForum.Discussions", array(
+            "page" => $page,
+            "discussions" => $discussions
+        ));
+    }
+
+    private function replies($page) {
+        $categories = ForumCategory::findAll("ForumCategory", array("page" => $page));
+        $comments = array();
+        foreach ($categories as $category) {
+            $forums = Forum::findAll("Forum", array("category" => $category));
+            foreach ($forums as $forum) {
+                $topics = ForumTopic::findAll("ForumTopic", array("forum" => $forum, "hidden" => "0"), "`cs_modified` DESC");
+                foreach ($topics as $topic) {
+                    $replies = Comment::findAll("Comment", array("modeltype" => "ForumTopic", "model" => $topic));
+                    foreach ($replies as $reply) array_push($comments, $reply);
+                }
+            }
+        }
+
+        return Component::get("OpenLaunchForum.Replies", array(
+            "page" => $page,
+            "replies" => $comments
+        ));
+    }
+
+    private function people($page) {
+
+    }
 
 	public function renderAdmin($page) {
 		if (isset($_GET["forum"])) {

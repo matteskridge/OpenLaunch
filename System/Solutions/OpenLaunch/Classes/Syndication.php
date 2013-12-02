@@ -2,24 +2,34 @@
 
 class Syndication {
 
-	public static $news = "http://openlaunch.org/page/54/2/feed.rss";
+	public static $news = "http://openlaunch.org/page/8/1/feed.rss";
 
 	public static function getRSS($url) {
-		$xml = new SimpleXMLElement(file_get_contents($url));
-		$array = array();
-		foreach ($xml->channel->item as $item) {
-			array_push($array, array(
-				"name" => $item->title,
-				"content" => $item->description,
-				"link" => $item->link
-			));
-		}
+        $data = file_get_contents($url);
+		try {
+            $xml = new SimpleXMLElement($data);
+
+            $array = array();
+            foreach ($xml->channel->item as $item) {
+                array_push($array, array(
+                    "name" => $item->title,
+                    "content" => $item->description,
+                    "link" => $item->link
+                ));
+            }
+        } catch (Exception $e) {
+            return "Could not read RSS feed ".$url.": ".$e->getMessage()."<br />";
+        }
 		return $array;
 	}
 
 	public static function getLatest($url) {
 		$arr = self::getRSS($url);
-		return $arr[0];
+        if (is_array($arr)) {
+            return $arr[0];
+        } else {
+            return $arr;
+        }
 	}
 
 	public static function getNews() {

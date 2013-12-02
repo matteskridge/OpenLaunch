@@ -16,7 +16,7 @@
 
 				<link>http://<?php echo Request::getDomain() ?></link>
 				<pubDate><?php echo gmdate("r", $item->get("cs_created")) ?></pubDate>
-				<?php if ($item->get("content") != "") { ?><description><?php echo $item->get("content") ?></description><?php } ?>
+				<?php if ($item->get("content") != "") { ?><description><?php echo html_entity_decode($item->get("content")) ?></description><?php } ?>
 			</item>
 		<?php } ?>
 

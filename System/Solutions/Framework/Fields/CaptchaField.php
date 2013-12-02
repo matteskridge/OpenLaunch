@@ -1,6 +1,8 @@
 <?php
 
 class CaptchaField extends InputField {
+    protected $v = null;
+
 	public function getHtml() {
 		return "<label>Human Verification:</label>".
 			   "<div class='captcha-wrap'><div class='captcha'><img src='securimage_show.php' /></div>".
@@ -8,8 +10,10 @@ class CaptchaField extends InputField {
 	}
 
 	public function isValid($data = "", $requirement = "") {
+        if ($this->v != null) return $this->v;
 		require_once("System/Libraries/SecureImage/securimage.php");
 		$securimage = new Securimage();
-		return $securimage->check($_POST[$this->id]);
+		$this->v = $securimage->check($data);
+        return $this->v;
 	}
 }

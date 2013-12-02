@@ -19,6 +19,17 @@ class RolesSettingsItem extends SettingsItem {
 				$role = new Role(Response::getArg(2));
 			}
 
+            // Only super admins or people with higher precedence can edit a role.
+            if ((($role->get("importance") <= Session::getPerson()->getPrecedence()) && !Permission::can()))
+                return new NotFoundError();
+
+            // Only super admins can edit roles assigned to them.
+            if (!Permission::can()) {
+                foreach (Session::getPerson()->getRoles() as $r) {
+                    if ($r->getId() == $role->getId()) return new NotFoundError();
+                }
+            }
+
 			$permissions = (isset($role)) ? $role->get("permissions") : array();
 
 			$form = new Form("settings-role");
