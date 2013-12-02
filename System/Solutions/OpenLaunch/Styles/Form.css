@@ -102,3 +102,11 @@ div.selectbox select {
     display:inline-block;
     width:75%;
 }
+
+.valid {
+    border:1px solid green;
+}
+
+.invalid {
+    border:1px solid red;
+}

@@ -82,7 +82,7 @@ class TextField extends InputField {
     }
 
     public function isValid($data, $requirement) {
-        if ($requirement == "notempty") {
+        if ($requirement == "noempty") {
             return strlen($data) != 0;
         } else if ($requirement == "empty") {
             return strlen($data) == 0;
