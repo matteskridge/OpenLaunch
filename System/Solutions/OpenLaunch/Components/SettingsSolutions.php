@@ -10,7 +10,11 @@
 					<div class="settings-role-right">
 						This plugin cannot be deactivated
 					</div>
+                    <?php if ($solution->getName() == "") { ?>
+                    <?php echo $solution->getFile()->getExtensionlessName() ?>
+                    <?php } else { ?>
 					<?php echo $solution->getName() ?>
+                    <?php } ?>
 				</div>
 			</div>
 		<?php } ?>

@@ -7,9 +7,11 @@
 		<?php foreach ($roles as $role) { ?>
 			<div class="settings-role">
 				<div class="settings-role-inner">
+                    <?php if (($role->get("importance") > Session::getPerson()->getPrecedence()) || Permission::can()) { ?>
 					<div class="settings-role-right">
 						<a href="admin/index/settings/roles/<?php echo $role->getId() ?>/">Edit</a>
 					</div>
+                    <?php } ?>
 					<?php echo $role->get("name") ?>
 				</div>
 			</div>
