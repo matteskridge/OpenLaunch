@@ -27,10 +27,10 @@ class AccountController extends AppController {
 
 	public function access() {
 		$signup = new Form("signup");
-		$signup->add(new TextField("email", "Email Address", ""));
-		$signup->add(new TextField("nickname", "You Name", ""));
-		$signup->add(new PasswordField("password", "Password", ""));
-		$signup->add(new PasswordField("confirm", "Confirm", ""));
+		$signup->add(new TextField("email", "Email Address", "", array("email")));
+		$signup->add(new TextField("nickname", "You Name", "", array("noempty")));
+		$signup->add(new PasswordField("password", "Password", array("noempty")));
+		$signup->add(new PasswordField("confirm", "Confirm", "", array("noempty")));
 		$signup->add(new CaptchaField("captcha", "CAPTCHA", ""));
 		$this->signup = $signup->getHtml();
 
