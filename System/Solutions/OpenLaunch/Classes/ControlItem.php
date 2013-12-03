@@ -64,7 +64,7 @@ abstract class ControlItem {
 
 	function getHtml($action, $id, $mode) {
 		$content = $this->getContent($action, $id, $mode);
-		if ($content instanceof Redirect) {
+		if ($content instanceof Redirect || $content instanceof NotFoundError) {
 			return $content;
 		}
 

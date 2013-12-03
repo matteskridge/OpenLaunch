@@ -32,7 +32,12 @@ class Comment extends Model {
 			Comment::post($model, $form->getData());
 		}
 
-		$comments = Comment::findAll("Comment", array("modeltype" => get_class($model), "model" => $model));
+        if (Permission::can("CommunityModerate")) {
+            $comments = Comment::findAll("Comment", array("modeltype" => get_class($model), "model" => $model));
+        } else {
+            $comments = Comment::findAll("Comment", array("modeltype" => get_class($model), "model" => $model, "hidden" => "0"));
+        }
+
 		return Component::get("OpenLaunch.Comments", array("model" => $model, "comments" => $comments, "form" => $form->getHtml(), "locked" => $locked));
 	}
 }

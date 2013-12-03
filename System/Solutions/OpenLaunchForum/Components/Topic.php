@@ -1,5 +1,6 @@
 <div class="forum">
 	<div class="forum-header">
+        <?php if (Session::loggedIn() && Session::getPerson()->canControl($topic->get("user"))) { ?>
 		<div class="forum-topic-options">
 			<?php if (Permission::can("ForumClose")) { ?>
 				<div class="forum-topic-option"><a href="<?php echo $page->getLink("moderate/".$topic->getId()."/close/".(($topic->get("closed"))?"0":"1")."/") ?>"><?php echo ($topic->get("closed"))?"Open":"Close" ?></a></div>
@@ -17,6 +18,7 @@
 				<div class="forum-topic-option"><a href="<?php echo $page->getLink("moderate/".$topic->getId()."/close/1/") ?>">Move</a></div>
 			<?php } ?>
 		</div>
+        <?php } ?>
 		<h2><?php echo $forum->get("name") ?> : <?php echo $topic->get("name") ?> <a href="<?php echo $page->getLink("forum/".$forum->getId()."/") ?>">back</a></h2>
 	</div>
 	<div class="forum-topic">
