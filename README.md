@@ -41,7 +41,7 @@ http://openlaunch.org/page/7/
 
 Matthew Eskridge is a software developer who specializes in PHP web development and creating java desktop
 applications. As the founder of the project, he did all of the design work (with the exception of designing the
-icons and logos themselves) and wrote the entire pre-1.0 code. 
+icons and logos themselves) and wrote the entire pre-1.0 code.
 
 ### Becoming a Contributor
 
