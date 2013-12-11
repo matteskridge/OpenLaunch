@@ -34,3 +34,19 @@ http://openlaunch.org/page/9/
 Our main means of providing support is through our website and support forum.
 
 http://openlaunch.org/page/7/
+
+## Project Contributors
+
+### Matt Eskridge
+
+Matthew Eskridge is a software developer who specializes in PHP web development and creating java desktop
+applications. As the founder of the project, he did all of the design work (with the exception of designing the
+icons and logos themselves) and wrote the entire pre-1.0 code.
+
+### Becoming a Contributor
+
+To contribute to OpenLaunch, you have two options. The first is to make changes to OpenLaunch's core
+features by cloning the source code, making changes, and contacting us with a request to merge the
+changes into the primary repository. The second option is to write a plugin. OpenLaunch plugins can
+be either open source or commercial. If you choose to create an open source plugin, then we may choose
+to request the inclusion of this plugin in the OpenLaunch distribution.

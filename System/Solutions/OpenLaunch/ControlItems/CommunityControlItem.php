@@ -21,9 +21,13 @@ class CommunityControlItem extends ControlItem {
 		} else if ($action == "statistics") {
             $content = Component::get("OpenLaunch.Statistics");
         } else if ($action == "comments") {
-            $content = Component::get("OpenLaunch.CommunityComments");
+            $content = $this->comments();
         } else if ($action == "admins") {
             $content = Component::get("OpenLaunch.CommunityAdmins");
+        }
+
+        if ($content instanceof Redirect || $content instanceof NotFoundError) {
+            return $content;
         }
 		return Component::get("OpenLaunch.Community", $content);
 	}
@@ -97,6 +101,23 @@ class CommunityControlItem extends ControlItem {
 			"me" => Session::getPerson()->getId() == $person->getId()
 		));
 	}
+
+    private function comments() {
+        if (Response::getArg(2) == "hide" && session_id() == $_GET["sid"]) {
+            $comment = new Comment(Response::getArg(3));
+            if ($comment->exists()) {
+                $comment->set("hidden", 1);
+            }
+            return new Redirect(Request::getReferer());
+        } else if (Response::getArg(2) == "unhide" && session_id() == $_GET["sid"]) {
+            $comment = new Comment(Response::getArg(3));
+            if ($comment->exists()) {
+                $comment->set("hidden", 0);
+            }
+            return new Redirect(Request::getReferer());
+        }
+        return Component::get("OpenLaunch.CommunityComments");
+    }
 
 	public function getName() {
 		return "Community";

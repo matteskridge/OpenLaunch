@@ -201,6 +201,9 @@ class ForumPageType extends PageType {
 		if (!$topic->exists())
 			return new NotFoundError();
 
+        if (!Session::getPerson()->canControl($topic->get("user")))
+            return new NotFoundError();
+
 		if ($action == "close" && Permission::can("ForumClose")) {
 			$topic->set("closed", $value);
 		} else if ($action == "hide" && Permission::can("ForumHide")) {
