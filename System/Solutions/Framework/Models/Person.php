@@ -119,12 +119,13 @@ class Person extends Model {
 	}
 
 	public function getShortName() {
-		$name = $this->getName();
-		$max = 20;
+		$name = $this->get("nickname");
+		$max = 12;
 
 		if (strlen($name) > $max) {
 			$name = substr($name, 0, $max - 3) . "...";
 		}
+
 		return $name;
 	}
 
