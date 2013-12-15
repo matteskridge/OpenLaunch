@@ -1,0 +1,40 @@
+
+.resolution {
+
+}
+
+.resolution-header {
+    background:#5256FF;
+    border-bottom:2px solid #002b80;
+    padding:40px;
+    color:white;
+    font-weight:bold;
+    font-size:x-large;
+}
+
+.resolution-logo {
+    width:1000px;
+    margin:auto;
+}
+
+.resolution-main {
+    width:1000px;
+    margin:auto;
+    margin-top:30px;
+    margin-bottom:30px;
+    line-height:1.5em;
+}
+
+.resolution-main-inner {
+    background:#FAFAFA;
+    border:1px solid #DDDDDD;
+    padding:20px;
+}
+
+.resolution-main-inner h2 {
+    font-size:large;
+    padding-bottom:10px;
+    color:#444444;
+    border-bottom:1px solid #444444;
+    margin:0px;
+}
