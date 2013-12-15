@@ -22,7 +22,7 @@ class SettingsItem {
 				$item->import();
 				$classname = $item->getExtensionlessName();
 				$obj = new $classname();
-				array_push($arr, $obj);
+				if ($obj->can()) array_push($arr, $obj);
 			}
 		}
 

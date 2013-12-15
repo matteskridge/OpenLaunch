@@ -29,7 +29,19 @@ class Settings {
 	}
 
 	public static function get($name) {
-		return (array_key_exists($name, self::$settings)) ? self::$settings[$name] : "";
+		if (strstr($name, ".")) {
+			return (array_key_exists($name, self::$settings)) ? self::$settings[$name] : "";
+		} else {
+			$arr = array();
+
+			foreach (self::$settings as $key => $value) {
+				if (strpos($key, "$name.") === 0) {
+					$arr[substr($key, strlen("$name."))] = $value;
+				}
+			}
+
+			return $arr;
+		}
 	}
 
 	public static function save($name, $data) {

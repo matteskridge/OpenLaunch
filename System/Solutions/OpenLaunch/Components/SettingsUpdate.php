@@ -6,7 +6,7 @@
 			Simply click the below link to initiate an update. It may take several
 			moments for the download to complete. Thank you!</p>
 
-		<p><a href="?sid=<?php echo session_id() ?>">Update OpenLaunch Now</a></p>
+		<p><a href="admin/settings/index/update/?sid=<?php echo session_id() ?>">Update OpenLaunch Now</a></p>
 
 	</div>
 </div>

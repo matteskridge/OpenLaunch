@@ -62,6 +62,31 @@ class Security {
 		return 256;
 	}
 
+	public static function resetPrivateKey() {
+		$private = Random::getText(256);
+		$public = Random::getText(256);
+		$domain = Request::getDomain();
+		$path = Settings::get("website.path");
+
+		$arr = array(
+			"private" => $private,
+			"public" => $public,
+			"domain" => $domain,
+			"path" => $path
+		);
+
+		Settings::save("control", $arr);
+	}
+
+	public static function getPrivateKey() {
+		$array = Settings::get("control");
+		if ($array == array()) {
+			$array = self::resetPrivateKey();
+		}
+
+		return base64_encode(json_encode($array));
+	}
+
 }
 
 /*
