@@ -83,7 +83,8 @@ class Form {
     public function controls($model) {
         if ($model instanceof SettingsCategory) {
             foreach ($this->items as $item) {
-                $item->setValue(Settings::get($model->getName().".".$item->getName()));
+				$value = Settings::get($model->getName().".".$item->getName());
+				if ($value != "") $item->setValue($value);
             }
         } else if ($model instanceof Model && $model->exists()) {
             foreach ($this->items as $item) {

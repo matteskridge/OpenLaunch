@@ -2,7 +2,7 @@
 	<div class="header-wrap">
 		<div class="header">
 			<div class="logo">
-				<?php echo Settings::get("website.name") ?>
+				<?php echo Settings::getLogo() ?>
 			</div>
 		</div>
 		<div class="menu">

@@ -72,7 +72,7 @@ class Security {
 			"private" => $private,
 			"public" => $public,
 			"domain" => $domain,
-			"path" => $path
+			"link" => $path
 		);
 
 		Settings::save("control", $arr);
