@@ -41,7 +41,7 @@ class ForumPageType extends PageType {
 
 	private function forum($page, $id) {
 		$forum = new Forum($id);
-		if (!$forum->exists())
+		if (!$forum->exists() || !$forum->canView())
 			return new NotFoundError();
 
 		if (Permission::can("ForumHide")) {
