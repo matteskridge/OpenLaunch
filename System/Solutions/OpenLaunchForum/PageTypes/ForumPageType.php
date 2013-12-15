@@ -65,7 +65,7 @@ class ForumPageType extends PageType {
 			return new NotFoundError();
 
 		$forum = $topic->get("forum");
-		if (!$forum->exists())
+		if (!$forum->exists() || !$forum->canView())
 			return new NotFoundError();
 
 		return Component::get("OpenLaunchForum.Topic", array(
@@ -77,7 +77,7 @@ class ForumPageType extends PageType {
 
 	private function create($page, $forum) {
 		$forum = new Forum($forum);
-		if (!$forum->exists())
+		if (!$forum->exists() && $forum->canPost())
 			return new NotFoundError();
 
 		$form = new Form("create");
