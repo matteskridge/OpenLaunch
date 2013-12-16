@@ -16,6 +16,13 @@ for your product, project, or brand.
 3. Upload the code to your web server. The CMS must be placed at the root of a domain, not a sub-directory.
 4. Visit the web page and enter the MySQL information for your web server.
 
+## License
+
+This software is primarily licensed under the MIT License. You are also
+free to use the software under the terms of any of the following licenses:
+Apache License, GNU Public License version 2 or greater, the BSD License,
+or the Lesser GNU Public License.
+
 ## Documentation
 
 To view documentation, visit our manual.
