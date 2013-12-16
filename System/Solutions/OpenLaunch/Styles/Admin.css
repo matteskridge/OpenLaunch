@@ -5,13 +5,15 @@ body, html, .wrap {
 
 body table.admin-table {
 	width:100%;
-	min-height:100%;
+    height:100%;
 	border-spacing:0px;
 }
 
-.admin-table td {
+.admin-table > tbody > tr > td {
 	vertical-align:top;
 	border-spacing:0px;
+    height:100%;
+    padding:0px;
 }
 
 .admin-sidebar {
