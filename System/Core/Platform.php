@@ -9,6 +9,7 @@ require_once("System/Core/Utilities/Random.php");
 
 require_once("System/Solutions/Framework/Classes/InputField.php");
 require_once("System/Solutions/Framework/Fields/TextField.php");
+require_once("System/Solutions/Framework/Fields/ListField.php");
 require_once("System/Solutions/Framework/Fields/SelectField.php");
 
 class Platform {
