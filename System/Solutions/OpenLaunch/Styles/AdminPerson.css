@@ -190,3 +190,7 @@ div.admin-entry-column-smaller a:link, div.admin-entry-column-smaller a:visited,
 .admin-person-header-option {
     cursor:pointer;
 }
+
+.person-suspend, .person-ban, .person-warn {
+    cursor:pointer;
+}

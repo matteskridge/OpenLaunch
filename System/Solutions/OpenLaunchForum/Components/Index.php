@@ -3,13 +3,13 @@
         <?php echo Component::get("OpenLaunchForum.Top", array("page" => $page)) ?>
 	</div>
 	<div class="forum-categories">
-		<?php foreach ($categories as $category) { ?>
+		<?php foreach ($categories as $category) if ($category->canView()) { ?>
 		<div class="forum-category">
 			<div class="forum-category-inner">
 				<h2><?php echo $category->get("name") ?></h2>
 				<div class="forum-forums">
 					<?php $forums = Forum::findAll("Forum", array("category" => $category)) ?>
-					<?php foreach ($forums as $forum) { ?>
+					<?php foreach ($forums as $forum) if ($forum->canView()) { ?>
 
 						<?php
 						$last = ForumTopic::findAll("ForumTopic", array("forum"=>$forum,"hidden"=>"0"), "`cs_modified` DESC", 1, 1);

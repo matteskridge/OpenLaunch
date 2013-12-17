@@ -14,13 +14,13 @@
 		});
 	});
 </script>
-<div class="dialog admin-person-suspend">
+<div class="dialog admin-person-suspend" title="Suspend Account">
 	<?php echo $suspend ?>
-</div><div class="dialog admin-person-warn">
+</div><div class="dialog admin-person-warn" title="Warn Account">
 	<?php echo $warn ?>
-</div><div class="dialog admin-person-edit">
+</div><div class="dialog admin-person-edit" title="Edit Account">
 	<?php echo $edit ?>
-</div><div class="dialog admin-person-ban">
+</div><div class="dialog admin-person-ban" title="Ban Account">
 	<?php echo $ban ?>
 </div>
 <div class="admin-person-wrap">

@@ -2,7 +2,9 @@
 	<?php echo Component::get("OpenLaunchForum.ForumHeader", array("forum" => $forum, "page" => $page)) ?>
 	<div class="forum-topics">
 		<div class="forum-topics-button">
+			<?php if ($forum->canPost()) { ?>
 			<a href="<?php echo $page->getLink("create/".$forum->getId()) ?>">Start a Discussion</a>
+			<?php } ?>
 		</div>
 		<h2>Discussion</h2>
 		<div class="forum-topics-inner">

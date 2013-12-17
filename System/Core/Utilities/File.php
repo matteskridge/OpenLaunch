@@ -103,13 +103,18 @@ class File {
             $image = new SimpleImage();
             $image->load($this->path);
 
-            if ($maxwidth == 0) {
-                $image->resizeToHeight($maxheight);
-            } else if ($maxheight == 0) {
-                $image->resizeToWidth($maxwidth);
-            } else {
-                $image->resize($maxwidth, $maxheight);
-            }
+			if ($maxwidth == "scale") {
+				$image->scale($maxheight);
+			} else {
+				if ($maxwidth == 0) {
+					$image->resizeToHeight($maxheight);
+				} else if ($maxheight == 0) {
+					$image->resizeToWidth($maxwidth);
+				} else {
+					$image->resize($maxwidth, $maxheight);
+				}
+			}
+
             $image->output();
             exit;
         }

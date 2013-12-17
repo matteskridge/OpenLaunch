@@ -93,7 +93,15 @@ class Session {
 		}
 
 		self::$showAdminBar = $result;
-		return $result;
+		return $result && !Session::isBanned();
+	}
+
+	public function isBanned() {
+		if (Session::loggedIn()) {
+			return Session::getPerson()->get("ban");
+		} else {
+			return false;
+		}
 	}
 
 }

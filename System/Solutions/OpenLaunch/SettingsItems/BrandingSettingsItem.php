@@ -15,7 +15,11 @@ class BrandingSettingsItem extends SettingsItem {
 		$form->add(new TextField("name", "Website Name"));
 		$form->add(new TextField("description", "Website Description"));
 		$form->add(new TextField("organization", "Organization Name"));
-		$form->add(new TextField("link", "Install Directory"));
+		$form->add(new AttachmentField("logo", "Website Logo"));
+		$form->add(new FactorField("scale", "Logo Size", "0.2"));
+		$form->add(new MarginField("logoTop", "Margin Top", "0"));
+		$form->add(new MarginField("logoBottom", "Margin Bottom", "0"));
+		//$form->add(new TextField("link", "Install Directory"));
 		$form->controls(new SettingsCategory("website"));
 
 		if ($form->sent()) {

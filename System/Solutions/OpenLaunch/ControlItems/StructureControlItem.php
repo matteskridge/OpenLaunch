@@ -117,6 +117,11 @@ class StructureControlItem extends ControlItem {
 			if ($id == 0) {
 				$content = Component::get("OpenLaunch.StructurePostCompose");
 			} else {
+				if ($mode == "delete" && session_id() == $_GET["sid"]) {
+					$post = new BlogPost($id);
+					$post->delete();
+					return new Redirect("/admin/index/structure/posts/");
+				}
 				$content = Component::get("OpenLaunch.StructurePostCompose", array("post" => new BlogPost($id)));
 			}
 

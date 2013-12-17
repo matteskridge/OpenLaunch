@@ -24,11 +24,14 @@ class SimpleImage {
 
 	var $image;
 	var $image_type;
+	var $filename;
 
 	function load($filename) {
 
 		$image_info = getimagesize($filename);
 		$this->image_type = $image_info[2];
+		$this->filename = $filename;
+
 		if( $this->image_type == IMAGETYPE_JPEG ) {
 
 			$this->image = imagecreatefromjpeg($filename);
@@ -90,13 +93,26 @@ class SimpleImage {
 	}
 
 	function scale($scale) {
-		$width = $this->getWidth() * $scale/100;
-		$height = $this->getheight() * $scale/100;
+		$width = $this->getWidth() * $scale;
+		$height = $this->getheight() * $scale;
 		$this->resize($width,$height);
 	}
 
 	function resize($width,$height) {
+		$imgInfo = getimagesize($this->filename);
+		$newImg = imagecreatetruecolor($width, $height);
+		imagealphablending($newImg, false);
+		imagesavealpha($newImg, true);
+		$transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
+		imagefilledrectangle($newImg, 0, 0, $width, $height, $transparent);
+		imagecopyresampled($newImg, $this->image, 0, 0, 0, 0, $width, $height,
+			$imgInfo[0], $imgInfo[1]);
+
+		/*
 		$new_image = imagecreatetruecolor($width, $height);
+		imagealphablending($new_image, false);
+		imagesavealpha($new_image, true);
+
 		if( $this->image_type == IMAGETYPE_GIF || $this->image_type == IMAGETYPE_PNG ) {
 			$current_transparent = imagecolortransparent($this->image);
 			if($current_transparent != -1) {
@@ -105,15 +121,14 @@ class SimpleImage {
 				imagefill($new_image, 0, 0, $current_transparent);
 				imagecolortransparent($new_image, $current_transparent);
 			} elseif( $this->image_type == IMAGETYPE_PNG) {
-				imagealphablending($new_image, false);
+				imagecolortransparent($new_image, imagecolorallocate($new_image, 0, 0, 0));
 				$color = imagecolorallocatealpha($new_image, 0, 0, 0, 127);
 				imagefill($new_image, 0, 0, $color);
-				imagesavealpha($new_image, true);
 			}
 		}
 		imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
-		$this->image = $new_image;
+		$this->image = $new_image;*/
 	}
 
 }
-?>
+
