@@ -107,7 +107,7 @@ class SimpleImage {
 		imagefilledrectangle($newImg, 0, 0, $width, $height, $transparent);
 		imagecopyresampled($newImg, $this->image, 0, 0, 0, 0, $width, $height,
 			$imgInfo[0], $imgInfo[1]);
-
+        $this->image = $newImg;
 		/*
 		$new_image = imagecreatetruecolor($width, $height);
 		imagealphablending($new_image, false);
