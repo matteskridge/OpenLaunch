@@ -1,0 +1,15 @@
+application:
+  product:
+    id: etolf
+    name: OpenLaunch - Feature Gallery
+    version: 1.0
+    description:
+      A feature gallery is a page in OpenLaunch which contains a list of
+      categories, which each contain a number of screenshots or other images
+      with corresponding text. These are good for creating lists of features
+      for a product.
+  author:
+    name: Eskridge Technology
+    website: http://eskridgetech.com/
+  servers:
+    - plugins.eskridgetech.com

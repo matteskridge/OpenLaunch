@@ -3,7 +3,13 @@ application:
     id: ettf
     name: Torpedo Framework
     version: 1.0
+    core: true
+    description:
+      The Torpedo Framework is the system on which OpenLaunch is built.
+      This plugin cannot be disabled, as it is nessesary to everything
+      which OpenLaunch does.
   author:
     name: Eskridge Technology
+    website: http://eskridgetech.com/
   servers:
     - plugins.eskridgetech.com

@@ -1,9 +1,14 @@
 application:
   product:
     id: etol
-    name: OpenLaunch
+    name: OpenLaunch - Core
     version: 1.0
+    core: true
+    description:
+      OpenLaunch Core contains the nessesary OpenLaunch components which
+      are part of any OpenLaunch website -- settings, members, login, etc.
   author:
     name: Eskridge Technology
+    website: http://eskridgetech.com/
   servers:
     - plugins.eskridgetech.com
