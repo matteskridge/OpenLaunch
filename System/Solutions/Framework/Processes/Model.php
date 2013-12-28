@@ -311,6 +311,10 @@ class Model {
 		return relativeDateHtml($this->get("cs_created"));
 	}
 
+	public function getCreatedTime() {
+		return $this->get("cs_created");
+	}
+
 	public function getId() {
 		return $this->id;
 	}

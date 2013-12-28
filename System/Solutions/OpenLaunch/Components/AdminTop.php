@@ -1,4 +1,7 @@
 <?php if (Session::showAdminBar()) { ?>
+	<div class="admin-search">
+
+	</div>
 	<table class="admin-table">
 		<tr>
 			<td class="admin-sidebar">
@@ -23,7 +26,10 @@
 							</div>
 						<?php } ?>
 					<?php } ?>
+					<div class="admin-sidebar-item">
+						<a href="javascript:search()">Search</a>
+					</div>
 				</div>
 			</td>
 			<td class="admin-middle">
-			<?php } ?>
+<?php } ?>

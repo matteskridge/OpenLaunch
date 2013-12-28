@@ -15,6 +15,11 @@ class DeveloperSettingsItem extends SettingsItem {
 		} else if (isset($_GET["nocache"]) && $_GET["nocache"] == session_id()) {
 			Settings::set("website.nocache", "true");
 			return new Redirect("/".Request::getUrl());
+		} else if (isset($_GET["dbrebuild"]) && $_GET["dbrebuild"] == session_id()) {
+			$objects = Platform::getSolutionObjects("Models");
+			foreach ($objects as $model) {
+				$sql = Database::execute($model->getTableSQL());
+			}
 		}
         return Component::get("OpenLaunch.SettingsDeveloper");
     }

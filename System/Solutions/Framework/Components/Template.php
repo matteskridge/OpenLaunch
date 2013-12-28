@@ -9,6 +9,7 @@
 		<script type='text/javascript' src='JavaScript/jquery-ui-1.10.3.custom.min.js'></script>
 		<script type='text/javascript' src='JavaScript/TinyMCE/tinymce.min.js'></script>
 		<script type="text/javascript" src="JavaScript/to-markdown.js"></script>
+		<script type="text/javascript" src="JavaScript/jcanvas.min.js"></script>
 		<script type="text/javascript" src="JavaScript/script.js"></script>
 		<link type="text/css" rel="stylesheet" href="JavaScript/smoothness/jquery-ui-1.10.3.custom.min.css" />
 		<link type="text/css" rel="stylesheet" href="notheme.css" />

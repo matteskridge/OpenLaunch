@@ -16,7 +16,7 @@ body table.admin-table {
     padding:0px;
 }
 
-.admin-sidebar {
+.admin-sidebar, .admin-sidebar-footer {
 	width:200px;
 	background:#0E74E6;
 	border-right:1px solid #0756AF;
@@ -74,4 +74,45 @@ body table.admin-table {
 
 .admin-sidebar-push, .admin-sidebar-footer {
 	height:40px;
+}
+
+.admin-sidebar-copyright {
+    text-align:center;
+    color:#B9D8FA;
+    font-size:x-small;
+    margin-bottom:10px;
+}
+
+.admin-sidebar-copyright a:link, .admin-sidebar-copyright a:visited, .admin-sidebar-copyright a {
+    color:#B9D8FA;
+}
+
+.admin-sidebar-search {
+    color:white;
+    padding:10px;
+    border-top:1px solid #0756AF;
+    cursor:pointer;
+}
+
+.admin-sidebar-search-text {
+    font-size:large;
+    padding:3px;
+}
+
+.admin-sidebar-search-icon {
+    float:right;
+    background-size:24px 24px;
+    background-image:url(Images/Black/IconFinder/SearchWhite.png);
+    width:24px;
+    height:24px;
+}
+
+.admin-search {
+    position:absolute;
+    left:200px;
+    top:0;
+    right:0;
+    bottom:0;
+    background:white;
+    display:none;
 }

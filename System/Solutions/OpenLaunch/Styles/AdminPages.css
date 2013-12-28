@@ -47,6 +47,10 @@
 	font-size:large;
 }
 
+.admin-entry h2 {
+    font-size:medium;
+}
+
 .admin-entry-inner {
 	width:1000px;
 	margin:auto;
