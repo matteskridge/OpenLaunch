@@ -37,7 +37,7 @@ class ThemeProcess {
 	public static function getTheme() {
 		$website = Settings::get("website.theme");
 
-		$bits = explode("-", $style);
+		$bits = explode("-", $website);
 		$sol = $bits[0];
 		$name = $bits[1];
 		$style = $bits[2];
@@ -118,6 +118,7 @@ class Theme {
 	private $loaded = false;
 	private $name;
 	private $author;
+	private $yaml;
 
 	public function __construct($theme) {
 		$this->id = $theme->getParent()->getName();
@@ -172,8 +173,19 @@ class Theme {
 		$yml = new Spyc();
 		$theme = $yml->YAMLLoadString($this->info->read());
 
+		$this->yaml = $theme;
 		$this->name = $theme["theme"]["name"];
 		$this->author = $yml->YAMLLoadString(base64_decode($theme["theme"]["author"]));
+	}
+
+	public function getThemeIcon($image) {
+		if ($image == "")
+		return $this->yaml["theme"]["icons"][$this->id][$image];
+	}
+
+	public static function getIcon($image) {
+		$theme = ThemeProcess::getTheme();
+		return $theme->getThemeImage($image);
 	}
 
 }
