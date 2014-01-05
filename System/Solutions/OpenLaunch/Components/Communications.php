@@ -4,6 +4,7 @@
 			<h2>Communication Center</h2>
 		</div>
 	</div>
+	<?php echo Component::get("OpenLaunch.CommunityMenu") ?>
 	<?php foreach ($communications as $item) { ?>
 	<div class="communication">
 		<div class="communication-inner">

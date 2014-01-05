@@ -1,5 +1,11 @@
 
 $(document).ready(function() {
+    initDialogs();
+    initValidation();
+    initResponsiveMenus();
+});
+
+function initDialogs() {
     $(".dialog").dialog({
         modal: true,
         position: "center",
@@ -7,11 +13,7 @@ $(document).ready(function() {
         width:800,
         height: 500
     });
-});
-
-$(document).ready(function() {
-    initValidation();
-})
+}
 
 function initValidation() {
     $(".validate").change(function() {
@@ -71,6 +73,45 @@ function initValidation() {
             return false;
         }
     });
+}
+
+function initResponsiveMenus() {
+    var func = function() {
+        $(".responsive-menu").each(function() {
+            $(this).children().show();
+
+            var subtract = $("."+$(this).attr("data-responsive-subtract")).width();
+            var width = childrenWidth($(this));
+            var realwidth = $(this).width()-subtract;
+            //var dropdown = new Array();
+
+            var i = 0;
+            while (realwidth < width) {
+                var elem = $(this).children().not(":hidden").last();
+                elem.hide();
+                //dropdown.add(elem);
+
+                width = childrenWidth($(this));
+                i++;
+
+                if (i > 50) break;
+            }
+        });
+    }
+
+    func();
+    $(window).resize(func);
+}
+
+function childrenWidth(elem) {
+    var width = 0;
+    elem.children(":visible").each(function() {
+        width += $(this).width();
+        width += parseInt($(this).css("padding-left"), 10) + parseInt($(this).css("padding-right"), 10); //Total Padding Width
+        width += parseInt($(this).css("margin-left"), 10) + parseInt($(this).css("margin-right"), 10); //Total Margin Width
+        width += parseInt($(this).css("borderLeftWidth"), 10) + parseInt($(this).css("borderRightWidth"), 10); //Total Border Width
+    });
+    return width;
 }
 
 function isEmail(x) {

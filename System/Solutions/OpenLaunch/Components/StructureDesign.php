@@ -23,12 +23,13 @@ $(document).ready(function() {
 			<h2>Design Center</h2>
 		</div>
 	</div>
+	<?php echo Component::get("OpenLaunch.StructureMenu") ?>
 	<div class='admin-designs'>
 		<div class='admin-designs-list'>
 			<h2>Avaliable Themes</h2>
 			<div class="admin-designs-scroll">
 				<?php foreach (ThemeProcess::getThemes() as $theme) { ?><div class='admin-design' data-id='<?php echo $theme->getId() ?>'>
-					<?php echo $theme->getImageHtml(248,141) ?>
+					<?php echo $theme->getImageHtml(240,141) ?>
 				</div><?php } ?>
 			</div>
 		</div><div class='admin-designs-info'>

@@ -5,7 +5,9 @@ body, html, .wrap {
 
 .adminbar {
     background:#0E74E6;
-    border-bottom:1px solid #0756AF;
+    border-bottom:2px solid #0756AF;
+    background:#111111;
+    border-bottom:2px solid #222222;
 }
 
 .adminbar-inner {
@@ -13,13 +15,12 @@ body, html, .wrap {
 }
 
 .adminbar-logo {
-    padding-top:7px;
-    padding-bottom:7px;
+    padding:2px;
 }
 
 .adminbar img {
-    width:24px;
-    height:24px;
+    width:32px;
+    height:32px;
 }
 
 .adminbar-menu {
@@ -33,13 +34,10 @@ body, html, .wrap {
     -moz-border-radius:15px;
     font-size:small;
     vertical-align:middle;
+    /*text-shadow:1px 1px 1px #0756AF;*/
 }
 
 .adminbar-menu-items {
-    padding-left:20px;
-    padding-right:20px;
-    padding-top:10px;
-    padding-bottom:10px;
 }
 
 .adminbar-menu-info {
@@ -57,13 +55,14 @@ body, html, .wrap {
 }
 
 .adminbar-menu-item.selected {
-    background:#0756AF;
+    /*background:#0756AF;*/
+    background:#333333;
 }
 
 .adminbar-search {
     float:right;
     padding-right:20px;
-    padding-top:12px;
+    padding-top:7px;
 }
 
 .adminbar-search input {
@@ -91,7 +90,10 @@ body, html, .wrap {
     left:-33px;
 }
 
-/*
+
+
+
+
 body table.admin-table {
 	width:100%;
     height:100%;
@@ -111,43 +113,14 @@ body table.admin-table {
 	border-right:1px solid #0756AF;
 }
 
-.admin-sidebar-logo {
-	text-align:center;
-	padding-top:15px;
-	padding-bottom:15px;
-}
-
-.admin-sidebar-logo img {
-	width:128px;
-	height:128px;
-}
-
-.admin-sidebar-item, .admin-sidebar-logo {
-	border-bottom:1px solid #0756AF;
-}
-
 .admin-sidebar-item {
-	padding:15px;
-	padding-left:15px;
+	border-bottom:1px solid #0756AF;
+    font-size:small;
+    padding:15px;
 }
 
 .admin-sidebar-item a:link, .admin-sidebar-item a:visited, .admin-sidebar-item a {
 	color:#B9D8FA;
-}
-
-.admin-sidebar-item.selected {
-	background:#0756AF;
-}
-
-.admin-sidebar-subs {
-	background:#0756AF;
-}
-
-.admin-sidebar-subs .admin-sidebar-item {
-	background:#0756AF;
-	font-size:small;
-	padding:5px;
-	padding-left:25px;
 }
 
 .admin-sidebar-subs .admin-sidebar-item:last-of-type {

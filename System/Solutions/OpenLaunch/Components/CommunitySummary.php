@@ -4,6 +4,7 @@
 			<h2>Community Center</h2>
 		</div>
 	</div>
+	<?php echo Component::get("OpenLaunch.CommunityMenu") ?>
 	<div class="admin-entry">
 		<div class="admin-entry-inner">
 			<?php echo Statistics::getWeekGraph() ?>

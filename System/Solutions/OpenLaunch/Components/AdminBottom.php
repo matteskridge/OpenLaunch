@@ -1,5 +1,5 @@
-<?php if (false && Session::showAdminBar()) { ?>
+<?php /*if (Session::showAdminBar() && Response::getController() == "admin") { ?>
 	</td>
 	</tr>
 	</table>
-<?php } ?>
+<?php }*/ ?>

@@ -1,6 +1,6 @@
 
 html body {
-	background:#FBFBFB;
+	background:white;
 	margin:0px;
 }
 
@@ -9,7 +9,6 @@ html body {
 }
 
 .website {
-	width:1000px;
 	margin-top:0px;
 	margin-bottom:0px;
 	margin-left:auto;
