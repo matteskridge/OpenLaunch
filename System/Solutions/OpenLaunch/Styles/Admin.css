@@ -4,10 +4,10 @@ body, html, .wrap {
 }
 
 .adminbar {
-    background:#0E74E6;
-    border-bottom:2px solid #0756AF;
-    background:#111111;
-    border-bottom:2px solid #222222;
+    background:#222222;
+    border-bottom:2px solid #444444;
+    /*background:#111111;
+    border-bottom:2px solid #222222;*/
 }
 
 .adminbar-inner {

@@ -14,7 +14,7 @@
 				<div class="adminbar-menu-item">
 					<a href=""><img src="Images/Logos/OpenLaunch/IconPlainWhite.png" /></a>
 				</div>
-				<div class="adminbar-menu-item">
+				<div class="adminbar-menu-item<?php if (Response::getController() != "admin") echo " selected"; ?>">
 					<a href="<?php echo Request::getBase() ?>">Website</a>
 				</div>
 				<?php foreach (ControlItem::listItems() as $item) { ?>
