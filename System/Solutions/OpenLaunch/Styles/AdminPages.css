@@ -24,7 +24,7 @@
 
 .admin-entries-button {
 	float:right;
-	background:#FF9A00;
+    background:#FFBA4F;
 	padding:7px;
 	padding-left:10px;
 	padding-right:10px;
@@ -35,6 +35,12 @@
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	cursor:pointer;
+    margin-left:10px;
+}
+
+.admin-entries-button:first-of-type {
+    background:#FF9A00;
+    cursor:pointer;
 }
 
 .admin-entries-button a:link, .admin-entries-button a:visited, .admin-entries-button a {
@@ -67,11 +73,7 @@
 	float:right;
 }
 
-.admin-menu-item-settings {
-	background:#FFBA4F;
-	margin-right:10px;
-	cursor:pointer;
-}
+
 
 .admin-entries-menu {
 	background:#EEEEEE;

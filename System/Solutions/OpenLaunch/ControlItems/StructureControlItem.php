@@ -8,7 +8,7 @@ class StructureControlItem extends ControlItem {
 
 	public function getContent($action, $id, $mode) {
 
-		if (!$this->inMenu($action) && $action != "page")
+		if (!$this->inMenu($action) && $action != "page" && $action != "layout")
 			return;
 
 		if ($action == "index" || $action == "") {
@@ -19,6 +19,8 @@ class StructureControlItem extends ControlItem {
 			$content = $this->design($action, $id, $mode);
 		} else if ($action == "posts") {
 			$content = $this->posts($action, $id, $mode);
+		} else if ($action == "layout") {
+			$content = $this->layout($action, $id, $mode);
 		}
 
 		if ($content instanceof Redirect)
@@ -49,6 +51,7 @@ class StructureControlItem extends ControlItem {
 			if ($page->exists()) {
 				$page->set("home", "1");
 			}
+
 		} else if ($id == "select") {
 			return Component::get("OpenLaunch.StructurePageType");
 		} else if ($id == "create") {
@@ -84,6 +87,7 @@ class StructureControlItem extends ControlItem {
 
 		$form = new Form("create-page");
 		$form->add(new TextField("name", "Page Name"));
+		$form->add(new BannerField("banner", "Banner"));
 		if ($mode != "")
 			$form->add(new HiddenField("parent", "Parent", new Page($mode)));
 		$form->controls($edit);
@@ -162,8 +166,25 @@ class StructureControlItem extends ControlItem {
 		));
 	}
 
+
+	private function layout($action, $id, $mode) {
+		$page = new Page($id);
+
+		$form = "";
+
+		if ($mode == "banner") {
+			$form = new Form("banner");
+			$form = $form->getHtml();
+		}
+
+		return Component::get("OpenLaunch.StructureLayout", array(
+			"page" => $page,
+			"form" => $form
+		));
+	}
+
 	public function getName() {
-		return "Edit Website";
+		return "Content";
 	}
 
 	public function getMenu() {
@@ -182,4 +203,3 @@ class StructureControlItem extends ControlItem {
 	}
 
 }
-

@@ -4,6 +4,10 @@ html body {
 	margin:0px;
 }
 
+.logo a:link, .logo a:visited, .logo a {
+    color:white;
+}
+
 .website {
 	width:1000px;
 	margin-top:0px;

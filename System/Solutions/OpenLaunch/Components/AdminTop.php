@@ -1,4 +1,31 @@
+
 <?php if (Session::showAdminBar()) { ?>
+<div class="adminbar">
+	<div class="adminbar-inner">
+		<div class="adminbar-search">
+			<input type="text" name="search" value="Search Everything..." onclick="$(this).val('')" />
+			<img src="Images/Black/IconFinder/SearchWhite.png" />
+		</div>
+		<div class="adminbar-menu">
+			<div class="adminbar-menu-items">
+				<div class="adminbar-menu-item">
+					<a href=""><img src="Images/Logos/OpenLaunch/IconPlainWhite.png" /></a>
+				</div>
+				<div class="adminbar-menu-item">
+					<a href="<?php echo Request::getBase() ?>">Website</a>
+				</div>
+				<?php foreach (ControlItem::listItems() as $item) { ?>
+					<div class="adminbar-menu-item<?php if ($item->isSelected()) echo " selected"; ?>">
+						<a href="<?php echo $item->getLink() ?>"><?php echo $item->getName() ?></a>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (false && Session::showAdminBar()) { ?>
 	<div class="admin-search">
 
 	</div>
