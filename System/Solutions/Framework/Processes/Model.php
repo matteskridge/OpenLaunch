@@ -63,7 +63,7 @@ class Model {
 
 				foreach ($structure as $col => $type) {
 
-					if (key_exists($col, $data)) {
+					if (array_key_exists($col, $data)) {
 						if (in_array($type, self::$listTypes)) {
 							$put[$col] = implode(self::$listDelim, $data[$col]);
 						} else {
