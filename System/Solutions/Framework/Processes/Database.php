@@ -25,11 +25,18 @@ class Database {
 		self::$cache = array();
 	}
 
+	public static function rebuild() {
+		$objects = Platform::getSolutionObjects("Models");
+		foreach ($objects as $model) {
+			$sql = mysql_query($model->getTableSQL());
+		}
+	}
+
 	public static function query($q, $table = "") {
 		if (array_key_exists($q, self::$cache)) {
 			return self::$cache[$q];
 		}
-		$result = mysql_query($q) or die(mysql_error());
+		$result = mysql_query($q) or Database::rebuild();
 		array_push(self::$queries, new QueryRecord($q));
 
 		if (!$result) {
@@ -166,7 +173,7 @@ class Database {
 	}
 
 	public static function execute($query) {
-		return mysql_query($query) or die("Query: $query," . mysql_error());
+		return mysql_query($query) or Database::rebuild();
 	}
 
 	public static function getQueriesHTML() {
