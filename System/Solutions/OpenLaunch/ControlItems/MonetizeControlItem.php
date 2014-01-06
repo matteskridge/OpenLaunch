@@ -46,6 +46,7 @@ class MonetizeControlItem extends ControlItem {
 	}
 
 	function canView() {
+		return false;
 		return $this->getMenu() != array();;
 	}
 }
