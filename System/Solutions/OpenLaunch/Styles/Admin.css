@@ -5,7 +5,6 @@ body, html, .wrap {
 
 .adminbar {
     background:#222222;
-    border-bottom:2px solid #444444;
     /*background:#111111;
     border-bottom:2px solid #222222;*/
 }
@@ -63,6 +62,7 @@ body, html, .wrap {
     float:right;
     padding-right:20px;
     padding-top:7px;
+    display:none;
 }
 
 .adminbar-search input {
@@ -90,7 +90,22 @@ body, html, .wrap {
     left:-33px;
 }
 
+.adminbar-icons {
+    float:right;
+    padding-right:15px;
+}
 
+.adminbar-icon {
+    display: inline-block;
+    padding:12px;
+    padding-left:5px;
+}
+
+.adminbar-icon img {
+    width:24px;
+    height:24px;
+    cursor:pointer;
+}
 
 
 

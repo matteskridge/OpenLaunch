@@ -2,6 +2,7 @@
 $(document).ready(function() {
     initDialogs();
     initValidation();
+    initResponsive();
     initResponsiveMenus();
 });
 
@@ -75,36 +76,70 @@ function initValidation() {
     });
 }
 
+function initResponsive() {
+    $(document).ready(function() {
+        var func = function() {
+            $(".responsive").each(function() {
+                var require = $(this).attr("data-require");
+                if ($(window).width() >= require) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            })
+        };
+
+        func();
+        $(window).resize(func);
+    });
+}
+
 function initResponsiveMenus() {
     var func = function() {
         $(".responsive-menu").each(function() {
             $(this).children().show();
 
             var subtract = $("."+$(this).attr("data-responsive-subtract")).width();
-            var width = childrenWidth($(this));
             var realwidth = $(this).width()-subtract;
-            //var dropdown = new Array();
+            var dropdown =  $(this).children(".responsive-menu-item").children(".responsive-dropdown").children(".responsive-dropdown-inner");
+            dropdown.empty();
 
             var i = 0;
-            while (realwidth < width) {
-                var elem = $(this).children().not(":hidden").last();
-                elem.hide();
-                //dropdown.add(elem);
+            var found = false;
+            if (realwidth < 50) return;
 
-                width = childrenWidth($(this));
+            while (realwidth < childrenWidth($(this))) {
+                var elem = $(this).children().not(":hidden").not(".responsive-menu-item").last();
+                elem.hide();
+
+                var copy = elem.clone().show().appendTo(dropdown);
+
+                found = true;
                 i++;
 
                 if (i > 50) break;
+
+            }
+
+            if (found) {
+                $(this).children(".responsive-menu-item").show();
+            } else {
+                $(this).children(".responsive-menu-item").hide();
             }
         });
     }
+
+
+    $(".responsive-menu").each(function() {
+        $(this).append("<div class='responsive-menu-item'><img src='Images/White/IconFinder/Menu.png' /><div class='responsive-dropdown'><div class='responsive-dropdown-inner'></div></div></div>");
+    });
 
     func();
     $(window).resize(func);
 }
 
 function childrenWidth(elem) {
-    var width = 0;
+    var width = 30;
     elem.children(":visible").each(function() {
         width += $(this).width();
         width += parseInt($(this).css("padding-left"), 10) + parseInt($(this).css("padding-right"), 10); //Total Padding Width
@@ -113,6 +148,7 @@ function childrenWidth(elem) {
     });
     return width;
 }
+
 
 function isEmail(x) {
     var atpos = x.indexOf("@");

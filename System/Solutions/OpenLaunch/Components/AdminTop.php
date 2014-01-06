@@ -9,6 +9,10 @@
 			<input type="text" name="search" value="Search Everything..." onclick="$(this).val('')" />
 			<img src="Images/Black/IconFinder/SearchWhite.png" />
 		</div>
+		<div class="adminbar-icons">
+			<div class="adminbar-icon"><a href="admin/index/structure/posts/0/"><img src="/Images/White/IconFinder/Compose.png" /></a></div>
+			<div class="adminbar-icon"><img src="/Images/White/IconFinder/Search.png" /></div>
+		</div>
 		<div class="adminbar-menu">
 			<div class="adminbar-menu-items">
 				<div class="adminbar-menu-item">

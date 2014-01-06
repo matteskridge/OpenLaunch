@@ -1,0 +1,26 @@
+.responsive-menu-item {
+    display:inline-block;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+.responsive-menu-item img {
+    width:16px;
+    height:16px;
+}
+
+.responsive-dropdown {
+    position:relative;
+    display:none;
+}
+
+.responsive-menu-item:hover .responsive-dropdown {
+    display:block;
+}
+
+.responsive-dropdown-inner {
+    position:absolute;
+    padding:5px;
+    background:black;
+}
+
