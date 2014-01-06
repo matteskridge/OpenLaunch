@@ -27,7 +27,14 @@ $pageId = ($page instanceof Page) ? $page->get("id") : "0";
 		<div class="admin-entries-top-inner">
 			<div class='admin-entries-button admin-menu-item-publish'>Publish</div>
 			<div class='admin-entries-button admin-menu-item-settings'>Settings</div>
-			<h2><?php echo ($page instanceof Page) ? $page->get("name") : "New Page" ?> <a href='admin/index/structure/'>back</a></h2>
+			<div class='admin-entries-button admin-menu-item-banner'><a href="/admin/index/structure/layout/<?php echo $page->getId() ?>/">Layout</a></div>
+			<h2>
+				<?php echo ($page instanceof Page) ? $page->get("name") : "New Page" ?>
+				<span class="admin-breadcrumbs">
+					<a href="admin/index/structure/index/">Pages /</a>
+					<a href="admin/index/structure/page/<?php echo $page->getId() ?>/"><?php echo $page->get("name") ?> /</a>
+				</span>
+			</h2>
 		</div>
 	</div>
 	<div class="admin-page-top">

@@ -15,7 +15,8 @@ class Page extends Model {
 			"template" => "string",
 			"can" => "list",
 			"link" => "string",
-			"html" => "string+"
+			"html" => "string+",
+			"banner" => "string+"
 		);
 	}
 
@@ -203,6 +204,11 @@ class Page extends Model {
 
 	public function indention() {
 		return $this->depth * 40;
+	}
+
+	public function getBanner() {
+		$banner = Spyc::YAMLLoadString($this->get("banner"));
+		return Component::get("OpenLaunch.Banner", array("banner" => $banner));
 	}
 
 }

@@ -1,6 +1,6 @@
 <div class="resolution-main">
 	<div class="resolution-main-inner">
-		<h2>Urgent Account Message</h2>
+		<h2>Your Account has been Banned</h2>
 		<p>Dear <?php echo Session::getPerson()->getName() ?>,</p>
 
 		<p>

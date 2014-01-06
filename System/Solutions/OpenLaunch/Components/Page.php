@@ -4,6 +4,13 @@ $sidebar = 2;
 ?>
 
 <div class='page'>
+	<?php if ($page->get("banner") != "") { ?>
+	<div class="page-banner">
+		<div class="page-banner-inner">
+			<?php echo $page->getBanner() ?>
+		</div>
+	</div>
+	<?php } ?>
 	<?php if (count(Page::getMenuItems($menu, $page)) != 0) { ?>
 	<div class="page-menu">
 		<?php foreach (Page::getMenuItems($menu, $page) as $item) { ?>

@@ -22,3 +22,15 @@
             </a></div><?php } ?>
     </div>
 </div>
+<div class="admin-person-main-item">
+	<div class="admin-person-main-item-inner">
+		<h2>Database Options</h2>
+		<div class="admin-entry-column-smaller"><a href="admin/index/settings/developer/?dbrebuild=<?php echo session_id() ?>">
+				<div class="admin-entry-column-smaller-inner">
+					<img src="Images/Flat/IconFinder/Settings.png" />
+					<h2>Rebuild Database</h2>
+					Create new tables
+				</div>
+		</a></div>
+	</div>
+</div>

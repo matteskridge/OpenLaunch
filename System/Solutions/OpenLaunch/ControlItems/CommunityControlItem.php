@@ -11,7 +11,7 @@ class CommunityControlItem extends ControlItem {
 		if (!$this->inMenu($action) && $action != "person")
 			return;
 
-		if ($action == "index" || $action == "") {
+		if ($action == "people") {
 			$content = Component::get("OpenLaunch.People");
 		} else if ($action == "person") {
 			$content = $this->person($action, $id, $mode);
@@ -24,7 +24,9 @@ class CommunityControlItem extends ControlItem {
             $content = $this->comments();
         } else if ($action == "admins") {
             $content = Component::get("OpenLaunch.CommunityAdmins");
-        }
+        } else {
+			$content = Component::get("OpenLaunch.CommunitySummary");
+		}
 
         if ($content instanceof Redirect || $content instanceof NotFoundError) {
             return $content;
@@ -56,19 +58,35 @@ class CommunityControlItem extends ControlItem {
 				$person->set("profile", "");
 			}
 			return new Redirect("/" . Request::getUrl());
+		} else if (isset($_GET["revoke"]) && $_GET["authorize"] == session_id()) {
+			$penalty = new Penalty($_GET["revoke"]);
+			$penalty->set("revoked", "1");
+			return new Redirect("/" . Request::getUrl());
+		} else if (isset($_GET["reinstate"]) && $_GET["authorize"] == session_id()) {
+			$penalty = new Penalty($_GET["reinstate"]);
+			$penalty->set("revoked", "0");
+			return new Redirect("/" . Request::getUrl());
 		}
 
 		$suspend = new Form("suspend");
 		$suspend->add(new SuspensionLengthField("length", "Length"));
 		$suspend->add(new TextEditor("reason", "Reason"));
-		$suspend->add(new HiddenField("user", $person));
-		if (Permission::can("CommunitySuspend")) $suspend->controls("Penalty");
+		$suspend->add(new HiddenField("user", "Person", $person));
+		if (Permission::can("CommunitySuspend")) if ($suspend->sent()) {
+			$data = $suspend->getData();
+			$data["suspension"] = "1";
+			$data["expires"] = time()+($suspend->get("length")*86400);
+			Penalty::create("Penalty", $data);
+		}
 
 		$warn = new Form("warning");
 		$warn->add(new TextEditor("reason", "Reason"));
-		$warn->add(new HiddenField("user", $person));
+		$warn->add(new HiddenField("user", "Person", $person));
 		$warn->add(new HiddenField("warning", "Warning", 1));
-		if (Permission::can("CommunityWarn")) $warn->controls("Penalty");
+		if (Permission::can("CommunityWarn"))  if ($warn->sent()) {
+			$data = $warn->getData();
+			Penalty::create("Penalty", $data);
+		}
 
 		$edit = new Form("edit");
 		$edit->add(new TextField("nickname", "Display Name"));
@@ -89,6 +107,8 @@ class CommunityControlItem extends ControlItem {
 			return new Redirect("/admin/index/community/person/".$person->getId());
 		}
 
+		$suspensions = Penalty::findAll("Penalty", array("user" => $person));
+
 		$roles = Role::findAll("Role", array("allguests" => "0"));
 		return Component::get("OpenLaunch.Person", array(
 			"person" => $person,
@@ -98,7 +118,8 @@ class CommunityControlItem extends ControlItem {
 			"edit" => $edit->getHtml(),
 			"ban" => $ban->getHtml(),
 			"controls" => $controls,
-			"me" => Session::getPerson()->getId() == $person->getId()
+			"me" => Session::getPerson()->getId() == $person->getId(),
+			"suspensions" => $suspensions
 		));
 	}
 
@@ -126,7 +147,7 @@ class CommunityControlItem extends ControlItem {
 	public function getMenu() {
 		$arr = array();
 		if (Permission::can("CommunityAccount"))
-			$arr["index"] = "People";
+			$arr["people"] = "People";
 		if (Permission::can("CommunityCommunications"))
 			$arr["communications"] = "Communications";
 		if (Permission::can("CommunityComments"))
@@ -135,6 +156,11 @@ class CommunityControlItem extends ControlItem {
 			$arr["statistics"] = "Statistics";
 		if (Permission::can("CommunityAssignRoles"))
 			$arr["admins"] = "Administrators";
+
+		if (count($arr) != 0) {
+			$arr = array("index" => "Summary") + $arr;
+		}
+
 		return $arr;
 	}
 

@@ -20,6 +20,10 @@ class Forum extends Model {
 		return $this->can($person, "canpost");
 	}
 
+	public function isPublic() {
+		return $this->get("canview") == array();
+	}
+
 	public function can($person, $mode) {
 		if ($person == null) {
 			if (Session::loggedIn()) {

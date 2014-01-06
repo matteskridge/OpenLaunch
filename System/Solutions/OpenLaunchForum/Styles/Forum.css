@@ -16,8 +16,11 @@
 .forum-category, .forum-topics {
     border:1px solid #DDDDDD;
     border-bottom:4px solid #DDDDDD;
-    padding-bottom:10px;
     margin-bottom:10px;
+}
+
+.forum-categories {
+    padding-right:300px;
 }
 
 .forum-category h2, .forum-topics h2 {
@@ -26,11 +29,10 @@
     border-bottom:2px solid #DDDDDD;
     padding:10px;
     margin:0px;
-    margin-bottom:5px;
     padding-left:20px;
 }
 
-.forum-forum, forum-topics-topic {
+.forum-topics-topic {
     padding-left:20px;
     padding-right:20px;
 }
@@ -43,17 +45,91 @@
     color:black;
 }
 
-.forum-forum-inner, .forum-topics-topic-inner {
-    padding:10px;
-}
-
 .forum-forum img {
     float:left;
-    width:48px;
-    height:48px;
+    width:30px;
+    height:30px;
     margin-right:15px;
     margin-top:10px;
 }
+
+.forum-forum-description {
+    font-size:small;
+}
+
+.forum-forum h3 {
+    vertical-align:middle;
+    font-weight: normal;
+}
+
+.forum-forum-inner, .forum-topics-topic-inner {
+    padding:13px;
+    padding-bottom:17px;
+    border-bottom:1px solid #EEEEEE;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.forum-sidebar {
+    width:300px;
+    float:right;
+}
+
+.forum-sidebar-inner {
+    padding:10px;
+    padding-top:0px;
+    padding-left:15px;
+}
+
+.forum-forum {
+    line-height: 1em;
+}
+
+.forum-sidebar h2 {
+    margin:0px;
+    margin-bottom:5px;
+    background:#EEEEEE;
+    padding:10px;
+    border-bottom:2px solid #DDDDDD;
+}
+
+.forum-sidebar h3, .forum-sidebar h4 {
+    margin:0px;
+    font-weight:bold;
+}
+
+.forum-sidebar h4 {
+    font-weight:normal;
+}
+
+.forum-sidebar-item {
+    border:1px solid #DDDDDD;
+    border-bottom-width:3px;
+}
+
+.forum-sidebar-discussion-item {
+    padding:10px;
+    border-bottom:1px solid #EEEEEE;
+    background:white;
+}
+
+.forum-forum-right {
+    float:right;
+    font-size:small;
+    width:300px;
+    margin-top:15px;
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+}
+
+.forum-forum-right {
+
+}
+
+
 
 .forum-header h2 {
     text-transform:uppercase;
@@ -155,13 +231,7 @@ div.forum-topic-option a {
 .forum-topics-topic-name img {
     width:16px;
     height:16px;
-}
-
-.forum-forum-right {
-    float:right;
-    font-size:small;
-    width:300px;
-    padding-top:17px;
+    vertical-align:middle;
 }
 
 .forum-tools {
@@ -187,3 +257,4 @@ div.forum-topic-option a {
     border-bottom:3px solid #DDDDDD;
     font-size:small;
 }
+

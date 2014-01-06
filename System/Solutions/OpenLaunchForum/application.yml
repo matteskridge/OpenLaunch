@@ -1,0 +1,13 @@
+application:
+  product:
+    id: etolf
+    name: OpenLaunch - Message Board
+    version: 1.0
+    description:
+      This message board system allows you to create discussion forums,
+      topics, and posts.
+  author:
+    name: Eskridge Technology
+    website: http://eskridgetech.com/
+  servers:
+    - plugins.eskridgetech.com

@@ -50,6 +50,7 @@
 			<h2>Page Center</h2>
 		</div>
 	</div>
+	<?php echo Component::get("OpenLaunch.StructureMenu") ?>
 	<div class='admin-pages-entries'>
 		<?php foreach (Page::listAll() as $page) { ?>
 			<div class="admin-entry">

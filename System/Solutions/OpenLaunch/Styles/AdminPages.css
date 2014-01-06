@@ -1,30 +1,34 @@
 
 .admin-entries-top {
-	background:#F4F4F4;
-	border-bottom:2px solid #CCCCCC;
+	/*background:#F4F4F4;*/
+    background:#3E5B75;
 }
 
 .admin-entries-top-inner {
 	margin:auto;
 	width:1000px;
-	padding:20px;
+	padding:30px;
 }
 
 .admin-entries-top-inner h2 {
-	color:#777777;
+	color:white;
 	font-size:x-large;
 	margin:0px;
 	text-transform:uppercase;
+    letter-spacing:2px;
 }
 
 .admin-entries-top-inner h2 a {
 	font-size:small;
+}
 
+.admin-entries-top-inner a:link, .admin-entries-top-inner a, .admin-entries-top-inner a:visited {
+    color:white;
 }
 
 .admin-entries-button {
 	float:right;
-	background:#FF9A00;
+    background:#FFBA4F;
 	padding:7px;
 	padding-left:10px;
 	padding-right:10px;
@@ -35,6 +39,12 @@
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	cursor:pointer;
+    margin-left:10px;
+}
+
+.admin-entries-button:first-of-type {
+    background:#FF9A00;
+    cursor:pointer;
 }
 
 .admin-entries-button a:link, .admin-entries-button a:visited, .admin-entries-button a {
@@ -45,6 +55,10 @@
 	padding:20px;
 	border-bottom:1px solid #EEEEEE;
 	font-size:large;
+}
+
+.admin-entry h2 {
+    font-size:medium;
 }
 
 .admin-entry-inner {
@@ -63,15 +77,14 @@
 	float:right;
 }
 
-.admin-menu-item-settings {
-	background:#FFBA4F;
-	margin-right:10px;
-	cursor:pointer;
-}
+
 
 .admin-entries-menu {
-	background:#EEEEEE;
-	border-bottom:1px solid #BBBBBB;
+    background:#25435E;
+}
+
+.admin-entries-menu a, .admin-entries-menu a:visited, .admin-entries-menu a:link {
+    color:white;
 }
 
 .admin-entries-menu-inner {
@@ -89,9 +102,16 @@
 	padding:15px;
 }
 
-.admin-entries-header {
-	background:#EEEEEE;
+.admin-entries-header:first-of-type {
+    background:#25435E;
+    color:white;
 	border-bottom:2px solid #DDDDDD;
+}
+
+.admin-entries-header {
+    background:#EEEEEE;
+    color:black;
+    border-bottom:2px solid #DDDDDD;
 }
 
 .admin-entries-header-inner {
@@ -103,6 +123,11 @@
 .admin-entries-header h2 {
 	font-size:medium;
 	margin:0px;
+    font-weight:normal;
+}
+
+.admin-entries-header:first-of-type a:link, .admin-entries-header:first-of-type a:visited, .admin-entries-header:first-of-type a {
+    color:white;
 }
 
 .admin-entries-header-button {

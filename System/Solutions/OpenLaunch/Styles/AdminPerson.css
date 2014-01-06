@@ -194,3 +194,13 @@ div.admin-entry-column-smaller a:link, div.admin-entry-column-smaller a:visited,
 .person-suspend, .person-ban, .person-warn {
     cursor:pointer;
 }
+
+.admin-table-gray td {
+    background:#DDDDDD;
+    text-decoration:line-through;
+    color:#666666;
+}
+
+.admin-table-gray td a {
+    text-decoration:none;
+}

@@ -22,5 +22,14 @@ class Application {
 		return $this->info["application"]["author"]["name"];
 	}
 
+	public function isCore() {
+		return array_key_exists("core", $this->info["application"]["product"]) &&
+			$this->info["application"]["product"]["core"];
+	}
+
+	public function getAuthorWebsite() {
+		return $this->info["application"]["author"]["website"];
+	}
+
 }
 

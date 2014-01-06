@@ -1,5 +1,12 @@
 
 $(document).ready(function() {
+    initDialogs();
+    initValidation();
+    initResponsive();
+    initResponsiveMenus();
+});
+
+function initDialogs() {
     $(".dialog").dialog({
         modal: true,
         position: "center",
@@ -7,11 +14,7 @@ $(document).ready(function() {
         width:800,
         height: 500
     });
-});
-
-$(document).ready(function() {
-    initValidation();
-})
+}
 
 function initValidation() {
     $(".validate").change(function() {
@@ -73,6 +76,88 @@ function initValidation() {
     });
 }
 
+function initResponsive() {
+    $(document).ready(function() {
+        var func = function() {
+            $(".responsive").each(function() {
+                var require = $(this).attr("data-require");
+                if ($(window).width() >= require) {
+                    $($(this).parent().children().get(1)).css({paddingRight:$(this).attr("data-width")+"px"});
+                    $(this).show();
+                } else {
+                    $($(this).parent().children().get(1)).css({paddingRight:"0px"});
+                    $(this).hide();
+                }
+            });
+        };
+
+        func();
+        $(window).resize(func);
+    });
+}
+
+function initResponsiveMenus() {
+    var func = function() {
+        $(".responsive-menu").each(function() {
+            $(this).children().show();
+
+            var subtract = $("."+$(this).attr("data-responsive-subtract")).width();
+            var realwidth = $(this).width()-subtract;
+            var dropdown =  $(this).children(".responsive-menu-item").children(".responsive-dropdown").children(".responsive-dropdown-inner");
+            dropdown.empty();
+
+            var i = 0;
+            var found = false;
+            if (realwidth < 70) return;
+            if (childrenWidth($(this)) < 70) return;
+
+            while (realwidth < childrenWidth($(this))) {
+                var elem = $(this).children().not(":hidden").not(".responsive-menu-item").last();
+                elem.hide();
+                elem.clone().show().prependTo(dropdown);
+
+                found = true;
+                i++;
+
+                if (i > 50) break;
+            }
+
+            if (found && !dropdown.is(":empty")) {
+                $(this).children(".responsive-menu-item").show();
+            } else {
+                $(this).children(".responsive-menu-item").hide();
+            }
+        });
+    }
+
+    $(".responsive-menu").each(function() {
+        $(this).append("<div class='responsive-menu-item'><img src='Images/White/IconFinder/Menu.png' /><div class='responsive-dropdown'><div class='responsive-dropdown-inner'></div></div></div>");
+        $(".responsive-menu-item").hide();
+    });
+
+    var resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(func, 30);
+    });
+
+    $("body").load(function() {
+        func();
+    });
+}
+
+function childrenWidth(elem) {
+    var width = 30;
+    elem.children(":visible").each(function() {
+        width += $(this).width();
+        width += parseInt($(this).css("padding-left"), 10) + parseInt($(this).css("padding-right"), 10); //Total Padding Width
+        width += parseInt($(this).css("margin-left"), 10) + parseInt($(this).css("margin-right"), 10); //Total Margin Width
+        width += parseInt($(this).css("borderLeftWidth"), 10) + parseInt($(this).css("borderRightWidth"), 10); //Total Border Width
+    });
+    return width;
+}
+
+
 function isEmail(x) {
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
@@ -88,4 +173,24 @@ function isValidPassword(str) {
 // Credit: http://stackoverflow.com/questions/1303872/trying-to-validate-url-using-javascript
 function isValidLink(value) {
     return /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
+}
+
+function search() {
+    $.ajax({
+        url: "search/",
+        success: function(html) {
+            $(".admin-search").html(html).css({opacity:0}).show().animate({
+                opacity:1
+            }, 200);
+            $(".admin-search input").keyup(function(ev) {
+                var value = $(this).val();
+                $.ajax({
+                    url: "search/api/?query="+encodeURIComponent(value),
+                    success: function(html) {
+                        $(".search-results").html(html);
+                    }
+                });
+            });
+        }
+    })
 }

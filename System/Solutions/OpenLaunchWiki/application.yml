@@ -1,0 +1,13 @@
+application:
+  product:
+    id: etolw
+    name: OpenLaunch - Wiki
+    version: 1.0
+    description:
+      This wiki system allows you to create wikis, help desks, knowledge
+      bases, and similar.
+  author:
+    name: Eskridge Technology
+    website: http://eskridgetech.com/
+  servers:
+    - plugins.eskridgetech.com

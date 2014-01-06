@@ -1,0 +1,12 @@
+application:
+  product:
+    id: etolb
+    name: OpenLaunch - Blog
+    version: 1.0
+    description:
+      This blog system allows you to create blog posts and categories.
+  author:
+    name: Eskridge Technology
+    website: http://eskridgetech.com/
+  servers:
+    - plugins.eskridgetech.com
