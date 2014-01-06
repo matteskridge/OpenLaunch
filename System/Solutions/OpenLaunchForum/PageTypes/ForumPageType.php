@@ -33,9 +33,12 @@ class ForumPageType extends PageType {
 
 	private function index($page) {
 		$categories = ForumCategory::findAll("ForumCategory", array("page" => $page), "`order`, `id`");
+		$discussions = ForumTopic::listViewable($page);
+
 		return Component::get("OpenLaunchForum.Index", array(
 			"page" => $page,
-			"categories" => $categories
+			"categories" => $categories,
+			"discussions" => $discussions
 		));
 	}
 
@@ -85,6 +88,7 @@ class ForumPageType extends PageType {
 		$form->add(new TextEditor("content", "Topic Content", ""));
 		$form->add(new HiddenField("user", "User", Session::getPerson()));
 		$form->add(new HiddenField("forum", "Forum", $forum));
+		$form->add(new HiddenField("public", "Public", $forum->isPublic()));
 		$form->controls("ForumTopic");
 
 		if ($form->sent()) {

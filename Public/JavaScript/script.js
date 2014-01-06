@@ -82,11 +82,13 @@ function initResponsive() {
             $(".responsive").each(function() {
                 var require = $(this).attr("data-require");
                 if ($(window).width() >= require) {
+                    $($(this).parent().children().get(1)).css({paddingRight:$(this).attr("data-width")+"px"});
                     $(this).show();
                 } else {
+                    $($(this).parent().children().get(1)).css({paddingRight:"0px"});
                     $(this).hide();
                 }
-            })
+            });
         };
 
         func();
@@ -106,22 +108,21 @@ function initResponsiveMenus() {
 
             var i = 0;
             var found = false;
-            if (realwidth < 50) return;
+            if (realwidth < 70) return;
+            if (childrenWidth($(this)) < 70) return;
 
             while (realwidth < childrenWidth($(this))) {
                 var elem = $(this).children().not(":hidden").not(".responsive-menu-item").last();
                 elem.hide();
-
-                var copy = elem.clone().show().appendTo(dropdown);
+                elem.clone().show().prependTo(dropdown);
 
                 found = true;
                 i++;
 
                 if (i > 50) break;
-
             }
 
-            if (found) {
+            if (found && !dropdown.is(":empty")) {
                 $(this).children(".responsive-menu-item").show();
             } else {
                 $(this).children(".responsive-menu-item").hide();
@@ -129,13 +130,20 @@ function initResponsiveMenus() {
         });
     }
 
-
     $(".responsive-menu").each(function() {
         $(this).append("<div class='responsive-menu-item'><img src='Images/White/IconFinder/Menu.png' /><div class='responsive-dropdown'><div class='responsive-dropdown-inner'></div></div></div>");
+        $(".responsive-menu-item").hide();
     });
 
-    func();
-    $(window).resize(func);
+    var resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(func, 30);
+    });
+
+    $("body").load(function() {
+        func();
+    });
 }
 
 function childrenWidth(elem) {

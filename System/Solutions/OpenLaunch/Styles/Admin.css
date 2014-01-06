@@ -55,7 +55,7 @@ body, html, .wrap {
 
 .adminbar-menu-item.selected {
     /*background:#0756AF;*/
-    background:#333333;
+    background:#444444;
 }
 
 .adminbar-search {
@@ -64,6 +64,7 @@ body, html, .wrap {
     padding-top:7px;
     display:none;
 }
+
 
 .adminbar-search input {
     background:none;

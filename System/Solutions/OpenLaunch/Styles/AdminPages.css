@@ -1,25 +1,25 @@
 
 .admin-entries-top {
-	background:#F4F4F4;
-	border-bottom:2px solid #CCCCCC;
+	/*background:#F4F4F4;*/
+    background:#3E5B75;
 }
 
 .admin-entries-top-inner {
 	margin:auto;
 	width:1000px;
-	padding:20px;
+	padding:30px;
 }
 
 .admin-entries-top-inner h2 {
-	color:#777777;
+	color:white;
 	font-size:x-large;
 	margin:0px;
 	text-transform:uppercase;
+    letter-spacing:2px;
 }
 
 .admin-entries-top-inner h2 a {
 	font-size:small;
-
 }
 
 .admin-entries-button {
@@ -76,8 +76,11 @@
 
 
 .admin-entries-menu {
-	background:#EEEEEE;
-	border-bottom:1px solid #BBBBBB;
+    background:#25435E;
+}
+
+.admin-entries-menu a, .admin-entries-menu a:visited, .admin-entries-menu a:link {
+    color:white;
 }
 
 .admin-entries-menu-inner {
