@@ -22,6 +22,10 @@
 	font-size:small;
 }
 
+.admin-entries-top-inner a:link, .admin-entries-top-inner a, .admin-entries-top-inner a:visited {
+    color:white;
+}
+
 .admin-entries-button {
 	float:right;
     background:#FFBA4F;
@@ -98,9 +102,16 @@
 	padding:15px;
 }
 
-.admin-entries-header {
-	background:#EEEEEE;
+.admin-entries-header:first-of-type {
+    background:#25435E;
+    color:white;
 	border-bottom:2px solid #DDDDDD;
+}
+
+.admin-entries-header {
+    background:#EEEEEE;
+    color:black;
+    border-bottom:2px solid #DDDDDD;
 }
 
 .admin-entries-header-inner {
@@ -112,6 +123,11 @@
 .admin-entries-header h2 {
 	font-size:medium;
 	margin:0px;
+    font-weight:normal;
+}
+
+.admin-entries-header:first-of-type a:link, .admin-entries-header:first-of-type a:visited, .admin-entries-header:first-of-type a {
+    color:white;
 }
 
 .admin-entries-header-button {
