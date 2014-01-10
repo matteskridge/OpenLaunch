@@ -173,9 +173,16 @@ class StructureControlItem extends ControlItem {
 		$form = "";
 
 		if ($mode == "banner") {
+			$type = Response::getArg(5);
+			echo $type;
 			$form = new Form("banner");
+			if ($type == "") {
+
+			}
 			$form = $form->getHtml();
 		}
+
+
 
 		return Component::get("OpenLaunch.StructureLayout", array(
 			"page" => $page,

@@ -5,8 +5,6 @@
 }
 
 .admin-entries-top-inner {
-	margin:auto;
-	width:1000px;
 	padding:30px;
 }
 
@@ -52,7 +50,9 @@
 }
 
 .admin-entry {
-	padding:20px;
+	padding:30px;
+    padding-top:25px;
+    padding-bottom:25px;
 	border-bottom:1px solid #EEEEEE;
 	font-size:large;
 }
@@ -62,8 +62,6 @@
 }
 
 .admin-entry-inner {
-	width:1000px;
-	margin:auto;
 }
 
 .admin-entry img {
@@ -88,8 +86,7 @@
 }
 
 .admin-entries-menu-inner {
-	width:1000px;
-	margin:auto;
+    padding-left:30px;
 }
 
 .admin-entries-menu-item:first-of-type {
@@ -115,9 +112,9 @@
 }
 
 .admin-entries-header-inner {
-	width:1000px;
-	margin:auto;
 	padding:15px;
+    padding-left:25px;
+    padding-right:25px;
 }
 
 .admin-entries-header h2 {

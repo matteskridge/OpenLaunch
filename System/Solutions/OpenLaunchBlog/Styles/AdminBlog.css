@@ -35,13 +35,13 @@
 }
 
 .blog-center-post {
-	padding:20px;
+	padding:25px;
+    padding-left:30px;
+    padding-right:30px;
 	border-bottom:1px solid #DDDDDD;
 }
 
 .blog-center-post-inner {
-	width:1000px;
-	margin:auto;
 	line-height:1.5em;
 }
 
