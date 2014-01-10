@@ -15,7 +15,9 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-
+		$(".addbanner").click(function() {
+			$(".banner-types").dialog("open");
+		});
 	</script>
 	<div class="dialog banner-types">
 
@@ -23,7 +25,7 @@
 	<div class="admin-entries-header">
 		<div class="admin-entries-header-inner">
 			<div class="admin-entry-options">
-				<a href="admin/index/structure/layout/<?php echo $page->getId() ?>/#" class="add">Add a Banner</a>
+				<a href="admin/index/structure/layout/<?php echo $page->getId() ?>/#" class="addbanner">Add a Banner</a>
 			</div>
 			<h2>Banners</h2>
 		</div>
