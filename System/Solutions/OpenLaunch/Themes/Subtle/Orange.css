@@ -1,0 +1,9 @@
+
+.header-wrap {
+    background:#FF6A00;
+    border-bottom:2px solid #A64500;
+}
+
+.menu-item:hover {
+    background:#FF8F40;
+}

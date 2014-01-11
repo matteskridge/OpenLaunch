@@ -1,0 +1,65 @@
+
+
+html body {
+    background:white;
+    margin:0px;
+}
+
+.website {
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:auto;
+    margin-right:auto;
+    background:white;
+}
+
+.header-wrap {
+    padding:0px;
+    color:white;
+    font-size:xx-large;
+    border-bottom:2px solid #A64500;
+}
+
+.header {
+    vertical-align:top;
+    float:left;
+    padding:20px;
+    border-right:1px solid #A64500;
+}
+
+.logo {
+    font-size:medium;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.header a:link, .header a:visited, .header a {
+    color:white;
+
+}
+
+.menu {
+    padding-left:25px;
+}
+
+.menu-right {
+    float:right;
+    padding-left:0px;
+    margin:0px;
+}
+
+.menu-item {
+    display:inline-block;
+    padding:20px;
+    color:white;
+    cursor:pointer;
+    font-size:medium;
+    border-right:1px solid #A64500;
+    border-left:1px solid #FFAD73;
+}
+
+.menu-item a:link, .menu-item a:visited, .menu-item a {
+    color:white;
+    text-decoration:none;
+}
+
