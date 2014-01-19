@@ -8,7 +8,7 @@
 				<h2>Latest Discussions</h2>
 				<?php foreach ($discussions as $discussion) { ?>
 				<div class="forum-sidebar-discussion-item">
-					<h3><?php echo $discussion->get("name") ?></h3>
+					<h3><a href="<?php echo $page->getLink("topic/".$discussion->getId()) ?>"><?php echo $discussion->get("name") ?></a></h3>
 					<h4><?php echo $discussion->getCreated() ?></h4>
 				</div>
 				<?php } ?>
